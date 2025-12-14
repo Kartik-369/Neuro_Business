@@ -1,11 +1,10 @@
 import Navbar from "./Navbar";
-import Home from "../../Pages/Home";
-function Layout(){
+function Layout({children}){
   return (<>
     <div className="h-screen flex flex-col overflow-x-hidden w-full ">
       <Navbar/>
-      <main className="flex-1 overflow-y-hidden">
-        <Home/>
+      <main className="flex-1 overflow-x-hidden">
+        {children}
       </main>
     </div>
   </>);

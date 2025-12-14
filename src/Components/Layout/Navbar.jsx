@@ -6,10 +6,10 @@ function Navbar(){
     <nav className="relative justify-between p-4 items-center font-roslindale flex shadow-2xs max-w-screen ">
       <span className="text-4xl tracking-tight max-[1100px]:text-4xl font-bold shrink-0 z-10">NeuroBusiness<p className="text-[14px] font-sans font-semibold tracking-tighter hidden min-[1100px]:flex">AI Driven SaaS for Business Insights</p></span>
         <div className="hidden absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center min-[1100px]:flex space-x-2 lg:space-x-6 text-lg font-sans tracking-wide">
-          <a className=" px-3 py-2 border-b-0 hover:border-b  duration-75 hover:-translate-y-1 transition-all ease-in">Platform</a>
-          <a className=" px-3 py-2 border-b-0 hover:border-b  duration-75 hover:-translate-y-1 transition-all ease-in">Pricing</a>
+          <a className=" px-2 py-2 border-b-0 hover:border-b  duration-75 hover:-translate-y-1 transition-all ease-in">Platform</a>
+          <a className=" px-2 py-2 border-b-0 hover:border-b  duration-75 hover:-translate-y-1 transition-all ease-in">Pricing</a>
           <a className=" px-3 py-2 border-b-0 hover:border-b  duration-75 hover:-translate-y-1 transition-all ease-in">How it Works </a>
-          <a className=" px-3 py-2 border-b-0 hover:border-b  duration-75 hover:-translate-y-1 transition-all ease-in">Resources</a>
+          <a className=" px-3 py-2 border-b-0 hover:border-b  duration-74 hover:-translate-y-1 transition-all ease-in">Resources</a>
         </div>
           
           <div className="flex items-center gap-3 z-20 ">
@@ -24,12 +24,12 @@ function Navbar(){
     <button className="min-[1100px]:hidden transition-colors duration-700" onClick={()=>setOpen(!isOpen)}>=</button>
     
       <div 
-        className={` min-[1100px]:hidden fixed inset-0 bg-black/10 transition-opacity duration-500 ease-in-out ${isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`} 
+        className={` min-[1100px]:hidden fixed inset-0 bg-black/15 transition-opacity duration-500 ease-in-out ${isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`} 
           onClick={() => setOpen(false)}
           ></div>
     
     
-      <div className={`min-[1100px]:hidden absolute top-full right-0 bg-white h-[calc(100dvh-100%)] overflow-y-auto min-w-80 transform transition-transform ease-in-out duration-400  ${isOpen?'translate-x-0':'translate-x-full'} flex flex-col`}>
+      <div className={`min-[1100px]:hidden z-1 absolute top-full right-0 bg-white h-[calc(100dvh-100%)] overflow-y-auto min-w-80 transform transition-transform ease-in-out duration-400  ${isOpen?'translate-x-0':'translate-x-full'} flex flex-col`}>
         <div className="flex justify-end pr-6 pt-6 ">
         <button className="min-[1100px]:hidden transition-colors duration-700" onClick={()=>setOpen(!isOpen)}>X</button>
         </div>

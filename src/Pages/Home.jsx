@@ -1,35 +1,84 @@
+import { useEffect,useRef } from "react";
+
 function Home(){
+
+  const containerRef = useRef(null);
+  const circleRef = useRef(null);
   
-  
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!containerRef.current || !circleRef.current) return;
+      
+      const scrollFromTop = window.scrollY || window.pageYOffset;
+      const containerOffsetTop = containerRef.current.offsetTop;
+      const windowHeight = window.innerHeight;
+      const containerHeight = containerRef.current.offsetHeight;
+      const totalScrollDistance = containerHeight - windowHeight;
+      
+      let progress = scrollFromTop / (containerOffsetTop + totalScrollDistance);
+      progress = Math.max(0, Math.min(1, progress));
+      
+      const animate=t=>{
+        return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+      }
+      
+      const expansionProgress = Math.min(progress / 0.48, 1);
+      const smoothProgress=animate(expansionProgress)
+      const scale = 1 + (smoothProgress * 100);
+      
+      circleRef.current.style.transform=`scale(${scale})`
+    };
+    handleScroll();
+    window.addEventListener("scroll",handleScroll)
+    window.addEventListener("resize", handleScroll);
+    return () => {
+        window.removeEventListener("scroll", handleScroll);
+        window.removeEventListener("resize", handleScroll);
+    }
+  },[]);
+
   const logos=[
-    {name:'Company1',src:'https://imgs.search.brave.com/PWK3JP1ML4aDmbggxBjtvxVCo2UKO2e62Wl-YftKA9s/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/ZnJlZS12ZWN0b3Iv/YWJzdHJhY3Qtd2F2/eS1iYWNrZ3JvdW5k/LXRlbXBsYXRlXzEw/MzUtODkyMi5qcGc_/c2VtdD1haXNfaHli/cmlkJnc9NzQwJnE9/ODA'},
-    {name:'Company2',src:'https://imgs.search.brave.com/PWK3JP1ML4aDmbggxBjtvxVCo2UKO2e62Wl-YftKA9s/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/ZnJlZS12ZWN0b3Iv/YWJzdHJhY3Qtd2F2/eS1iYWNrZ3JvdW5k/LXRlbXBsYXRlXzEw/MzUtODkyMi5qcGc_/c2VtdD1haXNfaHli/cmlkJnc9NzQwJnE9/ODA'},
-    {name:'Company3',src:'https://imgs.search.brave.com/PWK3JP1ML4aDmbggxBjtvxVCo2UKO2e62Wl-YftKA9s/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/ZnJlZS12ZWN0b3Iv/YWJzdHJhY3Qtd2F2/eS1iYWNrZ3JvdW5k/LXRlbXBsYXRlXzEw/MzUtODkyMi5qcGc_/c2VtdD1haXNfaHli/cmlkJnc9NzQwJnE9/ODA'},
-    {name:'Company4',src:'https://imgs.search.brave.com/PWK3JP1ML4aDmbggxBjtvxVCo2UKO2e62Wl-YftKA9s/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/ZnJlZS12ZWN0b3Iv/YWJzdHJhY3Qtd2F2/eS1iYWNrZ3JvdW5k/LXRlbXBsYXRlXzEw/MzUtODkyMi5qcGc_/c2VtdD1haXNfaHli/cmlkJnc9NzQwJnE9/ODA'},
-    {name:'Company5',src:'https://imgs.search.brave.com/PWK3JP1ML4aDmbggxBjtvxVCo2UKO2e62Wl-YftKA9s/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/ZnJlZS12ZWN0b3Iv/YWJzdHJhY3Qtd2F2/eS1iYWNrZ3JvdW5k/LXRlbXBsYXRlXzEw/MzUtODkyMi5qcGc_/c2VtdD1haXNfaHli/cmlkJnc9NzQwJnE9/ODA'},
-    {name:'Company6',src:'https://imgs.search.brave.com/PWK3JP1ML4aDmbggxBjtvxVCo2UKO2e62Wl-YftKA9s/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/ZnJlZS12ZWN0b3Iv/YWJzdHJhY3Qtd2F2/eS1iYWNrZ3JvdW5k/LXRlbXBsYXRlXzEw/MzUtODkyMi5qcGc_/c2VtdD1haXNfaHli/cmlkJnc9NzQwJnE9/ODA'}
+    {name:'Company2',src:'./src/assets/create-highly-detailed-high-definition-components_1298385-16763-Photoroom.png'},
+    {name:'Company2',src:'./src/assets/create-highly-detailed-high-definition-components_1298385-16763-Photoroom.png'},
+    {name:'Company3',src:'./src/assets/create-highly-detailed-high-definition-components_1298385-16763-Photoroom.png'},
+    {name:'Company4',src:'./src/assets/create-highly-detailed-high-definition-components_1298385-16763-Photoroom.png'},
+    {name:'Company5',src:'./src/assets/create-highly-detailed-high-definition-components_1298385-16763-Photoroom.png'},
+    {name:'Company6',src:'./src/assets/create-highly-detailed-high-definition-components_1298385-16763-Photoroom.png'}
     
   ]
   return (<>
     <div className="max-w-screen h-full">
     
-      <div className="flex flex-col gap-6 overflow-hidden justify-center items-center text-center">
-        <span className="text-6xl lg:text-[97px] mt-24 font-roslindale font-extrabold">Know Your Customers<span className="mt-auto text-gray-600 font-semibold lg:text-3xl text-xl flex flex-col p-4 mb-5"><h1 className="underline decoration-emerald-500 underline-offset-3">AI driven Platform</h1> for your Business Insights.</span></span>
+      <div className="flex flex-col gap-9 max-[1100px]:gap-2.25 overflow-hidden justify-center items-center text-center">
+        <span className="text-5xl lg:text-[72px] mt-18 max-[1100px]:mt-6 font-roslindale font-extrabold">Stop guessing. Predict next quarter's revenue with <h1 className="font-ogg font-semibold italic antialiased">95% accuracy</h1></span>
         
-        <div className="flex justify-between items-center flex-row mt-auto space-x-3 lg:text-xl lg:tracking-tighter lg:font-extralight">
-          <button className="active:bg-black w-auto px-6  text-center bg-stone-800 rounded-4xl whitespace-nowrap   text-white p-2  hover:bg-black transition">Book a Demo</button>
-          <button className="active:bg-black active:text-white w-auto px-6  text-center bg-white rounded-4xl whitespace-nowrap  text-black border-[1.5px] p-2  hover:bg-black hover:text-white transition">Start a Free Trial</button>
+        <p className=" text-gray-600 max-w-2xl font-semibold lg:text-2xl text-[16px]  p-5"><span className="font-bold text-gray-900 underline decoration-emerald-500 underline-offset-4">
+            NeuroBusiness
+          </span>{" "}connects to your CRM and Stripe data to flag churn risks and identify upsell opportunities automatically—no data science degree required.</p>
+        
+        <div className="flex max-[1100px]:flex-col max-[1100px]:space-y-3 px-auto justify-center items-center flex-row mt-auto space-x-3 lg:text-xl lg:tracking-wider lg:font-light">
+          <button className="active:bg-black w-auto px-9 text-center bg-stone-800 rounded-4xl whitespace-nowrap   text-white p-2  hover:bg-black transition">Book a Personal Demo</button>
+          <button className="active:bg-black active:text-white w-auto px-9   text-center bg-white rounded-4xl whitespace-nowrap  text-black border-[1.5px] p-2  hover:bg-black hover:text-white transition">Start Free Trial</button>
         
       
         </div>
       </div>
       
-      <div className="py-12 flex max-[1100px]:flex-col">
-        <p className="text-center flex-1 text-gray-700 text-xl font-semibold tracking-wider uppercase mb-5">Helping Visionary Companies Stay Ahead</p>
+      <div className="py-12 flex items-center max-[1100px]:flex-col max-[1100px]:gap-3">
+        <p className="text-center  flex-1 text-gray-700 text-xl font-semibold tracking-wider uppercase ">Helping Visionary Companies Stay Ahead</p>
       
         <div className="flex flex-1  justify-center items-center gap-6 opacity-60">
           {logos.map((logo,index)=>
-            <img src={logo.src} key={index} className="h-9 md:h-12 w-auto grayscale hover:grayscale-0 bg-clip-padding"/>)}
+            <img src={logo.src} key={index} className="h-10.5 md:h-21 w-auto"/>)}
+        </div>
+      </div>
+      
+      <div ref={containerRef} className="h-[400dvh] sm:h-[450dvh] relative w-full">
+          <div className="sticky top-0 h-fit flex items-center justify-center overflow-hidden">
+          <div ref={circleRef} className="absolute w-40 h-40 md:w-198 sm:w-48 sm:h-48 md:h-198 size-300 bg-emerald-300 rounded-full" style={{transform:`scale(1)`, willChange:"transform"}}>
+          
+          </div>
+          <img className="relative z-9 h-[45vh] sm:h-[70vh] md:h-[90vh] lg:h-[108dvh] object-contain " src="./src/assets/usps-hero.png" />
         </div>
       </div>
       

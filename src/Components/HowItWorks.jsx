@@ -63,7 +63,6 @@ export default function HowItWorks() {
       <div ref={stackRef} className="flex-1 relative w-full max-w-6xl mx-auto mt-4">
         
         <div className="hidden md:block absolute left-3 md:left-1/2 top-0 bottom-10 w-0.5 -translate-x-1/2 bg-gray-200 z-40">
-           {/* The Black Filler */}
            <div ref={lineFillRef} className="w-full bg-black h-0 absolute top-0" />
         </div>
 
@@ -96,7 +95,6 @@ export default function HowItWorks() {
 
         <div className="step-3 absolute inset-0 w-full h-full bg-white z-30 translate-y-[150%] flex items-center justify-center px-4">
            <div className="flex flex-col md:flex-row items-center justify-between w-full h-full pb-10">
-            {/* Text Left */}
             <div className="w-full md:w-[45%] text-center md:text-right pr-0 md:pr-10">
               <h3 className="text-4xl font-bold mb-4">Content</h3>
               <p className="text-xl text-gray-500">sub</p>
@@ -107,9 +105,9 @@ export default function HowItWorks() {
           </div>
         </div>
         
-        <div className="step-4 absolute inset-0 w-full h-full bg-white z-40 translate-y-[150%] flex items-center justify-center px-4">
+        <div className="step-4 absolute inset-0 w-full h-full bg-white z-30 translate-y-[150%] flex items-center justify-center px-4">
            <div className="flex flex-col md:flex-row-reverse items-center justify-between w-full h-full pb-10">
-            <div className="w-full md:w-[45%] text-center md:text-right pr-0 md:pr-10">
+            <div className="w-full md:w-[45%] text-center md:text-left pl-0 md:pl-10">
               <h3 className="text-4xl font-bold mb-4">Content</h3>
               <p className="text-xl text-gray-500">Sub</p>
             </div>

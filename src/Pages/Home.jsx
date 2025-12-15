@@ -1,32 +1,60 @@
 import { useEffect,useRef } from "react";
+import { useLayoutEffect } from 'react'
+import gsap from 'gsap'
+import HowItWorks from "../Components/HowItWorks";
+// import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
 
 function Home(){
 
   const containerRef = useRef(null);
   const circleRef = useRef(null);
+  const heroImageRef = useRef(null)
+
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      
+
+      gsap.to(heroImageRef.current, {
+        y: 100, 
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: 'top top',
+          end: 'bottom bottom',
+          scrub: true,
+        }
+      })
+
+    }, containerRef)
+
+    return () => ctx.revert()
+  }, [])
+  
   
   useEffect(() => {
     const handleScroll = () => {
-      if (!containerRef.current || !circleRef.current) return;
+        if (!containerRef.current || !circleRef.current) return;
       
-      const scrollFromTop = window.scrollY || window.pageYOffset;
-      const containerOffsetTop = containerRef.current.offsetTop;
-      const windowHeight = window.innerHeight;
-      const containerHeight = containerRef.current.offsetHeight;
-      const totalScrollDistance = containerHeight - windowHeight;
+        const scrollFromTop = window.scrollY || window.pageYOffset;
+        const containerOffsetTop = containerRef.current.offsetTop;
+        const windowHeight = window.innerHeight;
+        const containerHeight = containerRef.current.offsetHeight;
+        const totalScrollDistance = containerHeight - windowHeight;
       
-      let progress = scrollFromTop / (containerOffsetTop + totalScrollDistance);
-      progress = Math.max(0, Math.min(1, progress));
+        let progress = scrollFromTop / (containerOffsetTop + totalScrollDistance);
+        progress = Math.max(0, Math.min(1, progress));
       
-      const animate=t=>{
-        return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
-      }
+        const animate = t => {
+          return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+        }
       
-      const expansionProgress = Math.min(progress / 0.48, 1);
-      const smoothProgress=animate(expansionProgress)
-      const scale = 1 + (smoothProgress * 100);
-      
-      circleRef.current.style.transform=`scale(${scale})`
+        const expansionProgress = Math.min(progress / 0.9, 1);
+        const smoothProgress = animate(expansionProgress);
+        const isMobile = window.innerWidth < 768;
+        const maxScaleMultiplier = isMobile ? 4 : 9; 
+        
+        const scale = 1 + (smoothProgress * maxScaleMultiplier);
+        circleRef.current.style.transform = `scale(${scale}) translateZ(0)`;
     };
     handleScroll();
     window.addEventListener("scroll",handleScroll)
@@ -50,7 +78,7 @@ function Home(){
     <div className="max-w-screen h-full">
     
       <div className="flex flex-col gap-9 max-[1100px]:gap-2.25 overflow-hidden justify-center items-center text-center">
-        <span className="text-5xl lg:text-[72px] mt-18 max-[1100px]:mt-6 font-roslindale font-extrabold">Stop guessing. Predict next quarter's revenue with <h1 className="font-ogg font-semibold italic antialiased">95% accuracy</h1></span>
+        <span className="text-5xl lg:text-[72px] p-3 mt-18 max-[1100px]:mt-16 font-roslindale font-extrabold">Stop guessing. Predict next quarter's revenue with <h1 className="font-ogg font-semibold italic antialiased">95% accuracy</h1></span>
         
         <p className=" text-gray-600 max-w-2xl font-semibold lg:text-2xl text-[16px]  p-5"><span className="font-bold text-gray-900 underline decoration-emerald-500 underline-offset-4">
             NeuroBusiness
@@ -73,16 +101,17 @@ function Home(){
         </div>
       </div>
       
-      <div ref={containerRef} className="h-[400dvh] sm:h-[450dvh] relative w-full">
-          <div className="sticky top-0 h-fit flex items-center justify-center overflow-hidden">
-          <div ref={circleRef} className="absolute w-40 h-40 md:w-198 sm:w-48 sm:h-48 md:h-198 size-300 bg-emerald-300 rounded-full" style={{transform:`scale(1)`, willChange:"transform"}}>
-          
-          </div>
-          <img className="relative z-9 h-[45vh] sm:h-[70vh] md:h-[90vh] lg:h-[108dvh] object-contain " src="./src/assets/usps-hero.png" />
-        </div>
-      </div>
+      <div ref={containerRef} className="max-[1130px]:h-auto h-fit relative w-full">
+              <div className="sticky top-0 w-full flex items-center justify-center overflow-hidden">
+                <div className="relative flex items-center justify-center">
+                  <div ref={circleRef} className="absolute w-40 h-40 sm:w-48 sm:h-48 md:w-64 md:h-64 bg-emerald-300 rounded-full" style={{transform:`scale(1)`, willChange:"transform"}}>
+                  </div>
+                  <img className="relative z-9 h-[54vh] sm:h-[70vh] md:h-[90vh] lg:h-[108dvh] object-contain " src="./src/assets/usps-hero.png" />
+                </div>
+              </div>
+            </div>
       
-      
+      <HowItWorks/>
       
       
     </div>

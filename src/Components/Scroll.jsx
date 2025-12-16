@@ -10,7 +10,7 @@ function Scroll({ children }) {
 
   useLayoutEffect(() => {
     const lenis = new Lenis({
-      duration: 1.5,
+      duration: 1.8,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
     })
@@ -20,7 +20,7 @@ function Scroll({ children }) {
     lenis.on('scroll', ScrollTrigger.update)
 
     gsap.ticker.add((time) => {
-      lenis.raf(time * 1000)
+      lenis.raf(time * 900)
     })
 
     gsap.ticker.lagSmoothing(0)

@@ -50,10 +50,10 @@ export default function HowItWorks() {
   }, [])
 
   return (
-    <section ref={containerRef} className="h-screen w-full bg-white relative overflow-hidden justify-center items-center flex flex-col">
+    <section ref={containerRef} id='howitworks' className="h-screen pb-18 w-full bg-white relative overflow-hidden justify-center items-center flex flex-col">
       
       <div className="flex-none pt-20 pb-5 px-4 text-center z-50 bg-white">
-        <span className="text-6xl md:text-8xl font-canela block mb-4">How it Works</span>
+        <span className="text-6xl subpixel-antialiased md:text-8xl font-canela block mb-4">How it Works</span>
         <p className="text-gray-700 max-w-4xl mx-auto font-semibold text-lg md:text-xl leading-relaxed">
           Data without insight is just noise. <span className="text-black underline decoration-emerald-600">NeuroMarket acts as the central nervous system</span> for your business, distilling complex data into clear directives.
         </p>
@@ -73,7 +73,7 @@ export default function HowItWorks() {
               <h3 className="text-4xl font-bold mb-4">Content</h3>
               <p className="text-xl text-gray-500">Sub</p>
             </div>
-            <div className="w-full md:w-[45%] h-75 md:h-100 bg-stone-100 rounded-2xl border border-stone-200 shadow-xl overflow-hidden">
+            <div className="w-full md:w-[45%] h-full md:h-100 bg-stone-100 rounded-2xl border border-stone-200 shadow-xl overflow-hidden">
                <img src="" className="w-full bg-amber-100 h-full object-cover" />
             </div>
           </div>
@@ -86,7 +86,7 @@ export default function HowItWorks() {
               <h3 className="text-4xl font-bold mb-4">Content</h3>
               <p className="text-xl text-emerald-600">Sub</p>
             </div>
-            <div className="w-full md:w-[45%] h-75 md:h-100 bg-emerald-50 rounded-2xl border border-emerald-100 shadow-xl overflow-hidden">
+            <div className="w-full md:w-[45%] h-full md:h-100 bg-emerald-50 rounded-2xl border border-emerald-100 shadow-xl overflow-hidden">
                <img src="" className="w-full bg-amber-200 h-full object-cover" />
             </div>
           </div>
@@ -99,7 +99,7 @@ export default function HowItWorks() {
               <h3 className="text-4xl font-bold mb-4">Content</h3>
               <p className="text-xl text-gray-500">sub</p>
             </div>
-            <div className="w-full md:w-[45%] h-75 md:h-100 bg-stone-900 rounded-2xl border border-black shadow-xl overflow-hidden">
+            <div className="w-full md:w-[45%] h-full md:h-100 bg-stone-900 rounded-2xl border border-black shadow-xl overflow-hidden">
                <img src="" className="w-full bg-amber-100 h-full object-cover" />
             </div>
           </div>
@@ -111,7 +111,7 @@ export default function HowItWorks() {
               <h3 className="text-4xl font-bold mb-4">Content</h3>
               <p className="text-xl text-gray-500">Sub</p>
             </div>
-            <div className="w-full md:w-[45%] h-75 md:h-100 bg-stone-900 rounded-2xl border border-black shadow-xl overflow-hidden">
+            <div className="w-full md:w-[45%] h-full md:h-100 bg-stone-900 rounded-2xl border border-black shadow-xl overflow-hidden">
                <img  className="w-full bg-amber-200 h-full object-cover" />
             </div>
           </div>

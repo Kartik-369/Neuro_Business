@@ -1,27 +1,27 @@
-import { useEffect,useRef } from "react";
+import { useRef } from "react";
 import { useLayoutEffect } from 'react'
 import gsap from 'gsap'
 import HowItWorks from "../Components/HowItWorks";
-// import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
+gsap.registerPlugin(ScrollTrigger)
 
 function Home(){
 
   const containerRef = useRef(null);
-  const circleRef = useRef(null);
   const heroImageRef = useRef(null)
-
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       
-
+      const isMobile = window.innerWidth < 640;
       gsap.to(heroImageRef.current, {
-        y: 100, 
+        rotation:270,
+        ease:'none',
         scrollTrigger: {
           trigger: containerRef.current,
-          start: 'top top',
-          end: 'bottom bottom',
-          scrub: true,
+          start: 'top 90%',
+          end: isMobile ? 'bottom 60%' : 'bottom 90%',
+          scrub: 0.1,
         }
       })
 
@@ -30,40 +30,6 @@ function Home(){
     return () => ctx.revert()
   }, [])
   
-  
-  useEffect(() => {
-    const handleScroll = () => {
-        if (!containerRef.current || !circleRef.current) return;
-      
-        const scrollFromTop = window.scrollY || window.pageYOffset;
-        const containerOffsetTop = containerRef.current.offsetTop;
-        const windowHeight = window.innerHeight;
-        const containerHeight = containerRef.current.offsetHeight;
-        const totalScrollDistance = containerHeight - windowHeight;
-      
-        let progress = scrollFromTop / (containerOffsetTop + totalScrollDistance);
-        progress = Math.max(0, Math.min(1, progress));
-      
-        const animate = t => {
-          return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
-        }
-      
-        const expansionProgress = Math.min(progress / 0.9, 1);
-        const smoothProgress = animate(expansionProgress);
-        const isMobile = window.innerWidth < 768;
-        const maxScaleMultiplier = isMobile ? 4 : 9; 
-        
-        const scale = 1 + (smoothProgress * maxScaleMultiplier);
-        circleRef.current.style.transform = `scale(${scale}) translateZ(0)`;
-    };
-    handleScroll();
-    window.addEventListener("scroll",handleScroll)
-    window.addEventListener("resize", handleScroll);
-    return () => {
-        window.removeEventListener("scroll", handleScroll);
-        window.removeEventListener("resize", handleScroll);
-    }
-  },[]);
 
   const logos=[
     {name:'Company2',src:'./src/assets/create-highly-detailed-high-definition-components_1298385-16763-Photoroom.png'},
@@ -101,18 +67,44 @@ function Home(){
         </div>
       </div>
       
-      <div ref={containerRef} className="max-[1130px]:h-auto h-fit relative w-full">
-              <div className="sticky top-0 w-full flex items-center justify-center overflow-hidden">
-                <div className="relative flex items-center justify-center">
-                  <div ref={circleRef} className="absolute w-40 h-40 sm:w-48 sm:h-48 md:w-64 md:h-64 bg-emerald-300 rounded-full" style={{transform:`scale(1)`, willChange:"transform"}}>
-                  </div>
-                  <img className="relative z-9 h-[54vh] sm:h-[70vh] md:h-[90vh] lg:h-[108dvh] object-contain " src="./src/assets/usps-hero.png" />
-                </div>
-              </div>
-            </div>
+      <div ref={containerRef} className="h-auto relative w-full">
+        <div className="sticky top-0 h-fit w-full flex items-center justify-center overflow-hidden">
+
+          <img ref={heroImageRef} className="relative z-8 h-[58vh] sm:h-[70vh] md:h-[90vh] lg:h-[108dvh] object-contain " src="./src/assets/wmremove-transformed_imgupscaler.ai_General_4K-Photoroom.png" />
+        </div>
+      </div>
       
       <HowItWorks/>
+      <div className="max-w-6xl mx-auto px-6 py-9">
+        <div className="text-center mb-16">
+          <h2 className="text-[54px] font-semibold md:font-normal md:text-8xl font-ogg mb-4 text-slate-900">
+            Real Impact
+          </h2>
+          <p className="text-slate-600 md:text-2xl text-[18px]">
+            See what happens when we intergrate your Business.
+          </p>
+        </div>
       
+        <div className="grid md:grid-cols-3 gap-8">
+          <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:border-gray-300 hover:scale-3d hover:shadow-2xl active:shadow-2xl active:scale-3d transition-all">
+           <div className="text-5xl font-bold bg-linear-to-br from-teal-600 to-emerald-900 text-transparent bg-clip-text mb-2">300%</div>
+            <div className="text-lg font-semibold text-slate-900">Increase</div>
+            <p className="text-slate-400 text-sm mt-2">Join</p>
+          </div>
+      
+          <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:border-gray-300 hover:scale-3d hover:shadow-2xl active:shadow-2xl active:scale-3d transition-all">
+            <div className="text-5xl font-bold bg-linear-to-br from-teal-600 to-emerald-900 text-transparent bg-clip-text mb-2">300%</div>
+            <div className="text-lg font-semibold text-slate-900">Increase</div>
+            <p className="text-slate-400 text-sm mt-2">Join</p>
+          </div>
+      
+          <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:border-gray-300 hover:scale-3d hover:shadow-2xl active:shadow-2xl active:scale-3d transition-all">
+            <div className="text-5xl font-bold bg-linear-to-br from-teal-600 to-emerald-900  text-transparent bg-clip-text mb-2">300%</div>
+            <div className="text-lg font-semibold text-slate-900">Increase</div>
+            <p className="text-slate-400 text-sm mt-2">Join</p>
+          </div>
+        </div>
+      </div>
       
     </div>
   </>);

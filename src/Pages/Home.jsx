@@ -70,7 +70,7 @@ function Home(){
       <div ref={containerRef} className="h-auto relative w-full">
         <div className="sticky top-0 h-fit w-full flex items-center justify-center overflow-hidden">
 
-          <img ref={heroImageRef} className="relative z-8 h-[58vh] sm:h-[70vh] md:h-[90vh] lg:h-[108dvh] object-contain " src="./src/assets/wmremove-transformed_imgupscaler.ai_General_4K-Photoroom.png" />
+          <img ref={heroImageRef} className="relative z-8 h-[58vh] sm:h-[70vh] md:h-[90vh] lg:h-[108dvh] object-contain " src="./src/assets/Hero_Img.png" />
         </div>
       </div>
       

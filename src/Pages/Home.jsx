@@ -15,7 +15,7 @@ function Home(){
       
       const isMobile = window.innerWidth < 640;
       gsap.to(heroImageRef.current, {
-        rotation:270,
+        rotation:360,
         ease:'none',
         scrollTrigger: {
           trigger: containerRef.current,
@@ -44,7 +44,7 @@ function Home(){
     <div className="max-w-screen h-full">
     
       <div className="flex flex-col gap-9 max-[1100px]:gap-2.25 overflow-hidden justify-center items-center text-center">
-        <span className="text-5xl lg:text-[72px] p-3 mt-18 max-[1100px]:mt-16 font-roslindale font-extrabold">Stop guessing. Predict next quarter's revenue with <h1 className="font-ogg font-semibold italic antialiased">95% accuracy</h1></span>
+        <span className="text-5xl lg:text-[72px] p-3 mt-21 max-[1100px]:mt-16 font-roslindale font-extrabold">Stop guessing. Predict next quarter's revenue with <h1 className="font-ogg font-semibold italic antialiased">95% accuracy</h1></span>
         
         <p className=" text-gray-600 max-w-2xl font-semibold lg:text-2xl text-[16px]  p-5"><span className="font-bold text-gray-900 underline decoration-emerald-500 underline-offset-4">
             NeuroBusiness
@@ -69,12 +69,41 @@ function Home(){
       
       <div ref={containerRef} className="h-auto relative w-full">
         <div className="sticky top-0 h-fit w-full flex items-center justify-center overflow-hidden">
-
-          <img ref={heroImageRef} className="relative z-8 h-[58vh] sm:h-[70vh] md:h-[90vh] lg:h-[108dvh] object-contain " src="./src/assets/Hero_Img.png" />
+          <div className="relative w-full flex flex-col justify-center items-center">
+            <div className="absolute  z-30 hidden bottom-201 left-90 md:flex bg-black/30 text-white font-semibold backdrop-blur-sm rounded-3xl p-3">
+              <span className="text-6xl">Icon</span>
+              <span className="text-6xl">Feature1</span>
+            </div>
+            <div className="absolute  z-30 hidden bottom-117 left-60 md:flex bg-black/30 text-white font-semibold backdrop-blur-sm rounded-3xl p-3">
+              <span className="text-6xl">Icon</span>
+              <span className="text-6xl">Feature1</span>
+            </div>
+            
+            <div className="absolute  z-30 hidden bottom-30 left-90 md:flex bg-black/30 text-white font-semibold backdrop-blur-sm rounded-3xl p-3">
+              <span className="text-6xl">Icon</span>
+              <span className="text-6xl">Feature1</span>
+            </div>
+            
+            <div className="absolute  z-30 hidden bottom-201 left-270 md:flex bg-black/30 text-white font-semibold backdrop-blur-sm rounded-3xl p-3">
+              <span className="text-6xl">Icon</span>
+              <span className="text-6xl">Feature1</span>
+            </div>
+            <div className="absolute  z-30 hidden bottom-117 left-310 md:flex bg-black/30 text-white font-semibold backdrop-blur-sm rounded-3xl p-3">
+              <span className="text-6xl">Icon</span>
+              <span className="text-6xl">Feature1</span>
+            </div>
+            
+            <div className="absolute  z-30 hidden bottom-30 left-270 md:flex bg-black/30 text-white font-semibold backdrop-blur-sm rounded-3xl p-3">
+              <span className="text-6xl">Icon</span>
+              <span className="text-6xl">Feature1</span>
+            </div>
+            <img ref={heroImageRef} className="relative z-8 h-[58vh] sm:h-[70vh] md:h-[90vh] lg:h-[108dvh] object-contain " src="./src/assets/Hero_Img.png" />
+          </div>
         </div>
       </div>
       
       <HowItWorks/>
+      
       <div className="max-w-6xl mx-auto px-6 py-9">
         <div className="text-center mb-16">
           <h2 className="text-[54px] font-semibold md:font-normal md:text-8xl font-ogg mb-4 text-slate-900">

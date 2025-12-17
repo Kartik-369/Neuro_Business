@@ -32,23 +32,24 @@ function Home(){
   
 
   const logos=[
-    {name:'Company2',src:'./src/assets/create-highly-detailed-high-definition-components_1298385-16763-Photoroom.png'},
-    {name:'Company2',src:'./src/assets/create-highly-detailed-high-definition-components_1298385-16763-Photoroom.png'},
-    {name:'Company3',src:'./src/assets/create-highly-detailed-high-definition-components_1298385-16763-Photoroom.png'},
-    {name:'Company4',src:'./src/assets/create-highly-detailed-high-definition-components_1298385-16763-Photoroom.png'},
-    {name:'Company5',src:'./src/assets/create-highly-detailed-high-definition-components_1298385-16763-Photoroom.png'},
-    {name:'Company6',src:'./src/assets/create-highly-detailed-high-definition-components_1298385-16763-Photoroom.png'}
+    {name:'Company2',src:'https://icon.icepanel.io/Technology/svg/FastAPI.svg'},
+    {name:'Company5',src:'https://img.icons8.com/?size=100&id=N3G7bBnphi53&format=png&color=000000'},
+    {name:'Company3',src:'https://cdn.iconscout.com/icon/free/png-512/free-mongodb-icon-svg-download-png-1175138.png?f=webp&w=256'},
+    {name:'Company4',src:'https://img.icons8.com/?size=100&id=aR9CXyMagKIS&format=png&color=000000'},
+    {name:'Company6',src:'https://img.icons8.com/?size=100&id=TkX1totjFmAD&format=png&color=000000'},
+    {name:'Company6',src:'https://icon.icepanel.io/Technology/svg/scikit-learn.svg'},
+    {name:'Company6',src:'https://icon.icepanel.io/Technology/png-shadow-512/Pandas.png'}
     
   ]
   return (<>
     <div className="max-w-screen h-full">
     
       <div className="flex flex-col gap-9 max-[1100px]:gap-2.25 overflow-hidden justify-center items-center text-center">
-        <span className="text-5xl lg:text-[72px] p-3 mt-21 max-[1100px]:mt-16 font-roslindale font-extrabold">Stop guessing. Predict next quarter's revenue with <h1 className="font-ogg font-semibold italic antialiased">95% accuracy</h1></span>
+        <span className="text-5xl lg:text-[72px] p-6 mt-24 max-[1100px]:mt-16 font-roslindale font-extrabold">Data-Driven Revenue Forecasting</span>
         
-        <p className=" text-gray-600 max-w-2xl font-semibold lg:text-2xl text-[16px]  p-5"><span className="font-bold text-gray-900 underline decoration-emerald-500 underline-offset-4">
+        <p className=" text-gray-600 max-w-2xl font-semibold lg:text-2xl text-[16px]  p-6"><span className="font-bold text-gray-900 underline decoration-emerald-500 underline-offset-4">
             NeuroBusiness
-          </span>{" "}connects to your CRM and Stripe data to flag churn risks and identify upsell opportunities automatically—no data science degree required.</p>
+          </span>{" "}Analyzes your sales data and transaction history to flag churn risks.</p>
         
         <div className="flex max-[1100px]:flex-col max-[1100px]:space-y-3 px-auto justify-center items-center flex-row mt-auto space-x-3 lg:text-xl lg:tracking-wider lg:font-light">
           <button className="active:bg-black w-auto px-9 text-center bg-stone-800 rounded-4xl whitespace-nowrap   text-white p-2  hover:bg-black transition">Book a Personal Demo</button>
@@ -58,10 +59,10 @@ function Home(){
         </div>
       </div>
       
-      <div className="py-12 flex items-center max-[1100px]:flex-col max-[1100px]:gap-3">
-        <p className="text-center  flex-1 text-gray-700 text-xl font-semibold tracking-wider uppercase ">Helping Visionary Companies Stay Ahead</p>
+      <div className="py-12 h-auto flex items-center max-[1100px]:flex-col max-[1100px]:gap-3">
+        <p className="text-center flex-1 text-gray-700 text-2xl max-[1130px]:text-lg font-semibold tracking-wider uppercase ">Tech Stack Powered by Industry Standards</p>
       
-        <div className="flex flex-1  justify-center items-center gap-6 opacity-60">
+        <div className="flex flex-1 flex-wrap justify-center items-center gap-3 opacity-60">
           {logos.map((logo,index)=>
             <img src={logo.src} key={index} className="h-10.5 md:h-21 w-auto"/>)}
         </div>
@@ -70,34 +71,42 @@ function Home(){
       <div ref={containerRef} className="h-auto relative w-full">
         <div className="sticky top-0 h-fit w-full flex items-center justify-center overflow-hidden">
           <div className="relative w-full flex flex-col justify-center items-center">
-            <div className="absolute  z-30 hidden bottom-201 left-90 md:flex bg-black/30 text-white font-semibold backdrop-blur-sm rounded-3xl p-3">
-              <span className="text-6xl">Icon</span>
-              <span className="text-6xl">Feature1</span>
-            </div>
-            <div className="absolute  z-30 hidden bottom-117 left-60 md:flex bg-black/30 text-white font-semibold backdrop-blur-sm rounded-3xl p-3">
-              <span className="text-6xl">Icon</span>
-              <span className="text-6xl">Feature1</span>
-            </div>
             
-            <div className="absolute  z-30 hidden bottom-30 left-90 md:flex bg-black/30 text-white font-semibold backdrop-blur-sm rounded-3xl p-3">
-              <span className="text-6xl">Icon</span>
-              <span className="text-6xl">Feature1</span>
+            <div className="absolute inset-0 z-30 flex flex-col justify-center items-center gap-4 min-[1130px]:block pointer-events-none">
+              
+              <div className="pointer-events-auto flex items-center justify-center gap-2 bg-black/30 text-white font-semibold backdrop-blur-md rounded-2xl border border-white/10 p-6 min-[1130px]:p-4 max-[768px]:w-[72%]   min-[1130px]:absolute min-[1130px]:top-[15%] min-[1130px]:left-[18%]">
+                <span className="text-xl md:text-6xl">Icon</span>
+                <span className="text-sm md:text-6xl">Feature1</span>
+              </div>
+
+              <div className="pointer-events-auto flex max-[768px]:w-[72%] items-center justify-center gap-2 bg-black/30 text-white font-semibold backdrop-blur-md rounded-2xl border border-white/10 p-6 min-[1130px]:p-4  w-fit min-[1130px]:absolute min-[1130px]:top-[50%] min-[1130px]:left-[15%] min-[1130px]:-translate-y-1/2">
+                <span className="text-xl md:text-6xl">Icon</span>
+                <span className="text-sm md:text-6xl">Feature2</span>
+              </div>
+
+              <div className="pointer-events-auto flex max-[768px]:w-[75%] items-center justify-center gap-2 bg-black/30 text-white font-semibold backdrop-blur-md rounded-2xl border border-white/10 p-6 min-[1130px]:p-4  w-fit min-[1130px]:absolute min-[1130px]:bottom-[15%] min-[1130px]:left-[18%]">
+                <span className="text-xl md:text-6xl">Icon</span>
+                <span className="text-sm md:text-6xl">Feature3</span>
+              </div>
+              
+              <div className="pointer-events-auto flex max-[768px]:w-[75%] items-center justify-center gap-2 bg-black/30 text-white font-semibold backdrop-blur-md rounded-2xl border border-white/10 p-6 min-[1130px]:p-4  w-fit min-[1130px]:absolute min-[1130px]:top-[15%] min-[1130px]:right-[15%]">
+                <span className="text-xl md:text-6xl">Icon</span>
+                <span className="text-sm md:text-6xl">Feature4</span>
+              </div>
+
+              <div className="pointer-events-auto flex max-[768px]:w-[75%] items-center justify-center gap-2 bg-black/30 text-white font-semibold backdrop-blur-md rounded-2xl border border-white/10 p-6 min-[1130px]:p-4  w-fit min-[1130px]:absolute min-[1130px]:top-[50%] min-[1130px]:right-[12%] min-[1130px]:-translate-y-1/2">
+                <span className="text-xl md:text-6xl">Icon</span>
+                <span className="text-sm md:text-6xl">Feature5</span>
+              </div>
+              
+              <div className="pointer-events-auto flex max-[768px]:w-[75%] items-center justify-center gap-2 bg-black/30 text-white font-semibold backdrop-blur-md rounded-2xl border border-white/10 p-6 min-[1130px]:p-4 w-fit min-[1130px]:absolute min-[1130px]:bottom-[15%] min-[1130px]:right-[15%]">
+                <span className="text-xl md:text-6xl">Icon</span>
+                <span className="text-sm md:text-6xl">Feature6</span>
+              </div>
+
             </div>
-            
-            <div className="absolute  z-30 hidden bottom-201 left-270 md:flex bg-black/30 text-white font-semibold backdrop-blur-sm rounded-3xl p-3">
-              <span className="text-6xl">Icon</span>
-              <span className="text-6xl">Feature1</span>
-            </div>
-            <div className="absolute  z-30 hidden bottom-117 left-310 md:flex bg-black/30 text-white font-semibold backdrop-blur-sm rounded-3xl p-3">
-              <span className="text-6xl">Icon</span>
-              <span className="text-6xl">Feature1</span>
-            </div>
-            
-            <div className="absolute  z-30 hidden bottom-30 left-270 md:flex bg-black/30 text-white font-semibold backdrop-blur-sm rounded-3xl p-3">
-              <span className="text-6xl">Icon</span>
-              <span className="text-6xl">Feature1</span>
-            </div>
-            <img ref={heroImageRef} className="relative z-8 h-[58vh] sm:h-[70vh] md:h-[90vh] lg:h-[108dvh] object-contain " src="./src/assets/Hero_Img.png" />
+
+            <img ref={heroImageRef} className="relative z-8 h-[58vh] sm:h-[70vh] md:h-[90vh] lg:h-[108dvh] object-contain" src="./src/assets/Hero_Img.png" />
           </div>
         </div>
       </div>

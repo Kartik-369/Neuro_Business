@@ -1,4 +1,5 @@
 import Navbar from "./Navbar";
+import Footer from "./Footer";
 function Layout({children}){
   return (<>
     <div className="scroll-smooth min-h-screen flex flex-col overflow-x-hidden w-full ">
@@ -6,6 +7,7 @@ function Layout({children}){
       <main className="flex-1 overflow-x-hidden">
         {children}
       </main>
+      <Footer/>
     </div>
   </>);
 }

@@ -68,45 +68,50 @@ function Home(){
         </div>
       </div>
       
-      <div ref={containerRef} className="h-auto relative w-full">
-        <div className="sticky top-0 h-fit w-full flex items-center justify-center overflow-hidden">
-          <div className="relative w-full flex flex-col justify-center items-center">
+      <div ref={containerRef} className="h-auto relative w-full py-12 lg:py-0">
+        <div className="relative w-full flex flex-col justify-center items-center">
+          
+          <div className="absolute inset-0 min-[1130px]:relative z-0 flex justify-center items-center overflow-hidden">
+            <img 
+              ref={heroImageRef} 
+              className="h-63  min-[1130px]:h-[108dvh] w-auto max-w-none object-contain scale-125 min-[1130px]:scale-100" 
+              src="./src/assets/Hero_Img.png" 
+              alt="Hero"
+            />
+          </div>
+      
+          <div className="relative min-[1130px]:absolute min-[1130px]:inset-0 z-30 flex flex-col justify-center items-center gap-6 min-[1130px]:block pointer-events-none w-full">
             
-            <div className="absolute inset-0 z-30 flex flex-col justify-center items-center gap-4 min-[1130px]:block pointer-events-none">
-              
-              <div className="pointer-events-auto flex items-center justify-center gap-2 bg-black/30 text-white font-semibold backdrop-blur-md rounded-2xl border border-white/10 p-6 min-[1130px]:p-4 max-[768px]:w-[72%]   min-[1130px]:absolute min-[1130px]:top-[15%] min-[1130px]:left-[18%]">
-                <span className="text-xl md:text-6xl">Icon</span>
-                <span className="text-sm md:text-6xl">Feature1</span>
-              </div>
-
-              <div className="pointer-events-auto flex max-[768px]:w-[72%] items-center justify-center gap-2 bg-black/30 text-white font-semibold backdrop-blur-md rounded-2xl border border-white/10 p-6 min-[1130px]:p-4  w-fit min-[1130px]:absolute min-[1130px]:top-[50%] min-[1130px]:left-[15%] min-[1130px]:-translate-y-1/2">
-                <span className="text-xl md:text-6xl">Icon</span>
-                <span className="text-sm md:text-6xl">Feature2</span>
-              </div>
-
-              <div className="pointer-events-auto flex max-[768px]:w-[75%] items-center justify-center gap-2 bg-black/30 text-white font-semibold backdrop-blur-md rounded-2xl border border-white/10 p-6 min-[1130px]:p-4  w-fit min-[1130px]:absolute min-[1130px]:bottom-[15%] min-[1130px]:left-[18%]">
-                <span className="text-xl md:text-6xl">Icon</span>
-                <span className="text-sm md:text-6xl">Feature3</span>
-              </div>
-              
-              <div className="pointer-events-auto flex max-[768px]:w-[75%] items-center justify-center gap-2 bg-black/30 text-white font-semibold backdrop-blur-md rounded-2xl border border-white/10 p-6 min-[1130px]:p-4  w-fit min-[1130px]:absolute min-[1130px]:top-[15%] min-[1130px]:right-[15%]">
-                <span className="text-xl md:text-6xl">Icon</span>
-                <span className="text-sm md:text-6xl">Feature4</span>
-              </div>
-
-              <div className="pointer-events-auto flex max-[768px]:w-[75%] items-center justify-center gap-2 bg-black/30 text-white font-semibold backdrop-blur-md rounded-2xl border border-white/10 p-6 min-[1130px]:p-4  w-fit min-[1130px]:absolute min-[1130px]:top-[50%] min-[1130px]:right-[12%] min-[1130px]:-translate-y-1/2">
-                <span className="text-xl md:text-6xl">Icon</span>
-                <span className="text-sm md:text-6xl">Feature5</span>
-              </div>
-              
-              <div className="pointer-events-auto flex max-[768px]:w-[75%] items-center justify-center gap-2 bg-black/30 text-white font-semibold backdrop-blur-md rounded-2xl border border-white/10 p-6 min-[1130px]:p-4 w-fit min-[1130px]:absolute min-[1130px]:bottom-[15%] min-[1130px]:right-[15%]">
-                <span className="text-xl md:text-6xl">Icon</span>
-                <span className="text-sm md:text-6xl">Feature6</span>
-              </div>
-
+            <div className="pointer-events-auto flex items-center justify-center max-[1130px]:bg-black/25 gap-2 bg-black/40 text-white font-semibold backdrop-blur-md rounded-2xl border border-white/10 p-[13.2px] min-[1130px]:p-4.5 max-[768px]:w-[72%] min-[1130px]:absolute min-[1130px]:top-[15%] min-[1130px]:left-[18%]">
+              <span className="text-xl md:text-6xl">Icon</span>
+              <span className="text-sm md:text-6xl">Feature1</span>
             </div>
-
-            <img ref={heroImageRef} className="relative z-8 h-[58vh] sm:h-[70vh] md:h-[90vh] lg:h-[108dvh] object-contain" src="./src/assets/Hero_Img.png" />
+      
+            <div className="pointer-events-auto flex max-[1130px]:bg-black/25 items-center justify-center gap-2 bg-black/40 text-white font-semibold backdrop-blur-md rounded-2xl border border-white/10 p-[13.2px] min-[1130px]:p-4 max-[768px]:w-[72%] min-[1130px]:absolute min-[1130px]:top-[50%] min-[1130px]:left-[15%] min-[1130px]:-translate-y-1/2">
+              <span className="text-xl md:text-6xl">Icon</span>
+              <span className="text-sm md:text-6xl">Feature2</span>
+            </div>
+      
+            <div className="pointer-events-auto flex max-[1130px]:bg-black/25 items-center justify-center gap-2 bg-black/40 text-white font-semibold backdrop-blur-md rounded-2xl border border-white/10 p-[13.2px] min-[1130px]:p-4 max-[768px]:w-[72%] min-[1130px]:absolute min-[1130px]:bottom-[15%] min-[1130px]:left-[18%]">
+              <span className="text-xl md:text-6xl">Icon</span>
+              <span className="text-sm md:text-6xl">Feature3</span>
+            </div>
+      
+            <div className="pointer-events-auto flex max-[1130px]:bg-black/25 items-center justify-center gap-2 bg-black/40 text-white font-semibold backdrop-blur-md rounded-2xl border border-white/10 p-[13.2px] min-[1130px]:p-4 max-[768px]:w-[72%] min-[1130px]:absolute min-[1130px]:top-[15%] min-[1130px]:right-[15%]">
+              <span className="text-xl md:text-6xl">Icon</span>
+              <span className="text-sm md:text-6xl">Feature4</span>
+            </div>
+      
+            <div className="pointer-events-auto flex max-[1130px]:bg-black/25 items-center justify-center gap-2 bg-black/40 text-white font-semibold backdrop-blur-md rounded-2xl border border-white/10 p-[13.2px] min-[1130px]:p-4 max-[768px]:w-[72%] min-[1130px]:absolute min-[1130px]:top-[50%] min-[1130px]:right-[12%] min-[1130px]:-translate-y-1/2">
+              <span className="text-xl md:text-6xl">Icon</span>
+              <span className="text-sm md:text-6xl">Feature5</span>
+            </div>
+      
+            <div className="pointer-events-auto flex max-[1130px]:bg-black/25 items-center justify-center gap-2 bg-black/40 text-white font-semibold backdrop-blur-md rounded-2xl border border-white/10 p-[13.2px] min-[1130px]:p-4 max-[768px]:w-[72%] min-[1130px]:absolute min-[1130px]:bottom-[15%] min-[1130px]:right-[15%]">
+              <span className="text-xl md:text-6xl">Icon</span>
+              <span className="text-sm md:text-6xl">Feature6</span>
+            </div>
+      
           </div>
         </div>
       </div>

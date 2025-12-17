@@ -74,7 +74,7 @@ export default function HowItWorks() {
               <p className="text-xl text-gray-500">Sub</p>
             </div>
             <div className="w-full md:w-[45%] h-full md:h-100 bg-stone-100 rounded-2xl border border-stone-200 shadow-xl overflow-hidden">
-               <img src="" className="w-full bg-amber-100 h-full object-cover" />
+               <img src="https://media.istockphoto.com/id/2227028925/photo/business-professional-managing-digital-employee-record-using-stylus-and-laptop-digital-file.jpg?s=612x612&w=0&k=20&c=bea4EsVK_7mNjm0viy8B8Rqg5JalSBVM9FNz0TkC5wA=" className="w-full  h-full object-cover" />
             </div>
           </div>
         </div>
@@ -87,7 +87,7 @@ export default function HowItWorks() {
               <p className="text-xl text-emerald-600">Sub</p>
             </div>
             <div className="w-full md:w-[45%] h-full md:h-100 bg-emerald-50 rounded-2xl border border-emerald-100 shadow-xl overflow-hidden">
-               <img src="" className="w-full bg-amber-200 h-full object-cover" />
+               <img src="https://media.istockphoto.com/id/2170619377/photo/checklist-concept-businessman-surveying-online-checklist-on-virtual-screen-fill-out-the.jpg?s=2048x2048&w=is&k=20&c=nSSM8Z_FcziDLZZsc6cMgqumpYy7GMQ1dGdVR8U9swg=" className="w-full h-full object-cover" />
             </div>
           </div>
         </div>
@@ -100,7 +100,7 @@ export default function HowItWorks() {
               <p className="text-xl text-gray-500">sub</p>
             </div>
             <div className="w-full md:w-[45%] h-full md:h-100 bg-stone-900 rounded-2xl border border-black shadow-xl overflow-hidden">
-               <img src="" className="w-full bg-amber-100 h-full object-cover" />
+               <img src="https://media.istockphoto.com/id/1711724189/photo/business-analytics-finance-neural-network-ai-big-data-technology-data-scientists-query.jpg?s=612x612&w=0&k=20&c=2JrEdyYZKBFJKMI7EITpuvTPNilmBIi3vYtU-xTGzOs=" className="w-full h-full object-cover" />
             </div>
           </div>
         </div>
@@ -112,7 +112,7 @@ export default function HowItWorks() {
               <p className="text-xl text-gray-500">Sub</p>
             </div>
             <div className="w-full md:w-[45%] h-full md:h-100 bg-stone-900 rounded-2xl border border-black shadow-xl overflow-hidden">
-               <img  className="w-full bg-amber-200 h-full object-cover" />
+               <img src="https://media.istockphoto.com/id/2182242357/photo/hr-attrition-employee-retention-human-resources-analytics-and-engagement-crm-customer.jpg?s=612x612&w=0&k=20&c=QGIlzLvvv2t5tXmPR4SQg_xvjiEbv2XzWD4ewNOicyc=" className="w-full h-full object-cover" />
             </div>
           </div>
         </div>

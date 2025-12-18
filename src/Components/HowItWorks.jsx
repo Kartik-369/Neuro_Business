@@ -7,111 +7,95 @@ gsap.registerPlugin(ScrollTrigger)
 export default function HowItWorks() {
   const containerRef = useRef(null)
   const lineFillRef = useRef(null)
-  
-  const stackRef = useRef(null) 
 
   useLayoutEffect(() => {
-    const ctx = gsap.context(() => {
+    const mm = gsap.matchMedia();
+
+    mm.add("(min-height: 650px)", () => {
+      
+      gsap.set('.step-card', { gridArea: "1 / 1" });
+
+      gsap.set('.step-2, .step-3, .step-4', { yPercent: 150 });
       
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: containerRef.current,
           start: 'top top',
-          end: '+=450%',
+          end: '+=300%',
           pin: true,
           scrub: 1,
         },
       })
 
-      tl.to(lineFillRef.current, {
-        height: '100%',
-        ease: 'none',
-        duration: 3,
-      }, 0)
-      tl.to('.step-2', {
-        y: '0%',
-        ease: 'power2.inOut',
-        duration: 1,
-      }, 0)
-      tl.to('.step-3', {
-        y: '0%',
-        ease: 'power2.inOut',
-        duration: 1,
-      }, 1)
-      tl.to('.step-4', {
-        y: '0%',
-        ease: 'power2.inOut',
-        duration: 1,
-      }, 2) 
+      tl.to(lineFillRef.current, { height: '100%', ease: 'none', duration: 3 }, 0)
+      
+      tl.to('.step-2', { yPercent: 0, ease: 'power2.inOut', duration: 1 }, 0)
+      tl.to('.step-3', { yPercent: 0, ease: 'power2.inOut', duration: 1 }, 1)
+      tl.to('.step-4', { yPercent: 0, ease: 'power2.inOut', duration: 1 }, 2) 
+    });
 
-    }, containerRef)
-
-    return () => ctx.revert()
+    return () => mm.revert();
   }, [])
 
   return (
-    <section ref={containerRef} id='howitworks' className="h-screen pb-18 w-full bg-white relative overflow-hidden justify-center items-center flex flex-col">
+    <section ref={containerRef} id='howitworks' className="min-h-screen pb-24 md:pb-32 w-full bg-white relative justify-center items-center flex flex-col">
       
-      <div className="flex-none pt-20 pb-5 px-4 text-center z-50 bg-white">
-        <span className="text-6xl subpixel-antialiased md:text-8xl font-canela block mb-4">How it Works</span>
-        <p className="text-gray-700 max-w-4xl mx-auto font-semibold text-lg md:text-xl leading-relaxed">
-          Data without insight is just noise. <span className="text-black underline decoration-emerald-600">NeuroMarket acts as the central nervous system</span> for your business, distilling complex data into clear directives.
+      <div className="flex-shrink-0 pt-15 md:pt-24 pb-6 md:pb-8 px-4 text-center z-50 bg-white">
+        <span className="text-5xl sm:text-6xl lg:text-7xl subpixel-antialiased font-canela block mb-4">How it Works</span>
+        <p className="text-gray-700 max-w-4xl mx-auto font-semibold text-base md:text-lg leading-relaxed">
+          Data without insight is just noise. <span className="text-black underline decoration-emerald-600">NeuroMarket acts as the central nervous system</span> for your business.
         </p>
       </div>
 
-
-      <div ref={stackRef} className="flex-1 relative w-full max-w-6xl mx-auto mt-4">
-        
-        <div className="hidden md:block absolute left-3 md:left-1/2 top-0 bottom-10 w-0.5 -translate-x-1/2 bg-gray-200 z-40">
-           <div ref={lineFillRef} className="w-full bg-black h-0 absolute top-0" />
+      <div className="relative w-full max-w-6xl mx-auto mt-8 md:mt-12 px-4 md:px-0 grid grid-cols-1">
+         
+         <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 -translate-x-1/2 bg-gray-200 z-50">
+            <div ref={lineFillRef} className="w-full bg-black h-0 absolute top-0" />
         </div>
 
-
-        <div className="step-1 absolute inset-0 w-full h-full bg-white z-10 flex items-center justify-center px-4">
-          <div className="flex flex-col md:flex-row items-center justify-between w-full h-full pb-10">
-            <div className="w-full md:w-[45%] text-center md:text-right pr-0 md:pr-10">
+        <div className="step-1 step-card w-full bg-white flex items-center justify-center p-4 z-10">
+          <div className="flex flex-col md:flex-row items-center justify-between w-full py-8 md:py-12">
+            <div className="w-full md:w-[45%] text-center md:text-right pr-0 md:pr-10 mb-8 md:mb-0">
               <h3 className="text-4xl font-bold mb-4">Content</h3>
               <p className="text-xl text-gray-500">Sub</p>
             </div>
-            <div className="w-full md:w-[45%] h-full md:h-100 bg-stone-100 rounded-2xl border border-stone-200 shadow-xl overflow-hidden">
-               <img src="https://media.istockphoto.com/id/2227028925/photo/business-professional-managing-digital-employee-record-using-stylus-and-laptop-digital-file.jpg?s=612x612&w=0&k=20&c=bea4EsVK_7mNjm0viy8B8Rqg5JalSBVM9FNz0TkC5wA=" className="w-full  h-full object-cover" />
+            <div className="w-full md:w-[45%] aspect-video md:aspect-auto md:h-[400px] bg-stone-100 rounded-2xl border border-stone-200 shadow-xl overflow-hidden">
+               <img src="https://media.istockphoto.com/id/2227028925/photo/business-professional-managing-digital-employee-record-using-stylus-and-laptop-digital-file.jpg?s=612x612&w=0&k=20&c=bea4EsVK_7mNjm0viy8B8Rqg5JalSBVM9FNz0TkC5wA=" className="w-full h-full object-cover" />
             </div>
           </div>
         </div>
 
-
-        <div className="step-2 absolute inset-0 w-full h-full bg-white z-20 translate-y-[150%] flex items-center justify-center px-4">
-           <div className="flex flex-col md:flex-row-reverse items-center justify-between w-full h-full pb-10">
-            <div className="w-full md:w-[45%] text-center md:text-left pl-0 md:pl-10">
+        <div className="step-2 step-card w-full bg-white flex items-center justify-center p-4 z-20">
+           <div className="flex flex-col md:flex-row-reverse items-center justify-between w-full py-8 md:py-12">
+            <div className="w-full md:w-[45%] text-center md:text-left pl-0 md:pl-10 mb-8 md:mb-0">
               <h3 className="text-4xl font-bold mb-4">Content</h3>
               <p className="text-xl text-emerald-600">Sub</p>
             </div>
-            <div className="w-full md:w-[45%] h-full md:h-100 bg-emerald-50 rounded-2xl border border-emerald-100 shadow-xl overflow-hidden">
+            <div className="w-full md:w-[45%] aspect-video md:aspect-auto md:h-[400px] bg-emerald-50 rounded-2xl border border-emerald-100 shadow-xl overflow-hidden">
                <img src="https://media.istockphoto.com/id/2170619377/photo/checklist-concept-businessman-surveying-online-checklist-on-virtual-screen-fill-out-the.jpg?s=2048x2048&w=is&k=20&c=nSSM8Z_FcziDLZZsc6cMgqumpYy7GMQ1dGdVR8U9swg=" className="w-full h-full object-cover" />
             </div>
           </div>
         </div>
 
-
-        <div className="step-3 absolute inset-0 w-full h-full bg-white z-30 translate-y-[150%] flex items-center justify-center px-4">
-           <div className="flex flex-col md:flex-row items-center justify-between w-full h-full pb-10">
-            <div className="w-full md:w-[45%] text-center md:text-right pr-0 md:pr-10">
+        <div className="step-3 step-card w-full bg-white flex items-center justify-center p-4 z-30">
+           <div className="flex flex-col md:flex-row items-center justify-between w-full py-8 md:py-12">
+            <div className="w-full md:w-[45%] text-center md:text-right pr-0 md:pr-10 mb-8 md:mb-0">
               <h3 className="text-4xl font-bold mb-4">Content</h3>
               <p className="text-xl text-gray-500">sub</p>
             </div>
-            <div className="w-full md:w-[45%] h-full md:h-100 bg-stone-900 rounded-2xl border border-black shadow-xl overflow-hidden">
+            <div className="w-full md:w-[45%] aspect-video md:aspect-auto md:h-[400px] bg-stone-900 rounded-2xl border border-black shadow-xl overflow-hidden">
                <img src="https://media.istockphoto.com/id/1711724189/photo/business-analytics-finance-neural-network-ai-big-data-technology-data-scientists-query.jpg?s=612x612&w=0&k=20&c=2JrEdyYZKBFJKMI7EITpuvTPNilmBIi3vYtU-xTGzOs=" className="w-full h-full object-cover" />
             </div>
           </div>
         </div>
         
-        <div className="step-4 absolute inset-0 w-full h-full bg-white z-30 translate-y-[150%] flex items-center justify-center px-4">
-           <div className="flex flex-col md:flex-row-reverse items-center justify-between w-full h-full pb-10">
-            <div className="w-full md:w-[45%] text-center md:text-left pl-0 md:pl-10">
+        <div className="step-4 step-card w-full bg-white flex items-center justify-center p-4 z-40">
+           <div className="flex flex-col md:flex-row-reverse items-center justify-between w-full py-8 md:py-12">
+            <div className="w-full md:w-[45%] text-center md:text-left pl-0 md:pl-10 mb-8 md:mb-0">
               <h3 className="text-4xl font-bold mb-4">Content</h3>
               <p className="text-xl text-gray-500">Sub</p>
             </div>
-            <div className="w-full md:w-[45%] h-full md:h-100 bg-stone-900 rounded-2xl border border-black shadow-xl overflow-hidden">
+            <div className="w-full md:w-[45%] aspect-video md:aspect-auto md:h-[400px] bg-stone-900 rounded-2xl border border-black shadow-xl overflow-hidden">
                <img src="https://media.istockphoto.com/id/2182242357/photo/hr-attrition-employee-retention-human-resources-analytics-and-engagement-crm-customer.jpg?s=612x612&w=0&k=20&c=QGIlzLvvv2t5tXmPR4SQg_xvjiEbv2XzWD4ewNOicyc=" className="w-full h-full object-cover" />
             </div>
           </div>

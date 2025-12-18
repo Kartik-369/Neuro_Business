@@ -42,16 +42,16 @@ function Home(){
     
   ]
   return (<>
-    <div className="max-w-screen h-full">
+    <div className="max-w-screen h-full pt-9">
     
-      <div className="flex flex-col gap-9 max-[1100px]:gap-2.25 overflow-hidden justify-center items-center text-center">
-        <span className="text-5xl lg:text-[72px] p-6 mt-24 max-[1100px]:mt-16 font-roslindale font-extrabold">Data-Driven Revenue Forecasting</span>
+      <div className="flex flex-col gap-12 max-[1100px]:gap-2.25 overflow-hidden justify-center items-center text-center px-4">
+        <span className="text-5xl md:text-[72px] p-6 mt-12 md:mt-24 max-[1100px]:mt-16 font-roslindale font-extrabold">Data-Driven Revenue Forecasting</span>
         
         <p className=" text-gray-600 max-w-2xl font-semibold lg:text-2xl text-[16px]  p-6"><span className="font-bold text-gray-900 underline decoration-emerald-500 underline-offset-4">
             NeuroBusiness
           </span>{" "}Analyzes your sales data and transaction history to flag churn risks.</p>
         
-        <div className="flex max-[1100px]:flex-col max-[1100px]:space-y-3 px-auto justify-center items-center flex-row mt-auto space-x-3 lg:text-xl lg:tracking-wider lg:font-light">
+        <div className="flex max-[1100px]:flex-col max-[1100px]:space-y-3 p-3 px-auto justify-center items-center flex-row mt-auto space-x-6 lg:text-xl lg:tracking-wider lg:font-light">
           <button className="active:bg-black w-auto px-9 text-center bg-stone-800 rounded-4xl whitespace-nowrap   text-white p-2  hover:bg-black transition">Book a Personal Demo</button>
           <button className="active:bg-black active:text-white w-auto px-9   text-center bg-white rounded-4xl whitespace-nowrap  text-black border-[1.5px] p-2  hover:bg-black hover:text-white transition">Start Free Trial</button>
         
@@ -59,7 +59,7 @@ function Home(){
         </div>
       </div>
       
-      <div className="py-12 h-auto flex items-center max-[1100px]:flex-col max-[1100px]:gap-3">
+      <div className="py-12 h-auto flex items-center max-[1100px]:flex-col max-[1100px]:gap-3 px-4">
         <p className="text-center flex-1 text-gray-700 text-2xl max-[1130px]:text-lg font-semibold tracking-wider uppercase ">Tech Stack Powered by Industry Standards</p>
       
         <div className="flex flex-1 flex-wrap justify-center items-center gap-3 opacity-60">
@@ -68,13 +68,13 @@ function Home(){
         </div>
       </div>
       
-      <div ref={containerRef} className="h-auto relative w-full py-12 lg:py-0">
+      <div ref={containerRef} className="h-auto relative w-full py-12 lg:py-0 overflow-hidden">
         <div className="relative w-full flex flex-col justify-center items-center">
           
           <div className="absolute inset-0 min-[1130px]:relative z-0 flex justify-center items-center overflow-hidden">
             <img 
               ref={heroImageRef} 
-              className="h-63  min-[1130px]:h-[108dvh] w-auto max-w-none object-contain scale-125 min-[1130px]:scale-100" 
+              className="h-auto min-[1130px]:h-full md:max-w-3xl object-contain scale-125 min-[1130px]:scale-100" 
               src="./src/assets/Hero_Img.png" 
               alt="Hero"
             />
@@ -83,33 +83,33 @@ function Home(){
           <div className="relative min-[1130px]:absolute min-[1130px]:inset-0 z-30 flex flex-col justify-center items-center gap-6 min-[1130px]:block pointer-events-none w-full">
             
             <div className="pointer-events-auto flex items-center justify-center max-[1130px]:bg-black/25 gap-2 bg-black/40 text-white font-semibold backdrop-blur-md rounded-2xl border border-white/10 p-[13.2px] min-[1130px]:p-4.5 max-[768px]:w-[72%] min-[1130px]:absolute min-[1130px]:top-[15%] min-[1130px]:left-[18%]">
-              <span className="text-xl md:text-6xl">Icon</span>
-              <span className="text-sm md:text-6xl">Feature1</span>
+              <span className="text-xl md:text-5xl">Icon</span>
+              <span className="text-sm md:text-5xl">Feature1</span>
             </div>
       
             <div className="pointer-events-auto flex max-[1130px]:bg-black/25 items-center justify-center gap-2 bg-black/40 text-white font-semibold backdrop-blur-md rounded-2xl border border-white/10 p-[13.2px] min-[1130px]:p-4 max-[768px]:w-[72%] min-[1130px]:absolute min-[1130px]:top-[50%] min-[1130px]:left-[15%] min-[1130px]:-translate-y-1/2">
-              <span className="text-xl md:text-6xl">Icon</span>
-              <span className="text-sm md:text-6xl">Feature2</span>
+              <span className="text-xl md:text-5xl">Icon</span>
+              <span className="text-sm md:text-5xl">Feature2</span>
             </div>
       
             <div className="pointer-events-auto flex max-[1130px]:bg-black/25 items-center justify-center gap-2 bg-black/40 text-white font-semibold backdrop-blur-md rounded-2xl border border-white/10 p-[13.2px] min-[1130px]:p-4 max-[768px]:w-[72%] min-[1130px]:absolute min-[1130px]:bottom-[15%] min-[1130px]:left-[18%]">
-              <span className="text-xl md:text-6xl">Icon</span>
-              <span className="text-sm md:text-6xl">Feature3</span>
+              <span className="text-xl md:text-5xl">Icon</span>
+              <span className="text-sm md:text-5xl">Feature3</span>
             </div>
       
             <div className="pointer-events-auto flex max-[1130px]:bg-black/25 items-center justify-center gap-2 bg-black/40 text-white font-semibold backdrop-blur-md rounded-2xl border border-white/10 p-[13.2px] min-[1130px]:p-4 max-[768px]:w-[72%] min-[1130px]:absolute min-[1130px]:top-[15%] min-[1130px]:right-[15%]">
-              <span className="text-xl md:text-6xl">Icon</span>
-              <span className="text-sm md:text-6xl">Feature4</span>
+              <span className="text-xl md:text-5xl">Icon</span>
+              <span className="text-sm md:text-5xl">Feature4</span>
             </div>
       
             <div className="pointer-events-auto flex max-[1130px]:bg-black/25 items-center justify-center gap-2 bg-black/40 text-white font-semibold backdrop-blur-md rounded-2xl border border-white/10 p-[13.2px] min-[1130px]:p-4 max-[768px]:w-[72%] min-[1130px]:absolute min-[1130px]:top-[50%] min-[1130px]:right-[12%] min-[1130px]:-translate-y-1/2">
-              <span className="text-xl md:text-6xl">Icon</span>
-              <span className="text-sm md:text-6xl">Feature5</span>
+              <span className="text-xl md:text-5xl">Icon</span>
+              <span className="text-sm md:text-5xl">Feature5</span>
             </div>
       
             <div className="pointer-events-auto flex max-[1130px]:bg-black/25 items-center justify-center gap-2 bg-black/40 text-white font-semibold backdrop-blur-md rounded-2xl border border-white/10 p-[13.2px] min-[1130px]:p-4 max-[768px]:w-[72%] min-[1130px]:absolute min-[1130px]:bottom-[15%] min-[1130px]:right-[15%]">
-              <span className="text-xl md:text-6xl">Icon</span>
-              <span className="text-sm md:text-6xl">Feature6</span>
+              <span className="text-xl md:text-5xl">Icon</span>
+              <span className="text-sm md:text-5xl">Feature6</span>
             </div>
       
           </div>

@@ -4,8 +4,12 @@ function Navbar(){
   const [isOpen, setOpen] = useState(false);
   return (<>
     <nav className="fixed top-0 left-0 w-full z-100 bg-stone/30 backdrop-blur-sm justify-between p-3 items-center font-roslindale flex shadow-2xs max-w-screen ">
-      <span className="text-4xl tracking-tight max-[1100px]:text-4xl font-bold shrink-0 z-10">NeuroBusiness<p className="text-[14px] font-sans font-semibold tracking-tighter hidden min-[1100px]:flex">AI Driven SaaS for Business Insights</p></span>
-        <div  className="hidden absolute font-bold left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center min-[1100px]:flex space-x-2 lg:space-x-6 text-xl font-serif tracking-wider">
+      <span className="text-2xl min-[1100px]:text-4xl tracking-tight font-bold shrink-0 z-10">
+        NeuroBusiness
+        <p className="text-[14px] font-sans font-semibold tracking-tighter hidden min-[1100px]:flex">AI Driven SaaS for Business Insights</p>
+      </span>
+
+        <div className="hidden absolute font-bold left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center min-[1100px]:flex space-x-2 lg:space-x-6 text-xl font-serif tracking-wider">
           <a className=" px-2 py-2 border-b-0 hover:border-b  duration-74 hover:-translate-y-1 transition-all ease-in">Platform</a>
           <a className=" px-2 py-2 border-b-0 hover:border-b  duration-75 hover:-translate-y-1 transition-all ease-in">Pricing</a>
           <a href='howitworks' className=" px-3 py-2 border-b-0 hover:border-b  duration-75 hover:-translate-y-1 transition-all ease-in">How it Works </a>
@@ -21,7 +25,7 @@ function Navbar(){
           
         
         
-    <button className="min-[1100px]:hidden transition-colors duration-700" onClick={()=>setOpen(!isOpen)}>=</button>
+    <button className="min-[1100px]:hidden transition-colors duration-700 text-2xl" onClick={()=>setOpen(!isOpen)}>=</button>
     
       <div 
         className={` min-[1100px]:hidden fixed inset-0 bg-black/15 transition-opacity duration-500 ease-in-out ${isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`} 

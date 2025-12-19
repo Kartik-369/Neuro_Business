@@ -40,7 +40,7 @@ export default function HowItWorks() {
   return (
     <section ref={containerRef} id='howitworks' className="min-h-screen pb-24 md:pb-32 w-full bg-white relative justify-center items-center flex flex-col">
       
-      <div className="flex-shrink-0 pt-15 md:pt-24 pb-6 md:pb-8 px-4 text-center z-50 bg-white">
+      <div className="shrink-0 pt-15 md:pt-24 pb-6 md:pb-8 px-4 text-center z-50 bg-white">
         <span className="text-5xl sm:text-6xl lg:text-7xl subpixel-antialiased font-canela block mb-4">How it Works</span>
         <p className="text-gray-700 max-w-4xl mx-auto font-semibold text-base md:text-lg leading-relaxed">
           Data without insight is just noise. <span className="text-black underline decoration-emerald-600">NeuroMarket acts as the central nervous system</span> for your business.

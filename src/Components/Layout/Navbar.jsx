@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { AccessAlarm, ThreeDRotation } from '@mui/icons-material';
+import { Link } from "react-router-dom";
 
 function Navbar(){
   const [isOpen, setOpen] = useState(false);
@@ -19,7 +20,7 @@ function Navbar(){
           
           <div className="flex items-center gap-3 z-20 ">
             <div className="hidden min-[1100px]:flex tracking-wider font-bold items-center text-lg gap-3">
-              <button className="active:bg-black w-auto px-6   active:text-white text-center border rounded-4xl whitespace-nowrap  p-2  hover:bg-black  hover:text-white  transition">Signup</button>
+              <Link to='/signup'><button className="active:bg-black w-auto px-6   active:text-white text-center border rounded-4xl whitespace-nowrap  p-2  hover:bg-black  hover:text-white  transition">Signup</button></Link>
               <button className="active:bg-black w-auto px-6   active:text-white text-center  rounded-4xl text-black whitespace-nowrap border p-2  hover:bg-black hover:text-white transition">Book a Demo</button>
             </div>
           </div>

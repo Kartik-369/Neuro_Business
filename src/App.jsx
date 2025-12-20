@@ -1,13 +1,23 @@
 import Home from "./Pages/Home";
 import Scroll from "./Components/Scroll";
 import Layout from "./Components/Layout/Layout";
+import { BrowserRouter,Routes,Route } from "react-router-dom";
+import SignUp from "./Pages/SignUp";
 function App(){
   return (<>
-    <Scroll>
-      <Layout>
-        <Home/>
-      </Layout>
-    </Scroll>
+    
+    <BrowserRouter>
+      <Scroll>
+        <Layout>
+          <Routes>
+            <Route path='/' element={<Home/>} />
+            <Route path='/signup' element={<SignUp/>} />
+          </Routes>
+          
+        </Layout>
+      </Scroll>
+    </BrowserRouter>
+    
   </>);
 }
 export default App;

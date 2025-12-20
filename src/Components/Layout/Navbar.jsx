@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { AccessAlarm, ThreeDRotation } from '@mui/icons-material';
 
 function Navbar(){
   const [isOpen, setOpen] = useState(false);
@@ -27,6 +28,9 @@ function Navbar(){
         
     <button className="min-[1100px]:hidden transition-colors duration-700 text-2xl" onClick={()=>setOpen(!isOpen)}>=</button>
     
+      {/* <IconButton aria-label="Example">
+        <FontAwesomeIcon icon= />
+      </IconButton>*/}
       <div 
         className={` min-[1100px]:hidden fixed inset-0 bg-black/15 transition-opacity duration-500 ease-in-out ${isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`} 
           onClick={() => setOpen(false)}

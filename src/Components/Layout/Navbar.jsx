@@ -20,7 +20,7 @@ function Navbar(){
           
           <div className="flex items-center gap-3 z-20 ">
             <div className="hidden min-[1100px]:flex tracking-wider font-bold items-center text-lg gap-3">
-              <Link to='/signup'><button className="active:bg-black w-auto px-6   active:text-white text-center border rounded-4xl whitespace-nowrap  p-2  hover:bg-black  hover:text-white  transition">Signup</button></Link>
+              <Link className='block w-full' to='/signup'><button className="active:bg-black w-auto px-6   active:text-white text-center border rounded-4xl whitespace-nowrap  p-2  hover:bg-black  hover:text-white  transition">Signup</button></Link>
               <button className="active:bg-black w-auto px-6   active:text-white text-center  rounded-4xl text-black whitespace-nowrap border p-2  hover:bg-black hover:text-white transition">Book a Demo</button>
             </div>
           </div>
@@ -61,8 +61,13 @@ function Navbar(){
         </ul>
         
         <div className="mt-auto p-6 space-y-6 text-lg tracking-wider font-bold">
-          <button className="active:bg-black w-full text-center bg-gray-900 rounded-4xl text-white p-2  hover:bg-black transition">Signup</button>
-          <button className="active:bg-black active:text-white w-full text-center  rounded-4xl text-black border p-2  hover:bg-black hover:text-white transition">Book a Demo</button>
+          <Link to="/signup" className="block w-full">
+              <button onClick={()=>setOpen(!isOpen)} className="w-full text-center bg-gray-900 rounded-4xl text-white p-2 active:bg-black hover:bg-black transition">
+                Signup
+              </button>
+            </Link>          
+          
+            <button className="active:bg-black active:text-white w-full text-center  rounded-4xl text-black border p-2  hover:bg-black hover:text-white transition">Book a Demo</button>
           
         </div>
         

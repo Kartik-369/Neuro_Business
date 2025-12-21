@@ -60,8 +60,8 @@ function SignUp(){
                   <button className="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-gray-600 rounded-lg hover:bg-emerald-600 focus:outline-none focus:ring focus:ring-green-300 focus:ring-opacity-50">
                       {Login?'Sign In':'Sign Up'}
                   </button>
-  
-                  <p className="mt-4 text-center text-gray-600 ">{Login?'or':'Or continue'}</p>
+                  <Link to='/forgot' className="w-fit"><p className="mt-2 text-sm underline inline-block text-center">{Login?'forgot password?':''}</p></Link>
+                  <p className="mt-1 text-center text-gray-600 ">{Login?'or':'Or continue'}</p>
   
                   <a href="" className="flex items-center justify-center px-6 py-3 mt-4 text-gray-600 transition-colors duration-300 transform border rounded-lg  hover:bg-amber-100">
                       <svg className="w-6 h-6 mx-2" viewBox="0 0 40 40">
@@ -71,7 +71,7 @@ function SignUp(){
                           <path d="M36.3425 16.7358H35V16.6667H20V23.3333H29.4192C28.7592 25.1975 27.56 26.805 26.0133 27.9758C26.0142 27.975 26.015 27.975 26.0158 27.9742L31.1742 32.3392C30.8092 32.6708 36.6667 28.3333 36.6667 20C36.6667 18.8825 36.5517 17.7917 36.3425 16.7358Z" fill="#1976D2" />
                       </svg>
   
-                      <span className="mx-2">{Login?'Sign In':'Sign Up'} with Google</span>
+                      <span className="mx-2 hover:text-black active:text-black">{Login?'Sign In':'Sign Up'} with Google</span>
                   </a>
   
                   <div className="mt-6 text-center ">

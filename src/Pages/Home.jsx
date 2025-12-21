@@ -51,7 +51,7 @@ function Home(){
             NeuroBusiness
           </span>{" "}Analyzes your sales data and transaction history to flag churn risks.</p>
         
-        <div className="flex max-[1100px]:flex-col max-[1100px]:space-y-3 p-3 px-auto justify-center items-center flex-row mt-auto space-x-6 lg:text-xl lg:tracking-wider lg:font-light">
+        <div className="flex max-[1100px]:flex-col max-[1100px]:space-y-3 p-3 px-auto justify-center items-center flex-row mt-auto gap-6 lg:text-xl lg:tracking-wider lg:font-light">
           <button className="active:bg-black w-auto px-9 text-center bg-stone-800 rounded-4xl whitespace-nowrap   text-white p-2  hover:bg-black transition">Book a Personal Demo</button>
           <button className="active:bg-black active:text-white w-auto px-9   text-center bg-white rounded-4xl whitespace-nowrap  text-black border-[1.5px] p-2  hover:bg-black hover:text-white transition">Start Free Trial</button>
         

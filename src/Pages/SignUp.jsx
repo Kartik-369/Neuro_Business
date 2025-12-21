@@ -1,14 +1,16 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
+import { useState } from "react";
 function SignUp(){
+  const [Login, isLogin] = useState(false);
   return (<>
   <section className="bg-white ">
     
     
-      <div className="container flex items-center justify-center min-h-screen px-6 mx-auto">
+      <div className="container  flex items-center justify-center min-h-screen px-6 mx-auto">
         
-          <form className="w-full border border-stone-200 bg-amber-50/30 p-9 rounded-4xl max-w-md">  
+          <form className="w-full shadow-xs shadow-gray-600 border border-stone-200 bg-amber-50/30 p-9 rounded-4xl max-w-md">  
             <div className="flex flex-row justify-between items-center mt-3">
-              <h1 className=" text-2xl font-semibold text-gray-800 capitalize sm:text-3xl">sign Up</h1>
+              <h1 className=" text-2xl font-semibold text-gray-800 capitalize sm:text-3xl">{Login?'Sign In':'Sign Up'}</h1>
                 <div className="flex justify-center items-center text-2xl">
                   <Link to='/'><button className="bg-white text-center w-24 rounded-2xl h-14 relative text-black text-xl font-semibold group" type="button">Go Back
                   <div class="bg-amber-100 rounded-xl h-12 w-1/2 flex items-center justify-center absolute -left-12 top-[4px] group-hover:w-[144px] group-active:w-[144px] z-10 duration-300">
@@ -56,10 +58,10 @@ function SignUp(){
   
               <div className="mt-6">
                   <button className="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-gray-600 rounded-lg hover:bg-emerald-600 focus:outline-none focus:ring focus:ring-green-300 focus:ring-opacity-50">
-                      Sign Up
+                      {Login?'Sign In':'Sign Up'}
                   </button>
   
-                  <p className="mt-4 text-center text-gray-600 ">or continue with</p>
+                  <p className="mt-4 text-center text-gray-600 ">{Login?'or':'Or continue'}</p>
   
                   <a href="" className="flex items-center justify-center px-6 py-3 mt-4 text-gray-600 transition-colors duration-300 transform border rounded-lg  hover:bg-amber-100">
                       <svg className="w-6 h-6 mx-2" viewBox="0 0 40 40">
@@ -69,13 +71,13 @@ function SignUp(){
                           <path d="M36.3425 16.7358H35V16.6667H20V23.3333H29.4192C28.7592 25.1975 27.56 26.805 26.0133 27.9758C26.0142 27.975 26.015 27.975 26.0158 27.9742L31.1742 32.3392C30.8092 32.6708 36.6667 28.3333 36.6667 20C36.6667 18.8825 36.5517 17.7917 36.3425 16.7358Z" fill="#1976D2" />
                       </svg>
   
-                      <span className="mx-2">Sign Up with Google</span>
+                      <span className="mx-2">{Login?'Sign In':'Sign Up'} with Google</span>
                   </a>
   
                   <div className="mt-6 text-center ">
-                      <a className="text-sm text-gray-600 hover:underline">
-                          Already have an account? <h1 className="text-gray-900">Sign in</h1>
-                      </a>
+                    <Link className="text-sm text-gray-600 hover:underline" onClick={()=>isLogin(!Login)}>
+                        {Login?'Create an account':'Already have an account?'}<h1 className="text-gray-900">{Login?'Sign Up':'Sign In'}</h1>
+                      </Link>
                   </div>
               </div>
               

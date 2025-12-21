@@ -13,7 +13,7 @@ function SignUp(){
               <h1 className=" text-2xl font-semibold text-gray-800 capitalize sm:text-3xl">{Login?'Sign In':'Sign Up'}</h1>
                 <div className="flex justify-center items-center text-2xl">
                   <Link to='/'><button className="bg-white text-center w-24 rounded-2xl h-14 relative text-black text-[15px] font-semibold group" type="button">Go Back
-                  <div class="bg-amber-100 rounded-xl h-[39px] w-1/3 flex items-center justify-center absolute -left-6 top-[9px] group-hover:w-[120px] group-active:w-[120px] z-10 duration-300">
+                  <div className="bg-amber-100 rounded-xl h-[39px] w-1/3 flex items-center justify-center absolute -left-6 top-[9px] group-hover:w-[120px] group-active:w-[120px] z-10 duration-300">
                     <svg
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 1024 1024"
@@ -30,7 +30,7 @@ function SignUp(){
                           ></path>
                         </svg>
                       </div>
-                      <p class="translate-x-0"></p>
+                      <p className="translate-x-0"></p>
                   </button>
                       </Link>
                 </div>
@@ -43,7 +43,7 @@ function SignUp(){
                       </svg>
                   </span>
   
-                  <input type="email" className=" duration-400 block w-full py-3 text-gray-700 bg-white border rounded-lg px-11 focus:border-amber-100  focus:ring-amber-200 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Email address"></input>
+                  <input type="email" autoCapitalize="true" autoFocus='true' className=" duration-400 block w-full py-3 text-gray-700 bg-white border rounded-lg px-11 focus:border-amber-100  focus:ring-amber-200 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Email address"></input>
               </div>
   
               <div className="relative flex items-center mt-4">

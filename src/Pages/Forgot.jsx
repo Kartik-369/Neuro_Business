@@ -1,0 +1,62 @@
+import { Link } from "react-router-dom";
+function Forgot(){
+  return (<>
+    <section className="bg-white ">
+      
+      
+        <div className="container  flex items-center justify-center min-h-screen px-6 mx-auto">
+          
+            <form className="w-full shadow-xs shadow-gray-600 border border-stone-200 bg-amber-50/30 p-9 rounded-4xl max-w-md">  
+              <div className="flex flex-row justify-between items-center mt-3">
+                <h1 className=" text-xl font-semibold text-gray-800 capitalize sm:text-2xl">Forgot password</h1>
+                  <div className="flex justify-center items-center text-2xl">
+                    <Link to='/signup'><button className="bg-white text-center w-24 rounded-2xl h-14 relative text-black text-[15px] font-semibold group" type="button">Go Back
+                    <div className="bg-amber-100 rounded-xl h-[39px] w-1/3 flex items-center justify-center absolute -left-6 top-[9px] group-hover:w-[120px] group-active:w-[120px] z-10 duration-300">
+                      <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 1024 1024"
+                            height="25px"
+                            width="25px"
+                          >
+                      <path
+                              d="M224 480h640a32 32 0 1 1 0 64H224a32 32 0 0 1 0-64z"
+                              fill="#000000"
+                            ></path>
+                            <path
+                              d="m237.248 512 265.408 265.344a32 32 0 0 1-45.312 45.312l-288-288a32 32 0 0 1 0-45.312l288-288a32 32 0 1 1 45.312 45.312L237.248 512z"
+                              fill="#000000"
+                            ></path>
+                          </svg>
+                        </div>
+                        <p className="translate-x-0"></p>
+                    </button>
+                        </Link>
+                  </div>
+              </div>
+              
+    
+                <div className="relative flex items-center mt-8">
+                    <span className="absolute">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 mx-3 text-gray-300 " fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                    </span>
+    
+                    <input autoFocus='true' type="email" className=" duration-400 block w-full py-3 text-gray-700 bg-white border rounded-lg px-11 focus:border-amber-100  focus:ring-amber-200 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Email address"></input>
+                </div>
+    
+                <div className="relative flex items-center mt-4">
+                    <p className="text-sm">We'll send an OTP to above email</p>
+                </div>
+    
+                <div className="mt-6">
+                    <button className="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-gray-600 rounded-lg hover:bg-emerald-600 focus:outline-none focus:ring focus:ring-green-300 focus:ring-opacity-50">Send OTP</button>
+                </div>
+            </form>
+        </div>
+        
+    </section>
+  </>);
+}
+
+export default Forgot;

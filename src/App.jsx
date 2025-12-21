@@ -4,6 +4,7 @@ import Layout from "./Components/Layout/Layout";
 import { BrowserRouter,Routes,Route } from "react-router-dom";
 import SignUp from "./Pages/SignUp";
 import Forgot from "./Pages/Forgot";
+import Upload from "./Pages/Upload";
 function App(){
   return (<>
     
@@ -14,6 +15,7 @@ function App(){
             <Route path='/' element={<Home/>} />
             <Route path='/signup' element={<SignUp/>} />
             <Route path='/forgot' element={<Forgot/>}/>
+            <Route path='/upload' element={<Upload/>}/>
           </Routes>
           
         </Layout>

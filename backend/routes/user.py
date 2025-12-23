@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException
 from models import UserCreate
-from database import users
+# from database import users
 from passlib.context import CryptContext
 
 router=APIRouter()

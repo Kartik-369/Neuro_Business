@@ -1,5 +1,32 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
+
+const login = async () => {
+  const formData = {
+    email: email,
+    password: password
+  }
+
+  try {
+    const response = await fetch('http://127.0.0.1:8000/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData),
+    });
+    const data = await response.json();
+  
+    if (response.ok) {
+      alert('Successfull')
+    }
+    else {
+      alert('error')
+    }
+  }
+  catch (error){
+    alert(error)
+  }
+};
+
 function SignUp(){
   const [Login, isLogin] = useState(false);
   return (<>

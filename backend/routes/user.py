@@ -1,12 +1,26 @@
 from warnings import deprecated
 from fastapi import APIRouter,HTTPException
-from models import UserCreate
+from models import UserLogin,UserCreate
 from database import users_collection
 from passlib.context import CryptContext
 
 router=APIRouter()
 
 pwd_context=CryptContext(schemes=["bcrypt"],deprecated='auto')
+
+@router.post('/login')
+async def user_login(user:UserLogin):
+    user_record=await users_collection.find_one({'email':user.email})
+    
+    if not user_record:
+        raise HTTPException(status_code=400,detail='auto')
+        
+    correct_password=pwd_context.verify(user.password,user_record['password'])
+    
+    if not correct_password:
+        raise HTTPException(status_code=400,detail='auto')
+        
+    return {'status':'Logged in successfully','email':user.email}
 
 @router.post('/register')
 async def register_users(user:UserCreate):

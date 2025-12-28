@@ -1,34 +1,53 @@
-import { Link } from "react-router-dom";
+import { useNavigate,Link } from "react-router-dom";
 import { useState } from "react";
-
-const login = async () => {
-  const formData = {
-    email: email,
-    password: password
-  }
-
-  try {
-    const response = await fetch('http://127.0.0.1:8000/login', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(formData),
-    });
-    const data = await response.json();
-  
-    if (response.ok) {
-      alert('Successfull')
-    }
-    else {
-      alert('error')
-    }
-  }
-  catch (error){
-    alert(error)
-  }
-};
 
 function SignUp(){
   const [Login, isLogin] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  
+  const navigate = useNavigate();
+  
+  const manageAuth=async()=>{
+    if(!email||!password){
+      alert("Please fill in the details")
+      return;
+    }
+    const end = Login ? '/login' : '/register';
+    const url = `http://127.0.0.1:8000${end}`;
+    
+    try {
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email:email,
+          password:password
+        }),
+      });
+      const data = await response.json();
+    
+      if (response.ok) {
+        alert('Valid', data);
+        if(Login){
+          localStorage.setItem('token', data.token);
+          alert('Login successfull');
+          navigate('/upload')
+        }
+        else{
+          alert('Registered Please Login in again')
+          isLogin(true)
+        }
+      }
+      else {
+        alert('error',data)
+      }
+    }
+    catch (error){
+      alert(error)
+    }
+  }
+  
   return (<>
   <section className="bg-white ">
     
@@ -70,7 +89,7 @@ function SignUp(){
                       </svg>
                   </span>
   
-                  <input type="email" autoCapitalize="true" autoFocus='true' className=" duration-400 block w-full py-3 text-gray-700 bg-white border rounded-lg px-11 focus:border-amber-100  focus:ring-amber-200 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Email address"></input>
+            <input type="email" value={email} onChange={(e) => { setEmail(e.target.value) }} autoCapitalize="true" autoFocus='true' className=" duration-400 block w-full py-3 text-gray-700 bg-white border rounded-lg px-11 focus:border-amber-100  focus:ring-amber-200 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Email address"></input>
               </div>
   
               <div className="relative flex items-center mt-4">
@@ -80,14 +99,14 @@ function SignUp(){
                       </svg>
                   </span>
   
-                  <input type="password" className="duration-400 block w-full px-10 py-3 text-gray-700 bg-white border rounded-lg  focus:border-amber-100  focus:ring-amber-200 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Password"/>
+            <input type="password" value={password} onChange={(e) => { setPassword(e.target.value) }} className="duration-400 block w-full px-10 py-3 text-gray-700 bg-white border rounded-lg  focus:border-amber-100  focus:ring-amber-200 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Password"/>
               </div>
   
               <div className="mt-6">
-                  <Link to='/upload' type="submit" className="w-full block text-center px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-gray-600 rounded-lg hover:bg-emerald-600 focus:outline-none focus:ring focus:ring-green-300 focus:ring-opacity-50">
+                  <button onClick={manageAuth} type="button" className="w-full block text-center px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-gray-600 rounded-lg hover:bg-emerald-600 focus:outline-none focus:ring focus:ring-green-300 focus:ring-opacity-50">
                       {Login?'Sign In':'Sign Up'}
-                  </Link>
-                  <Link to='/forgot' className="w-fit"><p className="mt-2 text-sm underline inline-block text-center">{Login?'forgot password?':''}</p></Link>
+                  </button>
+                  <button to='/forgot' className="w-fit"><p className="mt-2 text-sm underline inline-block text-center">{Login?'forgot password?':''}</p></button>
                   <p className="mt-1 text-center text-gray-600 ">{Login?'or':'Or continue'}</p>
   
                   <a href="" className=" hover:text-black active:text-black flex items-center justify-center px-6 py-3 mt-4 text-gray-600 transition-colors duration-300 transform border rounded-lg  hover:bg-amber-100">
@@ -98,13 +117,13 @@ function SignUp(){
                           <path d="M36.3425 16.7358H35V16.6667H20V23.3333H29.4192C28.7592 25.1975 27.56 26.805 26.0133 27.9758C26.0142 27.975 26.015 27.975 26.0158 27.9742L31.1742 32.3392C30.8092 32.6708 36.6667 28.3333 36.6667 20C36.6667 18.8825 36.5517 17.7917 36.3425 16.7358Z" fill="#1976D2" />
                       </svg>
   
-                      <Link to='' className="mx-2 block">{Login?'Sign In':'Sign Up'}with Google</Link>
+                      <button to='' className="mx-2 block">{Login?'Sign In':'Sign Up'} with Google</button>
                   </a>
   
                   <div className="mt-6 text-center ">
-                    <Link className="text-sm text-gray-600 hover:underline" onClick={()=>isLogin(!Login)}>
-                        {Login?'Create an account':'Already have an account?'}<h1 className="text-gray-900">{Login?'Sign Up':'Sign In'}</h1>
-                      </Link>
+              <a className="text-sm text-gray-600 hover:underline" onClick={() => { isLogin(!Login)}}>
+                        {Login?'Create an account:':'Already have an account?'}<span className="text-gray-900">{Login?' Sign Up':' Sign In'}</span>
+                      </a>
                   </div>
               </div>
               

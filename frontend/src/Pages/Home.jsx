@@ -97,17 +97,17 @@ function Home(){
               <span className="text-sm md:text-5xl">Feature3</span>
             </div>
       
-            <div className="pointer-events-auto flex max-[1130px]:bg-black/25 items-center justify-center gap-2 bg-black/40 text-white font-semibold backdrop-blur-md rounded-2xl border border-white/10 p-[13.2px] min-[1130px]:p-4 max-[768px]:w-[72%] min-[1130px]:absolute min-[1130px]:top-[15%] min-[1130px]:right-[15%]">
+            <div className="pointer-events-auto flex max-[1130px]:bg-black/25 items-center justify-center gap-2 bg-black/40 text-white font-semibold backdrop-blur-md rounded-2xl border border-white/10 p-[13.2px] min-[1130px]:p-4 max-[768px]:w-[72%] min-[1130px]:absolute min-[1130px]:top-[15%] min-[1130px]:right-[18%]">
               <span className="text-xl md:text-5xl">Icon</span>
               <span className="text-sm md:text-5xl">Feature4</span>
             </div>
       
-            <div className="pointer-events-auto flex max-[1130px]:bg-black/25 items-center justify-center gap-2 bg-black/40 text-white font-semibold backdrop-blur-md rounded-2xl border border-white/10 p-[13.2px] min-[1130px]:p-4 max-[768px]:w-[72%] min-[1130px]:absolute min-[1130px]:top-[50%] min-[1130px]:right-[12%] min-[1130px]:-translate-y-1/2">
+            <div className="pointer-events-auto flex max-[1130px]:bg-black/25 items-center justify-center gap-2 bg-black/40 text-white font-semibold backdrop-blur-md rounded-2xl border border-white/10 p-[13.2px] min-[1130px]:p-4 max-[768px]:w-[72%] min-[1130px]:absolute min-[1130px]:top-[50%] min-[1130px]:right-[15%] min-[1130px]:-translate-y-1/2">
               <span className="text-xl md:text-5xl">Icon</span>
               <span className="text-sm md:text-5xl">Feature5</span>
             </div>
       
-            <div className="pointer-events-auto flex max-[1130px]:bg-black/25 items-center justify-center gap-2 bg-black/40 text-white font-semibold backdrop-blur-md rounded-2xl border border-white/10 p-[13.2px] min-[1130px]:p-4 max-[768px]:w-[72%] min-[1130px]:absolute min-[1130px]:bottom-[15%] min-[1130px]:right-[15%]">
+            <div className="pointer-events-auto flex max-[1130px]:bg-black/25 items-center justify-center gap-2 bg-black/40 text-white font-semibold backdrop-blur-md rounded-2xl border border-white/10 p-[13.2px] min-[1130px]:p-4 max-[768px]:w-[72%] min-[1130px]:absolute min-[1130px]:bottom-[15%] min-[1130px]:right-[18%]">
               <span className="text-xl md:text-5xl">Icon</span>
               <span className="text-sm md:text-5xl">Feature6</span>
             </div>

@@ -1,5 +1,13 @@
-import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 function Upload(){
+  const navigate = useNavigate();
+  useEffect(()=>{
+    const token = localStorage.getItem('token');
+    if(!token){
+      window.location.href = '/';
+    }
+  },[])
   return (<>
     <section className="bg-white ">
       

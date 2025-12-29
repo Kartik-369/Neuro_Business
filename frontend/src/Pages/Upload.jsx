@@ -1,13 +1,28 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 function Upload(){
   const navigate = useNavigate();
+  const [fileSelected, setFileSelected] = useState(null);
   useEffect(()=>{
     const token = localStorage.getItem('token');
     if(!token){
       window.location.href = '/';
     }
   },[])
+  
+  const handLgout = () => {
+    localStorage.removeItem('token')
+    navigate('/')
+  };
+  
+  const handUpld=async()=>{
+    if(!fileSelected){
+      alert('selec file first');
+      return;
+    }
+  }
+  
+  
   return (<>
     <section className="bg-white ">
       

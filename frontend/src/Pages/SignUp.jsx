@@ -26,6 +26,13 @@ function SignUp(){
         }),
       });
       const data = await response.json();
+
+      if(Login){
+        localStorage.setItem('token',data.token);
+        localStorage.setItem('userEmail',email);
+        alert('Login successfull');
+        navigate('/upload');
+      }
     
       if (response.ok) {
         alert('Valid', data);

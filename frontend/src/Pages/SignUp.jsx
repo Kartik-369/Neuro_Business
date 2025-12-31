@@ -38,6 +38,7 @@ function SignUp(){
         alert('Valid', data);
         if(Login){
           localStorage.setItem('token', data.token);
+          localStorage.setItem('userEmail',email);
           alert('Login successfull');
           navigate('/upload')
         }
@@ -47,7 +48,7 @@ function SignUp(){
         }
       }
       else {
-        alert('error',data)
+        alert('error'+data.detail)
       }
     }
     catch (error){

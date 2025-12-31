@@ -3,6 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 function Upload(){
   const navigate = useNavigate();
   const [fileSelected, setFileSelected] = useState(null);
+  const userEmail=localStorage.getItem('userEmail') || 'User'
+
   useEffect(()=>{
     const token = localStorage.getItem('token');
     if(!token){
@@ -12,6 +14,7 @@ function Upload(){
   
   const handLgout = () => {
     localStorage.removeItem('token')
+    localStorage.removeItem('userEmail')
     navigate('/')
   };
   
@@ -20,9 +23,45 @@ function Upload(){
       alert('selec file first');
       return;
     }
+    const formData=new formData();
+    formData.append('file',fileSelected)
+    try{
+      const response=await fetch('http://127.0.0.1:8000/upload',{
+        method:'POST',
+        body:formData,
+      });
+      const data=await response.json();
+      if(response.ok){
+        alert(`file received:${data.filename}`)
+      }
+      else{
+        alert('error')
+      }
+    }
+    catch(e){
+      alert('error',e)
+    }
   }
   
-  
+  const handFileChng=async(event)=>{
+    const file=event.target.files[0]
+    if(file){
+      setFileSelected(file);
+    }
+  }
+
+  const clrFile=()=>{
+    setFileSelected(null);
+  }
+  const formatBytes=(bytes,decimals=2)=>{
+    if(!bytes) return '0';
+    const k=1024;
+    const dm=decimals<0?0:decimals;
+    const sizes=['Bytes','kb','mb','gb'];
+    const i=Math.floor(Math.log(bytes)/Math.log(k))
+    return `${parseFloat((bytes/Math.pow(k,i)).toFixed(dm))} ${sizes[i]}`;
+  }
+
   return (<>
     <section className="bg-white ">
       

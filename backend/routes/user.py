@@ -20,7 +20,7 @@ async def user_login(user:UserLogin):
     if not correct_password:
         raise HTTPException(status_code=400,detail='auto')
         
-    return {'status':'Logged in successfully','email':user.email, token:'simple-access-token-123'}
+    return {'status':'Logged in successfully','email':user.email, 'token':'simple-access-token-123'}
 
 @router.post('/register')
 async def register_users(user:UserCreate):

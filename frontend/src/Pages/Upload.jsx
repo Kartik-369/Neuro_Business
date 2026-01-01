@@ -18,12 +18,13 @@ function Upload(){
     navigate('/')
   };
   
-  const handUpld=async()=>{
+  const handUpld=async(e)=>{
+    e.preventDefault()
     if(!fileSelected){
       alert('selec file first');
       return;
     }
-    const formData=new formData();
+    const formData=new FormData();
     formData.append('file',fileSelected)
     try{
       const response=await fetch('http://127.0.0.1:8000/upload',{
@@ -104,15 +105,15 @@ function Upload(){
                         </svg>
                     </span>
     
-                    <input autoFocus='true' type="file" className=" duration-400 block w-full py-3 text-gray-700 bg-white border rounded-lg px-11 focus:border-amber-100  focus:ring-amber-200 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Email address"></input>
+                    <input autoFocus='true' type="file" onChange={handFileChng} className=" duration-400 block w-full py-3 text-gray-700 bg-white border rounded-lg px-11 focus:border-amber-100  focus:ring-amber-200 focus:outline-none focus:ring focus:ring-opacity-40" />
                 </div>
     
                 <div className="relative flex items-center mt-4">
-                    <p className="text-sm text-zinc-600">Supported:csv, excel etc.</p>
+                    <p className="text-sm text-zinc-600">{fileSelected?`Selected: ${fileSelected.name}`:"Supported: csv, excel, etc."}</p>
                 </div>
     
                 <div className="mt-6">
-                    <button className="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-gray-600 rounded-lg hover:bg-emerald-600 focus:outline-none focus:ring focus:ring-green-300 focus:ring-opacity-50">Upload</button>
+                    <button onClick={handUpld} className="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-gray-600 rounded-lg hover:bg-emerald-600 focus:outline-none focus:ring focus:ring-green-300 focus:ring-opacity-50">Upload</button>
                 </div>
             </form>
         </div>

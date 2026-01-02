@@ -27,7 +27,7 @@ function Navbar(){
           
         
         
-    <button className="min-[1100px]:hidden transition-colors duration-700 text-2xl" onClick={()=>setOpen(!isOpen)}>=</button>
+    <button className="min-[1100px]:hidden transition-colors duration-700 text-2xl" onClick={()=>setOpen(!isOpen)}><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className='w-6 h-6' fill='currentColor'> <g> <path fill="none" d="M0 0h24v24H0z"/> <path d="M18 18v2H6v-2h12zm3-7v2H3v-2h18zm-3-7v2H6V4h12z"/> </g> </svg></button>
     
       {/* <IconButton aria-label="Example">
         <FontAwesomeIcon icon= />
@@ -40,7 +40,7 @@ function Navbar(){
     
       <div className={`min-[1100px]:hidden z-1 border  border-gray-300 absolute top-full right-0 bg-white h-[calc(100dvh-100%)] overflow-y-auto min-w-80 transform transition-transform ease-in-out duration-400  ${isOpen?'translate-x-0':'translate-x-full'} flex flex-col`}>
         <div className="flex justify-end pr-6 pt-6 ">
-        <button className="min-[1100px]:hidden transition-colors duration-700" onClick={()=>setOpen(!isOpen)}>X</button>
+        <button className="min-[1100px]:hidden transition-colors duration-700" onClick={()=>setOpen(!isOpen)}><svg xmlns="http://www.w3.org/2000/svg" className='w-5 h-5' fill='currentColor' viewBox="0 0 384 512"><path d="M376.6 84.5c11.3-13.6 9.5-33.8-4.1-45.1s-33.8-9.5-45.1 4.1L192 206 56.6 43.5C45.3 29.9 25.1 28.1 11.5 39.4S-3.9 70.9 7.4 84.5L150.3 256 7.4 427.5c-11.3 13.6-9.5 33.8 4.1 45.1s33.8 9.5 45.1-4.1L192 306 327.4 468.5c11.3 13.6 31.5 15.4 45.1 4.1s15.4-31.5 4.1-45.1L233.7 256 376.6 84.5z"/></svg></button>
         </div>
         <ul className=" flex flex-col space-y-3 p-6 text-[16.2px]  font-canela tracking-wide ">
           <li className="border-b border-stone-300">

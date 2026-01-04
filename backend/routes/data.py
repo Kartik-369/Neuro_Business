@@ -2,11 +2,18 @@ from ast import Await, Return
 from fastapi import APIRouter,UploadFile,File,HTTPException
 import pandas as pd
 import os
+import shutil
 
 router = APIRouter()
 
 @router.post('/upload')
 async def upload_file(file:UploadFile=File(...)):
+
+    os.makedirs('upload_files',exist_ok=True)
+    file_location=f"upload_files/{file.filename}"
+    with open(file_location,'wb') as buffer:
+        shutil.copyfileobj(file.file,buffer)
+
     content= await file.read()
     
     return{
@@ -23,7 +30,7 @@ async def get_cols():
     if not os.path.exists(folder):
         return {'error':'no file upload'}
 
-    file = os.listdir(folder)
+    files = os.listdir(folder)
     if not files:
         return {'error':'no files found'}
 
@@ -31,9 +38,9 @@ async def get_cols():
 
     try:
         if latest_file.endswith('.csv'):
-            df=pd.read_csv('latest_file')
+            df=pd.read_csv(latest_file)
         elif latest_file.endswith('.xlsx'):
-            df=pd.read_excel('latest_file')
+            df=pd.read_excel(latest_file)
         else:
             return {'error':'file not supported'}
 

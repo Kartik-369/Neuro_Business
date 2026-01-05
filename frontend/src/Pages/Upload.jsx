@@ -149,6 +149,7 @@ function Upload(){
                     </div>
                   </div>
                   )}
+                {columns.length>0 && ()}
             </form>
         </div>
         

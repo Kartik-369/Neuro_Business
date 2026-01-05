@@ -60,6 +60,12 @@ function Upload(){
     }
   }
 
+  const toggleCol=(colName)=>{
+    setSelectedCol((prev)=>({
+      ...prev,[colName]:!prev[colName],
+    }));
+  };
+
   const clrFile=()=>{
     setFileSelected(null);
   }
@@ -125,7 +131,24 @@ function Upload(){
                     <button onClick={handUpld} className="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-gray-600 rounded-lg hover:bg-emerald-600 focus:outline-none focus:ring focus:ring-green-300 focus:ring-opacity-50">Upload</button>
                 </div>
 
-                {columns.length>0 && ()}
+                {col.length>0 && (
+                  <div className='mt-8 animate-fade-in-up'>
+                    <h3 className='text-md semibold text-gray-700 mb-3'>Select Columns to Analyze:</h3>
+                    <div className="grid grid-cols-2 gap-3 max-h-48 overflow-y-auto p-2 border rounded-lg bg-gray-50">
+                        {col.map((col) => (
+                            <label key={col} className="flex items-center space-x-2 cursor-pointer">
+                                <input 
+                                    type="checkbox" 
+                                    className="w-4 h-4 text-indigo-600 rounded focus:ring-indigo-500"
+                                    checked={!!selectedCol[col]}
+                                    onChange={() => toggleColumn(col)}
+                                />
+                                <span className="text-sm text-gray-700 truncate">{col}</span>
+                            </label>
+                        ))}
+                    </div>
+                  </div>
+                  )}
             </form>
         </div>
         

@@ -3,6 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 function Upload(){
   const navigate = useNavigate();
   const [fileSelected, setFileSelected] = useState(null);
+  const [col,setCols]=useState([]);
+  const [selectedCol,setSelectedCol]=useState({});
   const userEmail=localStorage.getItem('userEmail') || 'User'
 
   useEffect(()=>{
@@ -33,7 +35,13 @@ function Upload(){
       });
       const data=await response.json();
       if(response.ok){
-        alert(`file received:${data.filename}`)
+        const colResp=await fetch('http://127.0.0.1:8000/columns');
+        const colData=await colResp.json();
+        alert(`file received:${data.filename}`) 
+        if(colData.columns){
+          setCols(colData.columns);
+          alert('select cols from below');
+        }
       }
       else{
         alert('error')
@@ -48,6 +56,7 @@ function Upload(){
     const file=event.target.files[0]
     if(file){
       setFileSelected(file);
+      setCols([]);
     }
   }
 
@@ -115,6 +124,8 @@ function Upload(){
                 <div className="mt-6">
                     <button onClick={handUpld} className="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-gray-600 rounded-lg hover:bg-emerald-600 focus:outline-none focus:ring focus:ring-green-300 focus:ring-opacity-50">Upload</button>
                 </div>
+
+                {columns.length>0 && ()}
             </form>
         </div>
         

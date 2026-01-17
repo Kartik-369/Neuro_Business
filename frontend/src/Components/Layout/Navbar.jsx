@@ -15,11 +15,14 @@ function Navbar() {
         <div className="hidden absolute font-bold left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center min-[1100px]:flex space-x-2 lg:space-x-6 text-xl font-serif tracking-wider">
           {['Platform', 'Pricing', 'Resources'].map((text) => (
             <div className="group relative" key={text}>
-              <Button color="inherit" className="text-black px-2 py-2 border-b-2 border-transparent group-hover:border-black group-hover:-translate-y-1 !transition-all duration-200 ease-in-out normal-case">{text}</Button>
+              <Button color="inherit" className="group-hover:-translate-y-1 !transition-all duration-300 ease-in-out">{text}</Button>
+              <span className="absolute left-0 bottom-0 w-full h-[2px] opacity-0 group-hover:opacity-100 bg-black transition-all duration-300"></span>
             </div>
           ))}
           <div className="group relative">
-            <Button href="howitworks" color="inherit" className="text-black px-3 py-2 border-b-2 border-transparent group-hover:border-black group-hover:-translate-y-1 !transition-all duration-200 ease-in-out normal-case">How it Works</Button>
+            <Button href="howitworks" color="inherit" className="group-hover:-translate-y-1 !transition-all duration-300 ease-in-out">How it Works</Button>
+            <span className="absolute left-0 bottom-0 w-full h-[2px] opacity-0 group-hover:opacity-100 bg-black transition-all duration-300"></span>
+
           </div>
         </div>
 
@@ -30,20 +33,18 @@ function Navbar() {
                 Signup
               </Button>
             </Link>
-            <Button color="inherit" sx={{ px: 3, py: 1, borderRadius: 8, textTransform: 'none', border: '1px solid #e5e7eb', color: 'black', '&:hover': { bgcolor: 'black', color: 'white' } }}>
+            <Button color="inherit" sx={{ px: 3, py: 1, borderRadius: 8, textTransform: 'none', border: '1px solid #e5e7eb', color: 'white',bgcolor:'black'}}>
               Book a Demo
             </Button>
           </div>
         </div>
 
-        {/* Hamburger Icon - Added !hidden to force override MUI default display */}
         <Button color="inherit" className="min-[1100px]:!hidden !text-inherit !min-w-0 !p-0" onClick={() => setOpen(!isOpen)}><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className='w-6 h-6' fill='currentColor'> <g> <path fill="none" d="M0 0h24v24H0z" /> <path d="M18 18v2H6v-2h12zm3-7v2H3v-2h18zm-3-7v2H6V4h12z" /> </g> </svg></Button>
 
         <div className={` min-[1100px]:hidden fixed inset-0 bg-black/15 transition-opacity duration-500 ease-in-out ${isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`} onClick={() => setOpen(false)}></div>
 
         <div className={`min-[1100px]:hidden z-1 border border-gray-300 absolute top-full right-0 bg-white h-[calc(100dvh-100%)] overflow-y-auto min-w-80 transform transition-transform ease-in-out duration-400 ${isOpen ? 'translate-x-0' : 'translate-x-full'} flex flex-col`}>
           <div className="flex justify-end pr-6 pt-6 ">
-            {/* Close Icon - Added !hidden here too */}
             <Button color="inherit" className="min-[1100px]:!hidden !text-inherit !min-w-0 !p-0" onClick={() => setOpen(!isOpen)}><svg xmlns="http://www.w3.org/2000/svg" className='w-5 h-5' fill='currentColor' viewBox="0 0 384 512"><path d="M376.6 84.5c11.3-13.6 9.5-33.8-4.1-45.1s-33.8-9.5-45.1 4.1L192 206 56.6 43.5C45.3 29.9 25.1 28.1 11.5 39.4S-3.9 70.9 7.4 84.5L150.3 256 7.4 427.5c-11.3 13.6-9.5 33.8 4.1 45.1s33.8 9.5 45.1-4.1L192 306 327.4 468.5c11.3 13.6 31.5 15.4 45.1 4.1s15.4-31.5 4.1-45.1L233.7 256 376.6 84.5z" /></svg></Button>
           </div>
           <ul className="flex flex-col space-y-3 p-6 text-[16.2px] font-canela tracking-wide">

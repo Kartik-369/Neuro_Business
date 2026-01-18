@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { useLayoutEffect } from 'react'
 import gsap from 'gsap'
+import {Button} from '@mui/material';
 import HowItWorks from "../Components/HowItWorks";
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
@@ -50,12 +51,9 @@ function Home(){
         <p className=" text-gray-600 max-w-2xl font-semibold lg:text-2xl text-[16px]  p-6"><span className="font-bold text-gray-900 underline decoration-emerald-500 underline-offset-4">
             NeuroBusiness
           </span>{" "}Analyzes your sales data and transaction history to flag churn risks.</p>
-        
         <div className="flex max-[1100px]:flex-col max-[1100px]:space-y-3 p-3 px-auto justify-center items-center flex-row mt-auto gap-6 lg:text-xl lg:tracking-wider lg:font-light">
-          <button className="active:bg-black w-auto px-9 text-center bg-stone-800 rounded-4xl whitespace-nowrap   text-white p-2  hover:bg-black transition">Book a Personal Demo</button>
-          <button className="active:bg-black active:text-white w-auto px-9   text-center bg-white rounded-4xl whitespace-nowrap  text-black border-[1.5px] p-2  hover:bg-black hover:text-white transition">Start Free Trial</button>
-        
-      
+            <Button className=" !rounded-4xl !bg-stone-800 !text-white !px-9 !py-2 hover:!bg-black transition">Book a Personal Demo</Button>
+            <Button className=" !rounded-4xl !bg-white !text-black !border-[1.5px] !px-9 !py-2 hover:!bg-black hover:!text-white transition">Start Free Trial</Button>
         </div>
       </div>
       

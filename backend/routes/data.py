@@ -1,6 +1,6 @@
 from ast import Await, Return
 from fastapi import APIRouter,UploadFile,File,HTTPException
-import pandas as pd
+# import pandas as pd
 import os
 import shutil
 

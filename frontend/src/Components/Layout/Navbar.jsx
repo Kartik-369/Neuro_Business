@@ -7,10 +7,12 @@ function Navbar() {
   return (
     <>
       <nav className="fixed top-0 left-0 w-full z-100 bg-stone/30 backdrop-blur-sm justify-between p-3 items-center font-roslindale flex shadow-2xs max-w-screen">
+        <Link to='/'>
         <span className="text-2xl min-[1100px]:text-4xl tracking-tight font-bold shrink-0 z-10">
           NeuroBusiness
           <p className="text-[14px] font-sans font-semibold tracking-tighter hidden min-[1100px]:flex">AI Driven SaaS for Business Insights</p>
         </span>
+        </Link>
 
         <div className="hidden absolute font-bold left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center min-[1100px]:flex space-x-2 lg:space-x-6 text-xl font-serif tracking-wider">
           {['Platform', 'Pricing', 'Resources'].map((text) => (

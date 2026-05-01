@@ -10,9 +10,5 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
     <App />
   </StrictMode>
-<<<<<<< HEAD
 </StyledEngineProvider>
-=======
-</StyledEngineProvider>,
->>>>>>> 40ed743 (Improved Navbar: Added MUI components)
 )

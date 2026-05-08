@@ -8,53 +8,60 @@ function SignUp(){
   
   const navigate = useNavigate();
   
-  const manageAuth=async()=>{
-    if(!email||!password){
-      alert("Please fill in the details")
-      return;
-    }
-    const end = Login ? '/login' : '/register';
-    const url = `http://127.0.0.1:8000${end}`;
-    
-    try {
-      const response = await fetch(url, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          email:email,
-          password:password
-        }),
-      });
-      const data = await response.json();
-
-      if(Login){
-        localStorage.setItem('token',data.token);
-        localStorage.setItem('userEmail',email);
-        alert('Login successfull');
-        navigate('/upload');
+  const manageAuth = async () => {
+      if (!email || !password) {
+        alert("Please fill in the details");
+        return;
       }
-    
-      if (response.ok) {
-        alert('Valid', data);
-        if(Login){
-          localStorage.setItem('token', data.token);
-          localStorage.setItem('userEmail',email);
-          alert('Login successfull');
-          navigate('/upload')
+  
+      const end = Login ? '/login' : '/register';
+      const url = `http://127.0.0.1:8000${end}`;
+  
+      try {
+        let response;
+  
+        if (Login) {
+          const formData = new URLSearchParams();
+          formData.append('username', email);
+          formData.append('password', password);
+  
+          response = await fetch(url, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: formData.toString(),
+          });
+  
+        } else {
+          response = await fetch(url, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              email: email,
+              password: password,
+            }),
+          });
         }
-        else{
-          alert('Registered Please Login in again')
-          isLogin(true)
+  
+        const data = await response.json();
+  
+        if (response.ok) {
+          if (Login) {
+            localStorage.setItem('token', data.access_token);
+            localStorage.setItem('userEmail', email);
+            alert('Login successful!');
+            navigate('/upload');
+          } else {
+            alert('Registered! Please Sign In.');
+            isLogin(true);
+          }
+        } else {
+          alert('Error: ' + (data.detail || data.message));
         }
-      }
-      else {
-        alert('error'+data.detail)
+      } catch (error) {
+        alert("Network Error: " + error);
       }
     }
-    catch (error){
-      alert(error)
-    }
-  }
+  
   
   return (<>
   <section className="bg-white ">

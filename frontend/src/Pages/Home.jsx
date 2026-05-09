@@ -4,6 +4,7 @@ import gsap from 'gsap'
 import {Button} from '@mui/material';
 import HowItWorks from "../Components/HowItWorks";
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { Link } from "react-router-dom";
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -52,8 +53,8 @@ function Home(){
             NeuroBusiness
           </span>{" "}Analyzes your sales data and transaction history to flag churn risks.</p>
         <div className="flex max-[1100px]:flex-col max-[1100px]:space-y-3 p-3 px-auto justify-center items-center flex-row mt-auto gap-6 lg:text-xl lg:tracking-wider lg:font-light">
-            <Button className=" !rounded-4xl !bg-stone-800 !text-white !px-9 !py-2 hover:!bg-black transition">Book a Personal Demo</Button>
-            <Button className=" !rounded-4xl !bg-white !text-black !border-[1.5px] !px-9 !py-2 hover:!bg-black hover:!text-white transition">Start Free Trial</Button>
+            <Link to='https://github.com/Kartik-369/Neuro_Business'><Button className=" !rounded-4xl !bg-stone-800 !text-white !px-9 !py-2 hover:!bg-black transition">View Github</Button></Link>
+            <Link to='/signup'><Button className=" !rounded-4xl !bg-white !text-black !border-[1.5px] !px-9 !py-2 hover:!bg-black hover:!text-white transition">Start Predicting</Button></Link>
         </div>
       </div>
       

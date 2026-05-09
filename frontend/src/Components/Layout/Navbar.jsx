@@ -42,7 +42,7 @@ function Navbar() {
         </Link>
 
         <div className="hidden absolute font-bold left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center min-[1100px]:flex space-x-2 lg:space-x-6 text-xl font-serif tracking-wider">
-          {['Platform', 'Pricing', 'Resources'].map((text) => (
+          {['Platform', 'Resources'].map((text) => (
             <div className="group relative" key={text}>
               <Button color="inherit" className="text-black px-2 py-2 border-b-2 border-transparent group-hover:border-black group-hover:-translate-y-1 !transition-all duration-200 ease-in-out normal-case">{text}</Button>
             </div>

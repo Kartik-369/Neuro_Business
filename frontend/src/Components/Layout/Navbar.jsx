@@ -1,19 +1,31 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from '@mui/material';
+import { WindPower } from "@mui/icons-material";
 
 function Navbar() {
   const [isOpen, setOpen] = useState(false);
   const navigate = useNavigate();
   
-  const token = localStorage.getItem('token');
-  const userEmail = localStorage.getItem('userEmail');
+  const [token,setToken] = localStorage.getItem('token');
+  const [userEmail,setUserEmail] = localStorage.getItem('userEmail');
 
+  useEffect(() => {
+    const handleAuthChange=()=>{
+      localStorage.removeItem('token');
+      localStorage.removeItem('userEmail');
+    };
+    window.addEventListener('auth', handleAuthChange);
+    return()=>window.removeEventListener('authChange', handleAuthChange);
+  }, []);
   const handleLogout = () => {
-    localStorage.removeItem('token');
-    localStorage.removeItem('userEmail');
+    localStorage.removeItem('token')
+    localStorage.removeItem('userEmail')
+    setToken(null)
+    setUserEmail(null)
+    
     navigate('/');
-  };
+  }
 
   return (
     <>

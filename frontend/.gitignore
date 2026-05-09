@@ -22,3 +22,17 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Python
+**/__pycache__/
+*.pyc
+.env
+
+# JavaScript / React
+**/node_modules/
+**/dist/
+frontend/package-lock.json
+
+# IDEs
+.idea/
+.vscode/

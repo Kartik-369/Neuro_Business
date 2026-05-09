@@ -3,7 +3,6 @@ from contextlib import asynccontextmanager
 from database import db_connec
 from routes import user
 from fastapi.middleware.cors import CORSMiddleware
-from routes import user
 from routes import data
 
 @asynccontextmanager

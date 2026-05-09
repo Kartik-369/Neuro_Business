@@ -1,15 +1,24 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from '@mui/material';
 
 function Navbar() {
   const [isOpen, setOpen] = useState(false);
+  const navigate = useNavigate();
+  
+  const token = localStorage.getItem('token');
+  const userEmail = localStorage.getItem('userEmail');
+
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('userEmail');
+    navigate('/');
+  };
 
   return (
     <>
       <nav className="fixed top-0 left-0 w-full z-100 bg-stone/30 backdrop-blur-sm justify-between p-3 items-center font-roslindale flex shadow-2xs max-w-screen">
         
-        {/* Logo Section */}
         <Link to='/'>
           <span className="text-2xl min-[1100px]:text-4xl tracking-tight font-bold shrink-0 z-10">
             NeuroBusiness
@@ -17,7 +26,6 @@ function Navbar() {
           </span>
         </Link>
 
-        {/* Center Navigation (Desktop) */}
         <div className="hidden absolute font-bold left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center min-[1100px]:flex space-x-2 lg:space-x-6 text-xl font-serif tracking-wider">
           {['Platform', 'Pricing', 'Resources'].map((text) => (
             <div className="group relative" key={text}>
@@ -29,31 +37,43 @@ function Navbar() {
           </div>
         </div>
 
-        {/* Right Actions (Desktop) */}
         <div className="flex items-center gap-3 z-20">
           <div className="hidden min-[1100px]:flex items-center gap-3 text-lg font-bold tracking-wider">
-            <Link to='/signup'>
-              <Button variant="outlined" color="inherit" sx={{ px: 3, py: 1, borderRadius: 8, textTransform: 'none', border: '1px solid #e5e7eb', '&:hover': { bgcolor: 'black', color: 'white', borderColor: 'black' } }}>
-                Signup
-              </Button>
-            </Link>
-            <Button color="inherit" sx={{ px: 3, py: 1, borderRadius: 8, textTransform: 'none', border: '1px solid #e5e7eb', color: 'black', '&:hover': { bgcolor: 'black', color: 'white' } }}>
-              Book a Demo
-            </Button>
+            {token ? (
+              <>
+                <span className="text-sm font-sans font-semibold mr-2">{userEmail}</span>
+                <Link to='/upload'>
+                  <Button variant="outlined" color="inherit" sx={{ px: 3, py: 1, borderRadius: 8, textTransform: 'none', border: '1px solid #e5e7eb', '&:hover': { bgcolor: 'black', color: 'white', borderColor: 'black' } }}>
+                    Workspace
+                  </Button>
+                </Link>
+                <Button onClick={handleLogout} color="inherit" sx={{ px: 3, py: 1, borderRadius: 8, textTransform: 'none', border: '1px solid #e5e7eb', color: 'black', '&:hover': { bgcolor: 'black', color: 'white' } }}>
+                  Logout
+                </Button>
+              </>
+            ) : (
+              <>
+                <Link to='/signup'>
+                  <Button variant="outlined" color="inherit" sx={{ px: 3, py: 1, borderRadius: 8, textTransform: 'none', border: '1px solid #e5e7eb', '&:hover': { bgcolor: 'black', color: 'white', borderColor: 'black' } }}>
+                    Signup
+                  </Button>
+                </Link>
+                <Button color="inherit" sx={{ px: 3, py: 1, borderRadius: 8, textTransform: 'none', border: '1px solid #e5e7eb', color: 'black', '&:hover': { bgcolor: 'black', color: 'white' } }}>
+                  Book a Demo
+                </Button>
+              </>
+            )}
           </div>
         </div>
 
-        {/* Hamburger Icon (Mobile) */}
         <Button color="inherit" className="min-[1100px]:!hidden !text-inherit !min-w-0 !p-0" onClick={() => setOpen(!isOpen)}>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className='w-6 h-6' fill='currentColor'> 
             <g> <path fill="none" d="M0 0h24v24H0z" /> <path d="M18 18v2H6v-2h12zm3-7v2H3v-2h18zm-3-7v2H6V4h12z" /> </g> 
           </svg>
         </Button>
 
-        {/* Mobile Menu Overlay */}
         <div className={`min-[1100px]:hidden fixed inset-0 bg-black/15 transition-opacity duration-500 ease-in-out ${isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`} onClick={() => setOpen(false)}></div>
 
-        {/* Mobile Sidebar */}
         <div className={`min-[1100px]:hidden z-1 border border-gray-300 absolute top-full right-0 bg-white h-[calc(100dvh-100%)] overflow-y-auto min-w-80 transform transition-transform ease-in-out duration-400 ${isOpen ? 'translate-x-0' : 'translate-x-full'} flex flex-col`}>
           <div className="flex justify-end pr-6 pt-6">
             <Button color="inherit" className="min-[1100px]:!hidden !text-inherit !min-w-0 !p-0" onClick={() => setOpen(!isOpen)}>
@@ -70,10 +90,22 @@ function Navbar() {
           </ul>
 
           <div className="mt-auto p-6 space-y-6 text-lg tracking-wider font-bold">
-            <Link to="/signup" className="block w-full">
-              <Button fullWidth onClick={() => setOpen(false)} sx={{ borderRadius: 8, textTransform: 'none', bgcolor: '#111827', color: 'white', '&:hover': { bgcolor: 'black' } }} className="p-2">Signup</Button>
-            </Link>
-            <Button fullWidth sx={{ borderRadius: 8, textTransform: 'none', border: '1px solid #e5e7eb', color: 'black', '&:hover': { bgcolor: 'black', color: 'white' } }} className="p-2">Book a Demo</Button>
+            {token ? (
+              <>
+                <div className="block w-full text-center font-sans text-sm font-semibold mb-2">{userEmail}</div>
+                <Link to="/upload" className="block w-full">
+                  <Button fullWidth onClick={() => setOpen(false)} sx={{ borderRadius: 8, textTransform: 'none', bgcolor: '#111827', color: 'white', '&:hover': { bgcolor: 'black' } }} className="p-2">Workspace</Button>
+                </Link>
+                <Button fullWidth onClick={() => { setOpen(false); handleLogout(); }} sx={{ borderRadius: 8, textTransform: 'none', border: '1px solid #e5e7eb', color: 'black', '&:hover': { bgcolor: 'black', color: 'white' } }} className="p-2">Logout</Button>
+              </>
+            ) : (
+              <>
+                <Link to="/signup" className="block w-full">
+                  <Button fullWidth onClick={() => setOpen(false)} sx={{ borderRadius: 8, textTransform: 'none', bgcolor: '#111827', color: 'white', '&:hover': { bgcolor: 'black' } }} className="p-2">Signup</Button>
+                </Link>
+                <Button fullWidth sx={{ borderRadius: 8, textTransform: 'none', border: '1px solid #e5e7eb', color: 'black', '&:hover': { bgcolor: 'black', color: 'white' } }} className="p-2">Book a Demo</Button>
+              </>
+            )}
           </div>
         </div>
 

@@ -49,6 +49,7 @@ function SignUp(){
             localStorage.setItem('token', data.access_token);
             localStorage.setItem('userEmail', email);
             alert('Login successful!');
+            window.dispatchEvent(new Event('authChange'));
             navigate('/upload');
           } else {
             alert('Registered! Please Sign In.');

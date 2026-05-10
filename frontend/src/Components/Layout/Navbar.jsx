@@ -69,13 +69,13 @@ function Navbar() {
             ) : (
               <>
                 <Link to='/signup'>
-                  <Button variant="outlined" color="inherit" sx={{ px: 3, py: 1, borderRadius: 8, textTransform: 'none', border: '1px solid #e5e7eb', '&:hover': { bgcolor: 'black', color: 'white', borderColor: 'black' } }}>
+                  <Button variant="outlined" color="inherit" sx={{ px: 3, py: 1, borderRadius: 8, textTransform: 'none', border: '1px solid #e5e7eb', bgcolor: 'darkslategray', color: 'white', '&:hover': { bgcolor: 'black', color: 'white', borderColor: 'black' } }}>
                     Signup
                   </Button>
                 </Link>
-                <Button color="inherit" sx={{ px: 3, py: 1, borderRadius: 8, textTransform: 'none', border: '1px solid #e5e7eb', color: 'black', '&:hover': { bgcolor: 'black', color: 'white' } }}>
-                  Book a Demo
-                </Button>
+                <Link to="https://www.linkedin.com/in/kartike-padia"><Button color="inherit" sx={{ px: 3, py: 1, borderRadius: 8, textTransform: 'none', border: '1px solid #e5e7eb', color: 'black', '&:hover': { bgcolor: 'black', color: 'white' } }}>
+                  Linkedin
+                </Button></Link>
               </>
             )}
           </div>
@@ -97,7 +97,7 @@ function Navbar() {
           </div>
           
           <ul className="flex flex-col space-y-3 p-6 text-[16.2px] font-canela tracking-wide">
-            {['Platform', 'Pricing', 'How it Works', 'Resources'].map((item) => (
+            {['Platform', 'How it Works', 'Resources'].map((item) => (
               <li key={item} className="border-b border-stone-300">
                 <Button fullWidth color="inherit" className="!justify-start !px-3 !py-2 !text-inherit !text-[16.2px] !font-canela !normal-case">{item}</Button>
               </li>
@@ -118,7 +118,9 @@ function Navbar() {
                 <Link to="/signup" className="block w-full">
                   <Button fullWidth onClick={() => setOpen(false)} sx={{ borderRadius: 8, textTransform: 'none', bgcolor: '#111827', color: 'white', '&:hover': { bgcolor: 'black' } }} className="p-2">Signup</Button>
                 </Link>
-                <Button fullWidth sx={{ borderRadius: 8, textTransform: 'none', border: '1px solid #e5e7eb', color: 'black', '&:hover': { bgcolor: 'black', color: 'white' } }} className="p-2">Book a Demo</Button>
+                <Link to="https://www.linkedin.com/in/kartike-padia" className="block w-full">
+                  <Button fullWidth sx={{ borderRadius: 8, textTransform: 'none', border: '1px solid #e5e7eb', color: 'black', '&:hover': { bgcolor: 'black', color: 'white' } }} className="p-2">Linkedin</Button>
+                </Link>
               </>
             )}
           </div>

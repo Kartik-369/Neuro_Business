@@ -4,6 +4,7 @@ from database import db_connec
 from routes import user
 from fastapi.middleware.cors import CORSMiddleware
 from routes import data
+import pandas as pd
 
 @asynccontextmanager
 async def life(app:FastAPI):
@@ -31,3 +32,8 @@ app.include_router(data.router)
 @app.get('/')
 def home():
 	return {'hello'}
+# just to test do not commit
+# @app.get('/api/revenue')
+# async def get_revenue():
+# 	df = pd.read_csv('Book1.csv')
+# 	return df.to_dict(orient='records')

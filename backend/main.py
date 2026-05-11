@@ -4,8 +4,7 @@ from database import db_connec
 from routes import user
 from fastapi.middleware.cors import CORSMiddleware
 from routes import data
-import pandas as pd
-
+from routes import predict
 @asynccontextmanager
 async def life(app:FastAPI):
 	await db_connec()
@@ -27,7 +26,7 @@ app.add_middleware(
 
 app.include_router(user.router)
 app.include_router(data.router)
-
+app.include_router(predict.router)
 
 @app.get('/')
 def home():

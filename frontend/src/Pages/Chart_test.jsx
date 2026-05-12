@@ -1,17 +1,21 @@
 import React from 'react';
-// THE FIX: Import the exact BarChart components you are actually using
+import { useLocation } from 'react-router-dom';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend } from 'recharts';
 
-function Chart_test({ data }) {
-  if (!data) {
+function Chart_test() {
+  const Location = useLocation();
+  const data=Location.state?.results;
+  if (!data || !data.risk) {
     return null;
   }
-
-  const chartData = data.map((customerArray, index) => ({
-    name: `Customer ${index + 1}`,
-    Safe: Math.round(customerArray[0] * 100),
-    Risk: Math.round(customerArray[1] * 100)
-  }));
+  const chartData = data.risk.map((customer, i) => {
+    const displayId = data.customer_ids ? data.customer_ids[i] : `Customer ${i + 1}`;
+    return{
+      name: displayId,
+      Safe: Math.round(customer[0] * 100),
+      Risk: Math.round(customer[1] * 100)
+    };
+  });
 
   return (
     <div className="mt-8 p-4 bg-white rounded shadow border border-gray-200">

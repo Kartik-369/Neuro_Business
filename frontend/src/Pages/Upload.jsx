@@ -3,8 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 function Upload() {
   const navigate = useNavigate();
-  const [fileSelected, setFileSelected] = useState(null);
-  const [cols, setCols] = useState([]);
+  const [file,setFile]=useState(null)
   const [selectedCol, setSelectedCol] = useState({});
   const userEmail = localStorage.getItem("userEmail") || "User";
 
@@ -23,8 +22,8 @@ function Upload() {
 
   const handUpld = async (e) => {
     e.preventDefault();
-    if (!fileSelected) {
-      alert("select file first");
+    if(!file){
+      alert("Please select a file first!");
       return;
     }
     const token = localStorage.getItem("token");
@@ -34,30 +33,22 @@ function Upload() {
       return;
     }
     const formData = new FormData();
-    formData.append("file", fileSelected);
+    formData.append("file", file);
     try {
-      const response = await fetch("http://127.0.0.1:8000/upload", {
+      const response = await fetch("http://127.0.0.1:8000/predict", {
         method: "POST",
         body: formData,
-        headers: { Authorization: `Bearer ${token}` },
       });
       const data = await response.json();
-      if (response.ok) {
-        alert(`file received: ${data.filename}`);
-      } else {
-        alert("Upload error");
-      }
-    } catch (e) {
-      alert("Network error: " + e.message);
+      console.log(data);
+      navigate('/chart', { state: { results: data } });
+    } catch (error) {
+      console.error(error);
     }
-  };
+  }
 
-  const handFileChng = (event) => {
-    const file = event.target.files[0];
-    if (file) {
-      setFileSelected(file);
-      setCols([]);
-    }
+  const handFileChng=(e)=>{
+    setFile(e.target.files[0]);
   };
 
   const toggleCol = (colName) => {
@@ -132,8 +123,8 @@ function Upload() {
 
             <div className="relative flex items-center mt-4">
               <p className="text-sm text-zinc-600">
-                {fileSelected
-                  ? `Selected: ${fileSelected.name}`
+                {file
+                  ? `Selected: ${file.name}`
                   : "Supported: csv, excel, etc."}
               </p>
             </div>
@@ -143,35 +134,9 @@ function Upload() {
                 onClick={handUpld}
                 className="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-gray-600 rounded-lg hover:bg-emerald-600 focus:outline-none focus:ring focus:ring-green-300 focus:ring-opacity-50"
               >
-                Upload
+                Upload and Analyze
               </button>
             </div>
-
-            {cols.length > 0 && (
-              <div className="mt-8 animate-fade-in-up">
-                <h3 className="text-md font-semibold text-gray-700 mb-3">
-                  Select Columns to Analyze:
-                </h3>
-                <div className="grid grid-cols-2 gap-3 max-h-48 overflow-y-auto p-2 border rounded-lg bg-gray-50">
-                  {cols.map((columnName) => (
-                    <label
-                      key={columnName}
-                      className="flex items-center space-x-2 cursor-pointer"
-                    >
-                      <input
-                        type="checkbox"
-                        className="w-4 h-4 text-indigo-600 rounded focus:ring-indigo-500"
-                        checked={!!selectedCol[columnName]}
-                        onChange={() => toggleCol(columnName)} 
-                      />
-                      <span className="text-sm text-gray-700 truncate">
-                        {columnName}
-                      </span>
-                    </label>
-                  ))}
-                </div>
-              </div>
-            )}
           </form>
         </div>
       </section>

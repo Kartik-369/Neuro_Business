@@ -1,29 +1,32 @@
-import React, { useEffect, useState } from 'react';
-import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
+import React from 'react';
+// THE FIX: Import the exact BarChart components you are actually using
+import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend } from 'recharts';
 
-function Chart_test() {
-  const [data, setData] = useState([]);
+function Chart_test({ data }) {
+  if (!data) {
+    return null;
+  }
 
-  useEffect(() => {
-    // This "calls" the Python backend automatically when the page loads
-    fetch('http://localhost:8000/api/revenue')
-      .then(response => response.json())
-      .then(json => setData(json)) // The data is now "live" in your app
-      .catch(err => console.log("Backend not running?"));
-  }, []);
+  const chartData = data.map((customerArray, index) => ({
+    name: `Customer ${index + 1}`,
+    Safe: Math.round(customerArray[0] * 100),
+    Risk: Math.round(customerArray[1] * 100)
+  }));
 
   return (
-    <div style={{ width: '100%', height: 400 }}>
-      <ResponsiveContainer>
-        <LineChart data={data}>
-          <XAxis dataKey="Month" />
-          <YAxis />
-          <Tooltip />
-          <Line type="monotone" dataKey="Actual_Revenue" stroke="#8884d8" />
-          <Line type="monotone" dataKey="Predicted_Revenue" stroke="#82ca9d" strokeDasharray="5 5" />
-        </LineChart>
-      </ResponsiveContainer>
+    <div className="mt-8 p-4 bg-white rounded shadow border border-gray-200">
+      <h2 className="text-xl font-bold mb-4">Customer Churn Risk Overview</h2>
+          
+      <BarChart width={600} height={300} data={chartData}>
+        <XAxis dataKey="name" />
+        <YAxis />
+        <Tooltip />
+        <Legend />
+        <Bar dataKey="Safe" fill="#4ade80" />
+        <Bar dataKey="Risk" fill="#ef4444" />
+      </BarChart>
     </div>
   );
 }
+
 export default Chart_test;

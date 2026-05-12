@@ -1,4 +1,3 @@
-import React from 'react';
 import { useLocation } from 'react-router-dom';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend } from 'recharts';
 
@@ -12,8 +11,8 @@ function Chart_test() {
     const displayId = data.customer_ids ? data.customer_ids[i] : `Customer ${i + 1}`;
     return{
       name: displayId,
-      Safe: Math.round(customer[0] * 100),
-      Risk: Math.round(customer[1] * 100)
+      Safe: Math.round(customer[0]*100),
+      Risk: Math.round(customer[1]*100)
     };
   });
 

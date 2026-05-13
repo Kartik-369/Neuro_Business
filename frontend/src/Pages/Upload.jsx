@@ -4,8 +4,6 @@ import { Link, useNavigate } from "react-router-dom";
 function Upload() {
   const navigate = useNavigate();
   const [file,setFile]=useState(null)
-  const [selectedCol, setSelectedCol] = useState({});
-  const userEmail = localStorage.getItem("userEmail") || "User";
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -40,8 +38,12 @@ function Upload() {
         body: formData,
       });
       const data = await response.json();
-      console.log(data);
-      navigate('/chart', { state: { results: data } });
+      if (response.ok) {
+        localStorage.setItem("hasUploaded", "true")
+        window.dispatchEvent(new Event('authChange'));
+        navigate('/chart', { state: { results: data } });
+        console.log(data)
+      }
     } catch (error) {
       console.error(error);
     }
@@ -49,13 +51,6 @@ function Upload() {
 
   const handFileChng=(e)=>{
     setFile(e.target.files[0]);
-  };
-
-  const toggleCol = (colName) => {
-    setSelectedCol((prev) => ({
-      ...prev,
-      [colName]: !prev[colName],
-    }));
   };
 
   return (

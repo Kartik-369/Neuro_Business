@@ -40,6 +40,7 @@ function Upload() {
       const data = await response.json();
       if (response.ok) {
         localStorage.setItem("hasUploaded", "true")
+        localStorage.setItem("analysisResults", JSON.stringify(data));
         window.dispatchEvent(new Event('authChange'));
         navigate('/chart', { state: { results: data } });
         console.log(data)

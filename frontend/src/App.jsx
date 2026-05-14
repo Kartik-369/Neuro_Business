@@ -7,6 +7,7 @@ import Forgot from "./Pages/Forgot";
 import Upload from "./Pages/Upload";
 import Dashboard from "./Pages/Dashboard";
 import Chart_test from "./Pages/Chart_test";
+import ResetPassword from "./Pages/ResetPassword";
 function App(){
   return (<>
     
@@ -19,7 +20,8 @@ function App(){
             <Route path='/forgot' element={<Forgot/>}/>
             <Route path='/upload' element={<Upload />} />
             <Route path="/predict" element={<Dashboard />}/>
-            <Route path="/chart" element={<Chart_test/>}/>
+            <Route path="/chart" element={<Chart_test />} />
+            <Route path="/reset-password"element={<ResetPassword/>}/>
           </Routes>
           
         </Layout>

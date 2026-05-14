@@ -3,7 +3,7 @@ import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend } from 'recharts';
 
 function Chart_test() {
   const Location = useLocation();
-  const data=Location.state?.results;
+  const data=Location.state?.results  || JSON.parse(localStorage.getItem('analysisResults'));
   if (!data || !data.risk) {
     return null;
   }

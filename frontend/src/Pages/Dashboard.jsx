@@ -1,8 +1,8 @@
-import React,{ useState } from "react";
-
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 function Dashboard() {
-  const [file,setFile] =useState(null);
-  const [results,setResults] = useState(null);
+  const [file, setFile] = useState(null);
+  const navigate = useNavigate();
   const handleFileChange=(e)=>{
     setFile(e.target.files[0]);
   };
@@ -20,23 +20,20 @@ function Dashboard() {
       });
       const data = await response.json();
       console.log(data);
-      setResults(data); 
+      navigate('/chart', { state: { results: data } });
     } catch (error) {
       console.error(error);
     }
   };
   return (
+    <>
     <div className="p-10 mt-10">
       <input type="file" onChange={handleFileChange} className="mb-4 block" />
       <button onClick={handleUpload} className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
         Analyze Customers
       </button>
-      {results && (
-        <div className="mt-6 p-4 bg-gray-100 rounded">
-          <p className="text-green-600 font-bold">Success!</p>
-        </div>
-      )}
     </div>
+    </>
   );
 }
 export default Dashboard;

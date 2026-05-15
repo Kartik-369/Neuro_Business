@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from '@mui/material';
-import { WindPower } from "@mui/icons-material";
 import { useEffect } from "react";
 
 function Navbar() {
@@ -29,6 +28,13 @@ function Navbar() {
     
     navigate('/');
   }
+  const handleCheckUpload=()=>{
+    const Uploaded=localStorage.getItem('hasUploaded')
+    if (Uploaded=="true") {
+      navigate('/chart')
+    }
+    else navigate('/upload')
+  };
 
   return (
     <>
@@ -57,11 +63,9 @@ function Navbar() {
             {token ? (
               <>
                 <span className="text-sm font-sans font-semibold mr-2">{userEmail}</span>
-                <Link to='/upload'>
-                  <Button variant="outlined" color="inherit" sx={{ px: 3, py: 1, borderRadius: 8, textTransform: 'none', border: '1px solid #e5e7eb', '&:hover': { bgcolor: 'black', color: 'white', borderColor: 'black' } }}>
+                  <Button onClick={handleCheckUpload} variant="outlined" color="inherit" sx={{ px: 3, py: 1, borderRadius: 8, textTransform: 'none', border: '1px solid #e5e7eb', '&:hover': { bgcolor: 'black', color: 'white', borderColor: 'black' } }}>
                     Workspace
                   </Button>
-                </Link>
                 <Button onClick={handleLogout} color="inherit" sx={{ px: 3, py: 1, borderRadius: 8, textTransform: 'none', border: '1px solid #e5e7eb', color: 'black', '&:hover': { bgcolor: 'black', color: 'white' } }}>
                   Logout
                 </Button>
@@ -108,9 +112,7 @@ function Navbar() {
             {token ? (
               <>
                 <div className="block w-full text-center font-sans text-sm font-semibold mb-2">{userEmail}</div>
-                <Link to="/upload" className="block w-full">
-                  <Button fullWidth onClick={() => setOpen(false)} sx={{ borderRadius: 8, textTransform: 'none', bgcolor: '#111827', color: 'white', '&:hover': { bgcolor: 'black' } }} className="p-2">Workspace</Button>
-                </Link>
+                <Button fullWidth onClick={() => { setOpen(false);handleCheckUpload() }} sx={{ borderRadius: 8, textTransform: 'none', bgcolor: '#111827', color: 'white', '&:hover': { bgcolor: 'black' } }} className="p-2">Workspace</Button>
                 <Button fullWidth onClick={() => { setOpen(false); handleLogout(); }} sx={{ borderRadius: 8, textTransform: 'none', border: '1px solid #e5e7eb', color: 'black', '&:hover': { bgcolor: 'black', color: 'white' } }} className="p-2">Logout</Button>
               </>
             ) : (

@@ -31,7 +31,7 @@ function Navbar() {
   const handleCheckUpload=()=>{
     const Uploaded=localStorage.getItem('hasUploaded')
     if (Uploaded=="true") {
-      navigate('/chart')
+      navigate('/predict')
     }
     else navigate('/upload')
   };

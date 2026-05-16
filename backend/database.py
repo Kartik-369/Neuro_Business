@@ -13,7 +13,7 @@ client=motor.motor_asyncio.AsyncIOMotorClient(MONGO_URL)
 database=client[DB_NAME]
 
 users_collection=database.get_collection("users")
-
+projects_collection = database.get_collection("projects")
 async def db_connec():
 	try:
 		await client.admin.command('ping')

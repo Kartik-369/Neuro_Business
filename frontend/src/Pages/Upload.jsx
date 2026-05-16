@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import {useNavigate } from "react-router-dom";
 
 function Upload() {
   const navigate = useNavigate();
+  const [projectName, setProjectName] = useState("");
   const [file,setFile]=useState(null)
 
   useEffect(() => {
@@ -32,9 +33,13 @@ function Upload() {
     }
     const formData = new FormData();
     formData.append("file", file);
+    formData.append("project_name", projectName)
     try {
       const response = await fetch("http://127.0.0.1:8000/predict", {
         method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
         body: formData,
       });
       const data = await response.json();
@@ -64,8 +69,7 @@ function Upload() {
                 Choose Upload Files
               </h1>
               <div className="flex justify-center items-center text-2xl">
-                <Link to="/">
-                  <button
+                  <button onClick={()=>navigate(-1)}
                     className="bg-white text-center w-24 rounded-2xl h-14 relative text-black text-[15px] font-semibold group"
                     type="button"
                   >
@@ -88,10 +92,16 @@ function Upload() {
                       </svg>
                     </div>
                   </button>
-                </Link>
               </div>
             </div>
-
+            <label className="block mb-2 font-semibold text-gray-700">Project Name</label>
+            <input 
+            required
+              type="text" 
+              className="mb-6 block w-full border p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+              value={projectName}
+              onChange={(e) => setProjectName(e.target.value)}
+            />
             <div className="relative flex items-center mt-8">
               <span className="absolute">
                 <svg

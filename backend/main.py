@@ -31,8 +31,3 @@ app.include_router(predict.router)
 @app.get('/')
 def home():
 	return {'hello'}
-# just to test do not commit
-# @app.get('/api/revenue')
-# async def get_revenue():
-# 	df = pd.read_csv('Book1.csv')
-# 	return df.to_dict(orient='records')

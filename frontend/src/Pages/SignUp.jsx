@@ -39,7 +39,7 @@ function SignUp(){
             localStorage.setItem('userEmail', email);
             alert('Login successful!');
             window.dispatchEvent(new Event('authChange'));
-            navigate('/upload');
+            navigate('/predict');
           } else {
             alert('Registered! Please Sign In.');
             isLogin(true);
@@ -66,7 +66,7 @@ function SignUp(){
             localStorage.setItem('token', data.access_token);
             alert('Login successful!');
             window.dispatchEvent(new Event('authChange'));
-            navigate('/upload');
+            navigate('/predict');
         } else {
             alert('Auth Failed');
         }

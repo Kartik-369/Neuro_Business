@@ -19,4 +19,4 @@ async def db_connec():
 		await client.admin.command('ping')
 		print('true')
 	except Exception as e:
-		print('false')
+		print('false',e)

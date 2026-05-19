@@ -45,9 +45,9 @@ function Upload() {
       const data = await response.json();
       if (response.ok) {
         localStorage.setItem("hasUploaded", "true")
-        localStorage.setItem("analysisResults", JSON.stringify(data));
+        localStorage.setItem("analysisResults", JSON.stringify(data.analysis_results));
         window.dispatchEvent(new Event('authChange'));
-        navigate('/chart', { state: { results: data } });
+        navigate('/chart', { state: { results: data.analysis_results } });
         console.log(data)
       }
     } catch (error) {

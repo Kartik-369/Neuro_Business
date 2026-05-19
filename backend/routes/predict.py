@@ -83,8 +83,9 @@ async def predict(file: UploadFile = File(...), project_name: str = Form(...), t
         'analysis_results': analysis_results,
         'created_at': datetime.now()
     }
-    await projects_collection.insert_one(new_project)
-    return {'risk': risk_prob.tolist(), 'prediction': prediction.tolist(), 'customer_ids': customer_ids}
+    new_result=await projects_collection.insert_one(new_project)
+    new_project['_id']=str(new_result.inserted_id)
+    return new_project
 
 @router.get('/projects')
 async def catch_projects(token:str=Depends(oauth2_scheme)):

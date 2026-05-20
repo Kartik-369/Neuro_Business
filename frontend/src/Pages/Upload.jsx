@@ -94,6 +94,15 @@ function Upload() {
                   </button>
               </div>
             </div>
+            <div className="flex justify-between items-center mb-4">
+              <p className="text-sm font-semibold text-gray-700">Dataset File</p>
+              <a href="/NeuroBusiness_Template.csv" download className="text-sm font-bold text-emerald-600 hover:text-emerald-800 hover:underline flex items-center">
+                <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                </svg>
+                Download Template.csv
+              </a>
+            </div>
             <label className="block mb-2 font-semibold text-gray-700">Project Name</label>
             <input 
             required

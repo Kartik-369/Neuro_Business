@@ -42,13 +42,13 @@ function Home(){
   
 
   const logos=[
-    {name:'Company2',src:'https://icon.icepanel.io/Technology/svg/FastAPI.svg'},
-    {name:'Company5',src:'https://img.icons8.com/?size=100&id=N3G7bBnphi53&format=png&color=000000'},
-    {name:'Company3',src:'https://cdn.iconscout.com/icon/free/png-512/free-mongodb-icon-svg-download-png-1175138.png?f=webp&w=256'},
-    {name:'Company4',src:'https://img.icons8.com/?size=100&id=aR9CXyMagKIS&format=png&color=000000'},
-    {name:'Company6',src:'https://img.icons8.com/?size=100&id=TkX1totjFmAD&format=png&color=000000'},
-    {name:'Company6',src:'https://icon.icepanel.io/Technology/svg/scikit-learn.svg'},
-    {name:'Company6',src:'https://icon.icepanel.io/Technology/png-shadow-512/Pandas.png'}
+    {name:'FastAPI',src:'https://icon.icepanel.io/Technology/svg/FastAPI.svg'},
+    {name:'React',src:'https://img.icons8.com/?size=100&id=N3G7bBnphi53&format=png&color=000000'},
+    {name:'MongoDB',src:'https://cdn.iconscout.com/icon/free/png-512/free-mongodb-icon-svg-download-png-1175138.png?f=webp&w=256'},
+    {name:'numpy',src:'https://img.icons8.com/?size=100&id=aR9CXyMagKIS&format=png&color=000000'},
+    {name:'matplotlib',src:'https://img.icons8.com/?size=100&id=TkX1totjFmAD&format=png&color=000000'},
+    {name:'sklearn',src:'https://icon.icepanel.io/Technology/svg/scikit-learn.svg'},
+    {name:'pandas',src:'https://icon.icepanel.io/Technology/png-shadow-512/Pandas.png'}
     
   ]
   return (<>

@@ -108,12 +108,16 @@ function Navbar() {
             ))}
           </ul>
 
-          <div className="mt-auto p-6 space-y-6 text-lg tracking-wider font-bold">
+          <div className="mt-auto p-6 flex flex-col gap-4 text-lg tracking-wider font-bold">
             {token ? (
               <>
-                <div className="block w-full text-center font-sans text-sm font-semibold mb-2">{userEmail}</div>
-                <Button fullWidth onClick={() => { setOpen(false);handleCheckUpload() }} sx={{ borderRadius: 8, textTransform: 'none', bgcolor: '#111827', color: 'white', '&:hover': { bgcolor: 'black' } }} className="p-2">Workspace</Button>
-                <Button fullWidth onClick={() => { setOpen(false); handleLogout(); }} sx={{ borderRadius: 8, textTransform: 'none', border: '1px solid #e5e7eb', color: 'black', '&:hover': { bgcolor: 'black', color: 'white' } }} className="p-2">Logout</Button>
+                <div className="block w-full text-center font-sans text-sm font-semibold">{userEmail}</div>
+                <div className="block w-full">
+                  <Button fullWidth onClick={() => { setOpen(false);handleCheckUpload() }} sx={{ borderRadius: 8, textTransform: 'none', bgcolor: '#111827', color: 'white', '&:hover': { bgcolor: 'black' } }} className="p-2">Workspace</Button>
+                </div>
+                <div className="block w-full">
+                  <Button fullWidth onClick={() => { setOpen(false); handleLogout(); }} sx={{ borderRadius: 8, textTransform: 'none', border: '1px solid #e5e7eb', color: 'black', '&:hover': { bgcolor: 'black', color: 'white' } }} className="p-2">Logout</Button>
+                </div>
               </>
             ) : (
               <>

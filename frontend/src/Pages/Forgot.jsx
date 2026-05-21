@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-
 export default function Forgot() {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
@@ -8,23 +7,17 @@ export default function Forgot() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [hasSent, setHasSent] = useState(false);
   const navigate = useNavigate();
-
   const handleForgot = async (e) => {
     e.preventDefault();
     if (isSubmitting) return;
-
     setIsSubmitting(true);
     setMessage("Sending link...");
     setIsError(false);
-
     try {
-      const response = await fetch(`http://127.0.0.1:8000/forgot-password?email=${email}`, {
-        method: "POST",
-      });
+      const response = await fetch(`http://127.0.0.1:8000/forgot-password?email=${email}`, { method: "POST" });
       const data = await response.json();
-      
       if (response.ok) {
-        setMessage(data.message);
+        setMessage(data.message || "Reset link sent successfully!");
         setIsError(false);
         setHasSent(true);
       } else {
@@ -32,21 +25,16 @@ export default function Forgot() {
         setIsError(true);
       }
     } catch (error) {
-      console.error(error);
       setMessage("Network error. Please try again.");
       setIsError(true);
     } finally {
       setIsSubmitting(false);
     }
   };
-
   return (
     <section className="bg-white">
-      <div className="container flex items-center justify-center min-h-screen px-4 sm:px-6 mx-auto">
-        <form 
-          onSubmit={handleForgot} 
-          className="w-full max-w-md shadow-xs shadow-gray-600 border border-stone-200 bg-amber-50/30 p-6 md:p-9 rounded-3xl md:rounded-4xl"
-        >
+      <div className="flex items-center justify-center min-h-[100dvh] px-4 py-8 mx-auto w-full">
+        <form onSubmit={handleForgot} className="w-full max-w-md flex flex-col gap-5 sm:gap-6 shadow-xl shadow-stone-200/50 border border-stone-200 bg-amber-50/30 p-5 sm:p-7 md:p-9 rounded-2xl sm:rounded-3xl">
           <div className="flex flex-row justify-between items-center mt-2 md:mt-3 mb-6">
             <h1 className="text-xl md:text-2xl font-semibold text-gray-800 sm:text-3xl">Reset Password</h1>
             <button onClick={() => navigate(-1)} className="bg-white text-center w-24 rounded-2xl h-14 relative text-black text-[15px] font-semibold group" type="button">Go Back
@@ -58,46 +46,23 @@ export default function Forgot() {
               </div>
             </button>
           </div>
-
-          <p className="text-xs md:text-sm text-gray-600 mb-6">
-            Enter your email address and we'll send you a secure link to reset your password.
-          </p>
-
-          <div className="relative flex items-center mt-4">
-            <span className="absolute">
-              <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 md:w-6 md:h-6 mx-3 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+          <p className="text-sm sm:text-base text-gray-600">Enter your email address and we'll send you a secure link to reset your password.</p>
+          {message && (
+            <div className={`p-3 sm:p-4 text-sm rounded-lg transition-all ${isError ? 'bg-red-50 text-red-700 border border-red-200' : 'bg-emerald-50 text-emerald-700 border border-emerald-200'}`}>
+              {message}
+            </div>
+          )}
+          <div className="relative flex items-center">
+            <span className="absolute left-3 flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
               </svg>
             </span>
-            <input 
-              type="email" 
-              value={email} 
-              onChange={(e) => setEmail(e.target.value)} 
-              autoFocus 
-              required
-              className="duration-400 block w-full py-3 text-sm md:text-base text-gray-700 bg-white border rounded-lg px-10 md:px-11 focus:border-amber-100 focus:ring-amber-200 focus:outline-none focus:ring focus:ring-opacity-40" 
-              placeholder="Email address"
-            />
+            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} autoFocus required className="block w-full py-3.5 pl-11 pr-4 text-sm sm:text-base text-gray-700 bg-white border border-stone-200 rounded-xl focus:border-amber-400 focus:ring-amber-200 focus:outline-none focus:ring focus:ring-opacity-40 transition-all" placeholder="Email address" />
           </div>
-
-          <div className="mt-8">
-            <button 
-              type="submit"
-              disabled={isSubmitting} 
-              className={`w-full block text-center px-6 py-3 text-sm font-medium tracking-wide text-white transition-colors duration-300 transform rounded-lg focus:outline-none focus:ring focus:ring-opacity-50 ${
-                isSubmitting 
-                  ? "bg-stone-400 cursor-not-allowed" 
-                  : "bg-stone-800 hover:bg-emerald-600"
-              }`}
-            >
-              {isSubmitting 
-                ? 'Sending...' 
-                : hasSent 
-                  ? 'Resend Reset Link' 
-                  : 'Send Reset Link'
-              }
-            </button>
-          </div>
+          <button type="submit" disabled={isSubmitting} className={`w-full py-3.5 sm:py-4 mt-2 text-sm sm:text-base font-medium tracking-wide text-white rounded-xl transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-opacity-50 active:scale-[0.98] ${isSubmitting ? "bg-stone-400 cursor-not-allowed" : "bg-stone-800 hover:bg-emerald-600 focus:ring-emerald-300 shadow-md hover:shadow-lg"}`}>
+            {isSubmitting ? 'Sending...' : hasSent ? 'Resend Reset Link' : 'Send Reset Link'}
+          </button>
         </form>
       </div>
     </section>

@@ -60,6 +60,14 @@ export default function Dashboard() {
   const openProject = (project) => {
     navigate('/chart', { state: { results: project.analysis_results } });
   };
+  const handleGoBack = () => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      navigate('/');
+    } else {
+      navigate(-1);
+    }
+  };
   if (loading) {
     return (
       <div className="flex-1 flex items-center justify-center min-h-[60dvh]">
@@ -76,7 +84,7 @@ export default function Dashboard() {
             <p className="text-sm sm:text-base md:text-xl text-slate-600">Access and manage your revenue forecasts.</p>
           </div>
           <div className="flex flex-wrap items-center gap-3 sm:gap-4 w-full sm:w-auto">
-            <button onClick={() => navigate(-1)} className="flex-1 sm:flex-none bg-amber-50 border border-stone-200 text-black px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl sm:rounded-2xl text-sm sm:text-base font-semibold hover:bg-amber-100 active:scale-95 transition-all duration-300">Go Back</button>
+            <button onClick={handleGoBack} className="flex-1 sm:flex-none bg-amber-50 border border-stone-200 text-black px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl sm:rounded-2xl text-sm sm:text-base font-semibold hover:bg-amber-100 active:scale-95 transition-all duration-300">Go Back</button>
             <button onClick={() => navigate('/upload')} className="flex-1 sm:flex-none bg-stone-800 text-white px-4 sm:px-8 py-2.5 sm:py-3 rounded-xl sm:rounded-2xl text-sm sm:text-base font-semibold hover:bg-black hover:shadow-lg active:scale-95 transition-all duration-300">+ New Analysis</button>
           </div>
         </div>

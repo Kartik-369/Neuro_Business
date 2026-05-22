@@ -13,7 +13,7 @@ export default function ResetPassword() {
   const handleReset = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("https://neuro-business-api.onrender.com//reset-password", {
+      const response = await fetch("https://neuro-business-api.onrender.com/reset-password", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ token: token, new_password: newPassword }), 

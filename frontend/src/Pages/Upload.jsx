@@ -35,7 +35,7 @@ function Upload() {
     formData.append("file", file);
     formData.append("project_name", projectName)
     try {
-      const response = await fetch("https://neuro-business-api.onrender.com//predict", {
+      const response = await fetch("https://neuro-business-api.onrender.com/predict", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,

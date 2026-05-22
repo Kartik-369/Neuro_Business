@@ -44,7 +44,7 @@ export default function Chart_test() {
     const token = localStorage.getItem('token');
     
     try {
-      const response = await fetch("https://neuro-business-api.onrender.com//strategy", {
+      const response = await fetch("https://neuro-business-api.onrender.com/strategy", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

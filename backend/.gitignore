@@ -29,4 +29,4 @@ Thumbs.db
 
 # Optional: If you don't want to track your ML models (since they can be large)
 # Uncomment the line below if you want to ignore them.
-ml-models/neuro_business_brain.pkl
+# ml-models/neuro_business_brain.pkl

@@ -20,7 +20,7 @@ function SignUp(){
         return;
       }
       const end = Login ? '/login' : '/register';
-      const url = `http://127.0.0.1:8000${end}`;
+      const url = `https://neuro-business-api.onrender.com/${end}`;
       try {
         let response;
         if (Login) {
@@ -62,7 +62,7 @@ function SignUp(){
     onSuccess: async (tokenResponse) => {
       console.log("Google Token", tokenResponse.access_token);
       try {
-        const response = await fetch("http://127.0.0.1:8000/auth/google", {
+        const response = await fetch("https://neuro-business-api.onrender.com//auth/google", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ token: tokenResponse.access_token }), 

@@ -16,7 +16,7 @@ export default function Dashboard() {
     }
     try {
       setApiError(null);
-      const response = await fetch("http://127.0.0.1:8000/projects", {
+      const response = await fetch("https://neuro-business-api.onrender.com//projects", {
         headers: { "Authorization": `Bearer ${token}` }
       });
       if (response.status === 401) {
@@ -44,7 +44,7 @@ export default function Dashboard() {
     if (!window.confirm("delete this project?")) return;
     const token = localStorage.getItem('token');
     try {
-      const response = await fetch(`http://127.0.0.1:8000/projects/${projectId}`, {
+      const response = await fetch(`https://neuro-business-api.onrender.com//projects/${projectId}`, {
         method: "DELETE",
         headers: { "Authorization": `Bearer ${token}` }
       });

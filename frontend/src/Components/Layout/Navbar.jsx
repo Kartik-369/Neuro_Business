@@ -38,7 +38,7 @@ function Navbar() {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 w-full z-100 bg-stone/30 backdrop-blur-sm justify-between p-3 items-center font-roslindale flex shadow-2xs max-w-screen">
+      <nav className="fixed top-0 left-0 w-full z-100 bg-stone/30 backdrop-blur-sm justify-between p-3 items-center font-roslindale flex shadow-2xs max-w-full">
         
         <Link to='/'>
           <span className="text-2xl min-[1100px]:text-4xl tracking-tight font-bold shrink-0 z-10">
@@ -48,13 +48,8 @@ function Navbar() {
         </Link>
 
         <div className="hidden absolute font-bold left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center min-[1100px]:flex space-x-2 lg:space-x-6 text-xl font-serif tracking-wider">
-          {['Platform', 'Resources'].map((text) => (
-            <div className="group relative" key={text}>
-              <Button color="inherit" className="text-black px-2 py-2 border-b-2 border-transparent group-hover:border-black group-hover:-translate-y-1 !transition-all duration-200 ease-in-out normal-case">{text}</Button>
-            </div>
-          ))}
           <div className="group relative">
-            <Button href="howitworks" color="inherit" className="text-black px-3 py-2 border-b-2 border-transparent group-hover:border-black group-hover:-translate-y-1 !transition-all duration-200 ease-in-out normal-case">How it Works</Button>
+            <Button href="#howitworks" color="inherit" className="text-black px-3 py-2 border-b-2 border-transparent group-hover:border-black group-hover:-translate-y-1 !transition-all duration-200 ease-in-out normal-case">How it Works</Button>
           </div>
         </div>
 
@@ -101,11 +96,9 @@ function Navbar() {
           </div>
           
           <ul className="flex flex-col space-y-3 p-6 text-[16.2px] font-canela tracking-wide">
-            {['Platform', 'How it Works', 'Resources'].map((item) => (
-              <li key={item} className="border-b border-stone-300">
-                <Button fullWidth color="inherit" className="!justify-start !px-3 !py-2 !text-inherit !text-[16.2px] !font-canela !normal-case">{item}</Button>
+              <li className="border-b border-stone-300">
+                <Button href="#howitworks" onClick={() => setOpen(false)} fullWidth color="inherit" className="!justify-start !px-3 !py-2 !text-inherit !text-[16.2px] !font-canela !normal-case">How it Works</Button>
               </li>
-            ))}
           </ul>
 
           <div className="mt-auto p-6 flex flex-col gap-4 text-lg tracking-wider font-bold">

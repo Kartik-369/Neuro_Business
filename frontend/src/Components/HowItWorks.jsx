@@ -43,7 +43,7 @@ export default function HowItWorks() {
       <div className="shrink-0 pt-15 md:pt-24 pb-6 md:pb-8 px-4 text-center z-50 bg-white">
         <span className="text-5xl sm:text-6xl lg:text-7xl subpixel-antialiased font-canela block mb-4">How it Works</span>
         <p className="text-gray-700 max-w-4xl mx-auto font-semibold text-base md:text-lg leading-relaxed">
-          Data without insight is just noise. <span className="text-black underline decoration-emerald-600">NeuroMarket acts as the central nervous system</span> for your business.
+          The pipeline logic behind NeuroBusiness.
         </p>
       </div>
 
@@ -56,8 +56,8 @@ export default function HowItWorks() {
         <div className="step-1 step-card w-full bg-white flex items-center justify-center p-4 z-10">
           <div className="flex flex-col md:flex-row items-center justify-between w-full py-8 md:py-12">
             <div className="w-full md:w-[45%] text-center md:text-right pr-0 md:pr-10 mb-8 md:mb-0">
-              <h3 className="text-4xl font-bold mb-4">Content</h3>
-              <p className="text-xl text-gray-500">Sub</p>
+              <h3 className="text-4xl font-bold mb-4">1. Data Preparation</h3>
+              <p className="text-xl text-gray-500">FastAPI endpoint handles CSV uploads, cleaning TotalCharges and tenure, then applying one-hot encoding for categorical features.</p>
             </div>
             <div className="w-full md:w-[45%] aspect-video md:aspect-auto md:h-[400px] bg-stone-100 rounded-2xl border border-stone-200 shadow-xl overflow-hidden">
                <img src="https://media.istockphoto.com/id/2227028925/photo/business-professional-managing-digital-employee-record-using-stylus-and-laptop-digital-file.jpg?s=612x612&w=0&k=20&c=bea4EsVK_7mNjm0viy8B8Rqg5JalSBVM9FNz0TkC5wA=" className="w-full h-full object-cover" />
@@ -68,8 +68,8 @@ export default function HowItWorks() {
         <div className="step-2 step-card w-full bg-white flex items-center justify-center p-4 z-20">
            <div className="flex flex-col md:flex-row-reverse items-center justify-between w-full py-8 md:py-12">
             <div className="w-full md:w-[45%] text-center md:text-left pl-0 md:pl-10 mb-8 md:mb-0">
-              <h3 className="text-4xl font-bold mb-4">Content</h3>
-              <p className="text-xl text-emerald-600">Sub</p>
+              <h3 className="text-4xl font-bold mb-4">2. XGBoost Inference</h3>
+              <p className="text-xl text-emerald-600">Model uses 6000 estimators with learning rate 0.2 to generate high-precision churn probability scores.</p>
             </div>
             <div className="w-full md:w-[45%] aspect-video md:aspect-auto md:h-[400px] bg-emerald-50 rounded-2xl border border-emerald-100 shadow-xl overflow-hidden">
                <img src="https://media.istockphoto.com/id/2170619377/photo/checklist-concept-businessman-surveying-online-checklist-on-virtual-screen-fill-out-the.jpg?s=2048x2048&w=is&k=20&c=nSSM8Z_FcziDLZZsc6cMgqumpYy7GMQ1dGdVR8U9swg=" className="w-full h-full object-cover" />
@@ -80,8 +80,8 @@ export default function HowItWorks() {
         <div className="step-3 step-card w-full bg-white flex items-center justify-center p-4 z-30">
            <div className="flex flex-col md:flex-row items-center justify-between w-full py-8 md:py-12">
             <div className="w-full md:w-[45%] text-center md:text-right pr-0 md:pr-10 mb-8 md:mb-0">
-              <h3 className="text-4xl font-bold mb-4">Content</h3>
-              <p className="text-xl text-gray-500">sub</p>
+              <h3 className="text-4xl font-bold mb-4">3. SHAP Interpretation</h3>
+              <p className="text-xl text-gray-500">TreeExplainer isolates top 3 feature drivers for every individual customer row, revealing specific risk causality.</p>
             </div>
             <div className="w-full md:w-[45%] aspect-video md:aspect-auto md:h-[400px] bg-stone-900 rounded-2xl border border-black shadow-xl overflow-hidden">
                <img src="https://media.istockphoto.com/id/1711724189/photo/business-analytics-finance-neural-network-ai-big-data-technology-data-scientists-query.jpg?s=612x612&w=0&k=20&c=2JrEdyYZKBFJKMI7EITpuvTPNilmBIi3vYtU-xTGzOs=" className="w-full h-full object-cover" />
@@ -92,8 +92,8 @@ export default function HowItWorks() {
         <div className="step-4 step-card w-full bg-white flex items-center justify-center p-4 z-40">
            <div className="flex flex-col md:flex-row-reverse items-center justify-between w-full py-8 md:py-12">
             <div className="w-full md:w-[45%] text-center md:text-left pl-0 md:pl-10 mb-8 md:mb-0">
-              <h3 className="text-4xl font-bold mb-4">Content</h3>
-              <p className="text-xl text-gray-500">Sub</p>
+              <h3 className="text-4xl font-bold mb-4">4. Strategy Generation</h3>
+              <p className="text-xl text-gray-500">Contextual prompt injection into a foundation model produces specific retention tactics for flagged records.</p>
             </div>
             <div className="w-full md:w-[45%] aspect-video md:aspect-auto md:h-[400px] bg-stone-900 rounded-2xl border border-black shadow-xl overflow-hidden">
                <img src="https://media.istockphoto.com/id/2182242357/photo/hr-attrition-employee-retention-human-resources-analytics-and-engagement-crm-customer.jpg?s=612x612&w=0&k=20&c=QGIlzLvvv2t5tXmPR4SQg_xvjiEbv2XzWD4ewNOicyc=" className="w-full h-full object-cover" />

@@ -52,7 +52,7 @@ function Home(){
     
   ]
   return (<>
-    <div className="max-w-screen h-full pt-9">
+    <div className="w-full overflow-x-hidden overscroll-none h-full pt-9">
     
       <div className="flex flex-col gap-12 max-[1100px]:gap-2.25 overflow-hidden justify-center items-center text-center px-4">
         <span className="text-5xl md:text-[72px] p-6 mt-12 md:mt-24 max-[1100px]:mt-16 font-roslindale font-extrabold">Data-Driven Revenue Forecasting</span>
@@ -90,40 +90,36 @@ function Home(){
           <div className="relative min-[1130px]:absolute min-[1130px]:inset-0 z-30 flex flex-col justify-center items-center gap-6 min-[1130px]:block pointer-events-none w-full">
             
             <div className="pointer-events-auto flex items-center justify-center max-[1130px]:bg-black/25 gap-2 bg-black/40 text-white font-semibold backdrop-blur-md rounded-2xl border border-white/10 p-[13.2px] min-[1130px]:p-4.5 max-[768px]:w-[72%] min-[1130px]:absolute min-[1130px]:top-[15%] min-[1130px]:left-[18%]">
-              <span className="text-xl md:text-5xl">Icon</span>
-              <span className="text-sm md:text-5xl">Feature1</span>
+              <span className="text-sm md:text-3xl">React UI</span>
             </div>
       
             <div className="pointer-events-auto flex max-[1130px]:bg-black/25 items-center justify-center gap-2 bg-black/40 text-white font-semibold backdrop-blur-md rounded-2xl border border-white/10 p-[13.2px] min-[1130px]:p-4 max-[768px]:w-[72%] min-[1130px]:absolute min-[1130px]:top-[50%] min-[1130px]:left-[15%] min-[1130px]:-translate-y-1/2">
-              <span className="text-xl md:text-5xl">Icon</span>
-              <span className="text-sm md:text-5xl">Feature2</span>
+              <span className="text-sm md:text-3xl">XGBoost</span>
             </div>
       
             <div className="pointer-events-auto flex max-[1130px]:bg-black/25 items-center justify-center gap-2 bg-black/40 text-white font-semibold backdrop-blur-md rounded-2xl border border-white/10 p-[13.2px] min-[1130px]:p-4 max-[768px]:w-[72%] min-[1130px]:absolute min-[1130px]:bottom-[15%] min-[1130px]:left-[18%]">
-              <span className="text-xl md:text-5xl">Icon</span>
-              <span className="text-sm md:text-5xl">Feature3</span>
+              <span className="text-sm md:text-3xl">MongoDB Vault</span>
             </div>
       
             <div className="pointer-events-auto flex max-[1130px]:bg-black/25 items-center justify-center gap-2 bg-black/40 text-white font-semibold backdrop-blur-md rounded-2xl border border-white/10 p-[13.2px] min-[1130px]:p-4 max-[768px]:w-[72%] min-[1130px]:absolute min-[1130px]:top-[15%] min-[1130px]:right-[18%]">
-              <span className="text-xl md:text-5xl">Icon</span>
-              <span className="text-sm md:text-5xl">Feature4</span>
+              <span className="text-sm md:text-3xl">FastAPI Engine</span>
             </div>
       
             <div className="pointer-events-auto flex max-[1130px]:bg-black/25 items-center justify-center gap-2 bg-black/40 text-white font-semibold backdrop-blur-md rounded-2xl border border-white/10 p-[13.2px] min-[1130px]:p-4 max-[768px]:w-[72%] min-[1130px]:absolute min-[1130px]:top-[50%] min-[1130px]:right-[15%] min-[1130px]:-translate-y-1/2">
-              <span className="text-xl md:text-5xl">Icon</span>
-              <span className="text-sm md:text-5xl">Feature5</span>
+              <span className="text-sm md:text-3xl">SHAP Analysis</span>
             </div>
       
             <div className="pointer-events-auto flex max-[1130px]:bg-black/25 items-center justify-center gap-2 bg-black/40 text-white font-semibold backdrop-blur-md rounded-2xl border border-white/10 p-[13.2px] min-[1130px]:p-4 max-[768px]:w-[72%] min-[1130px]:absolute min-[1130px]:bottom-[15%] min-[1130px]:right-[18%]">
-              <span className="text-xl md:text-5xl">Icon</span>
-              <span className="text-sm md:text-5xl">Feature6</span>
+              <span className="text-sm md:text-3xl">LLM Insights</span>
             </div>
       
           </div>
         </div>
       </div>
       
-      <HowItWorks/>
+      <div id="how-it-works" className="overflow-hidden w-full">
+        <HowItWorks/>
+      </div>
       
       <div className="max-w-6xl mx-auto px-6 py-9">
         <div className="text-center mb-16">
@@ -131,27 +127,27 @@ function Home(){
             Real Impact
           </h2>
           <p className="text-slate-600 md:text-2xl text-[18px]">
-            See what happens when we intergrate your Business.
+            A complete pipeline designed for actionable business insights.
           </p>
         </div>
       
         <div className="grid md:grid-cols-3 gap-8">
           <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:border-gray-300 hover:scale-3d hover:shadow-2xl active:shadow-2xl active:scale-3d transition-all">
-           <div className="text-5xl font-bold bg-linear-to-br from-teal-600 to-emerald-900 text-transparent bg-clip-text mb-2">300%</div>
-            <div className="text-lg font-semibold text-slate-900">Increase</div>
-            <p className="text-slate-400 text-sm mt-2">Join</p>
+           <div className="text-3xl md:text-5xl font-bold bg-linear-to-br from-teal-600 to-emerald-900 text-transparent bg-clip-text mb-2">Parse</div>
+            <div className="text-lg font-semibold text-slate-900">Data Validation</div>
+            <p className="text-slate-500 text-sm mt-2">Automated parsing and encoding of CSV datasets using Pandas before feeding to the ML model.</p>
           </div>
       
           <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:border-gray-300 hover:scale-3d hover:shadow-2xl active:shadow-2xl active:scale-3d transition-all">
-            <div className="text-5xl font-bold bg-linear-to-br from-teal-600 to-emerald-900 text-transparent bg-clip-text mb-2">300%</div>
-            <div className="text-lg font-semibold text-slate-900">Increase</div>
-            <p className="text-slate-400 text-sm mt-2">Join</p>
+            <div className="text-3xl md:text-5xl font-bold bg-linear-to-br from-teal-600 to-emerald-900 text-transparent bg-clip-text mb-2">Predict</div>
+            <div className="text-lg font-semibold text-slate-900">SHAP Integration</div>
+            <p className="text-slate-500 text-sm mt-2">Visualizes the exact features driving risk probability by calculating TreeExplainer values.</p>
           </div>
       
           <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:border-gray-300 hover:scale-3d hover:shadow-2xl active:shadow-2xl active:scale-3d transition-all">
-            <div className="text-5xl font-bold bg-linear-to-br from-teal-600 to-emerald-900  text-transparent bg-clip-text mb-2">300%</div>
-            <div className="text-lg font-semibold text-slate-900">Increase</div>
-            <p className="text-slate-400 text-sm mt-2">Join</p>
+            <div className="text-3xl md:text-5xl font-bold bg-linear-to-br from-teal-600 to-emerald-900  text-transparent bg-clip-text mb-2">Retain</div>
+            <div className="text-lg font-semibold text-slate-900">AI Strategies</div>
+            <p className="text-slate-500 text-sm mt-2">Generates custom 3-step retention strategies via the Gemini API based on customer risk drivers.</p>
           </div>
         </div>
       </div>

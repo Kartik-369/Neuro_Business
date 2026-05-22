@@ -53,7 +53,7 @@ function Home(){
     
   ]
   return (<>
-    <div className="w-full overflow-x-hidden overscroll-none h-full pt-9">
+    <div className="w-full overflow-x-hidden h-full pt-9">
     
       <div className="flex flex-col gap-12 max-[1100px]:gap-2.25 overflow-hidden justify-center items-center text-center px-4">
         <span className="text-5xl md:text-[72px] p-6 mt-12 md:mt-24 max-[1100px]:mt-16 font-roslindale font-extrabold">Data-Driven Revenue Forecasting</span>

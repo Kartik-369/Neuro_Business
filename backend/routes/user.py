@@ -102,18 +102,25 @@ async def forgot_password(email:str):
         {'email': email},
         {'$set': {'reset_token': reset_token, 'reset_expiration': expiration}}
     )
-    reset_link=f"https://neuro-business.vercel.app/reset-password?token={reset_token}"
-    msg=EmailMessage()
-    msg['Subject'] = "Password Reset"
-    msg['From'] = SENDER_EMAIL
-    msg['To'] = email
-    msg.set_content(f"Click here to reset your password: {reset_link}")
+    reset_link = f"https://neuro-business.vercel.app/reset-password?token={reset_token}"
+    resend_api_key = os.getenv("RESEND_API_KEY")
+    headers = {
+        "Authorization": f"Bearer {resend_api_key}",
+        "Content-Type": "application/json"
+    }
+    payload = {
+        "from": "onboarding@resend.dev", 
+        "to": [email],
+        "subject": "NeuroBusiness: Password Reset",
+        "html": f"<p>Hello,</p><p>Click <a href='{reset_link}'>here</a> to reset your password.</p><p>This link expires in 15 minutes.</p>"
+    }
     try:
-        with smtplib.SMTP_SSL('smtp.gmail.com', 465) as server:
-            server.login(SENDER_EMAIL,SENDER_PASSWORD)
-            server.send_message(msg)
+        response = requests.post("https://api.resend.com/emails", json=payload, headers=headers)
+        response.raise_for_status() 
     except Exception as e:
-        print(f"Failed to send email: {e}")
+        print(f"Resend API Error: {e}")
+        if 'response' in locals():
+            print(f"Resend Details: {response.text}")
         raise HTTPException(status_code=500, detail="Failed to send email")
     return {"message":"reset link has been sent."}
 

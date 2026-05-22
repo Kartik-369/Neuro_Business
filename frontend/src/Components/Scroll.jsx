@@ -31,7 +31,7 @@ function Scroll({ children }) {
     }
   }, [])
 
-  return <div className="w-full min-h-screen overflow-hidden">{children}</div>
+  return <div className="w-full min-h-screen">{children}</div>
 }
 
 export default Scroll;

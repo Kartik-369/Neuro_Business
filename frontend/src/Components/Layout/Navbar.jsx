@@ -38,7 +38,7 @@ function Navbar() {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 w-full z-100 bg-stone/30 backdrop-blur-sm justify-between p-3 items-center font-roslindale flex shadow-2xs max-w-full">
+      <nav className="fixed top-0 left-0 w-full z-50 bg-stone/30 backdrop-blur-sm justify-between p-3 items-center font-roslindale flex shadow-2xs max-w-full">
         
         <Link to='/'>
           <span className="text-2xl min-[1100px]:text-4xl tracking-tight font-bold shrink-0 z-10">

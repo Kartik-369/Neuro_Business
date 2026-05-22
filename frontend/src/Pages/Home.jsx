@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { useLayoutEffect } from 'react'
 import gsap from 'gsap'
+import myHero from "../assets/Hero_Img.png";
 import {Button} from '@mui/material';
 import HowItWorks from "../Components/HowItWorks";
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -82,7 +83,7 @@ function Home(){
             <img 
               ref={heroImageRef} 
               className="h-auto min-[1130px]:h-full md:max-w-3xl object-contain scale-125 min-[1130px]:scale-100" 
-              src="./src/assets/Hero_Img.png" 
+              src={myHero} 
               alt="Hero"
             />
           </div>

@@ -72,10 +72,10 @@ async def predict(file: UploadFile = File(...), project_name: str = Form(...), t
         top_reasons_list.append(customer_reasons)
         
     analysis_results = {
-        'predictions': prediction.tolist(),
-        'risk': risk_prob.tolist(),
-        'customer_ids': customer_ids,
-        'reasons': top_reasons_list
+        'predictions': prediction.tolist()[:100],
+        'risk': risk_prob.tolist()[:100],
+        'customer_ids': customer_ids[:100],
+        'reasons': top_reasons_list[:100]
     }
     new_project = {
         'user_email': user_email,

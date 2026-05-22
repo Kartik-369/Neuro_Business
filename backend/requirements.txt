@@ -13,3 +13,4 @@ pymongo
 motor
 google-genai
 python-multipart
+email-validator

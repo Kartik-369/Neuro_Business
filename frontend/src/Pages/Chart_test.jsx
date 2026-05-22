@@ -79,7 +79,7 @@ export default function Chart_test() {
   };
 
   return (
-    <section className="bg-gray-50 min-h-screen pt-12 pb-24">
+    <section className="bg-gray-50 min-h-screen pt-28 md:pt-32 pb-24">
       <div className="max-w-6xl mx-auto px-4 md:px-6">
         
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 border-b border-stone-200 pb-6 gap-4">
@@ -99,25 +99,21 @@ export default function Chart_test() {
             Tap on any red risk bar to view the exact features driving that customer's churn prediction.
           </p>
           
-          {/* THE FIX: Responsive Container + Massive Height for scrolling + Flipped Axes */}
           <div className="w-full h-[1200px] md:h-[800px]">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={chartData} layout="vertical" margin={{ top: 0, right: 20, left: 40, bottom: 0 }}>
-                {/* XAxis is now the numbers (0 to 100) */}
                 <XAxis type="number" hide /> 
-                {/* YAxis is now the Customer Names */}
                 <YAxis dataKey="name" type="category" width={80} tick={{fill: '#64748b', fontSize: 12}} />
                 
                 <Tooltip cursor={{fill: '#f8fafc'}} />
                 <Legend verticalAlign="top" height={36}/>
                 
-                {/* Stacked bars for a much cleaner mobile look */}
+                {/* Stacked bars for mobile look */}
                 <Bar 
                   dataKey="Risk" 
                   stackId="a" 
                   fill="#f43f5e" 
                   name="Churn Risk %" 
-                  // THE FIX: Clean click handler receiving the payload directly!
                   onClick={(payload) => setSelectedCustomer(payload)}
                   className="cursor-pointer hover:opacity-80 transition-opacity" 
                 />
@@ -137,8 +133,8 @@ export default function Chart_test() {
 
         {/* MODAL */}
         {selectedCustomer && (
-          <div className="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50 p-4" onClick={() => setSelectedCustomer(null)}>
-            <div className="bg-white p-6 md:p-8 rounded-3xl shadow-2xl max-w-md w-full border border-stone-100" onClick={(e) => e.stopPropagation()}>
+          <div className="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-[999] p-4" onClick={() => setSelectedCustomer(null)}>
+            <div className="bg-white p-6 md:p-8 rounded-3xl shadow-2xl max-w-md w-full border border-stone-100 max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
               <div className="flex justify-between items-start mb-6">
                 <div>
                   <p className="text-xs md:text-sm font-bold text-emerald-600 tracking-wider uppercase mb-1">NeuroBusiness AI Insight</p>

@@ -102,7 +102,7 @@ async def forgot_password(email:str):
         {'email': email},
         {'$set': {'reset_token': reset_token, 'reset_expiration': expiration}}
     )
-    reset_link=f"http://localhost:5173/reset-password?token={reset_token}"
+    reset_link=f"https://neuro-business.vercel.app/reset-password?token={reset_token}"
     msg=EmailMessage()
     msg['Subject'] = "Password Reset"
     msg['From'] = SENDER_EMAIL

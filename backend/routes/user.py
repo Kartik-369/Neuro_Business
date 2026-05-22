@@ -1,7 +1,5 @@
 from email.message import EmailMessage
 import smtplib
-from tkinter import SE
-from tkinter.constants import S
 from fastapi import APIRouter, HTTPException, Depends
 from passlib.context import CryptContext
 from models import User

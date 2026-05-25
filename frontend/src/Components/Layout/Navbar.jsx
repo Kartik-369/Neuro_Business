@@ -43,7 +43,7 @@ function Navbar() {
         <Link to='/'>
           <span className="text-2xl min-[1100px]:text-4xl tracking-tight font-bold shrink-0 z-10">
             NeuroBusiness
-            <p className="text-[14px] font-sans font-semibold tracking-tighter hidden min-[1100px]:flex">AI Driven SaaS for Business Insights</p>
+            <p className="text-[14px] font-sans font-semibold tracking-tighter hidden min-[1100px]:flex">Predictive Customer Intelligence</p>
           </span>
         </Link>
 

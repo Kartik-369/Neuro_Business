@@ -24,7 +24,7 @@ oauth2_scheme=OAuth2PasswordBearer(tokenUrl="auth/login")
 router=APIRouter()
 class GoogleAuthRequest(BaseModel):
     token:str
-pwd_context=CryptContext(schemes=["bcrypt"], deprecated="auto")
+pwd_context=CryptContext(schemes=["bcrypt"], deprecated="auto",bcrypt__rounds=12)
 
 @router.post("/register")
 async def register(user:User):

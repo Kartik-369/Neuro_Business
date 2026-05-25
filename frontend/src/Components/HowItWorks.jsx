@@ -69,7 +69,7 @@ export default function HowItWorks() {
            <div className="flex flex-col md:flex-row-reverse items-center justify-between w-full py-8 md:py-12">
             <div className="w-full md:w-[45%] text-center md:text-left pl-0 md:pl-10 mb-8 md:mb-0">
               <h3 className="text-4xl font-bold mb-4">2. XGBoost Inference</h3>
-              <p className="text-xl text-emerald-600">Model uses 6000 estimators with learning rate 0.2 to generate high-precision churn probability scores.</p>
+              <p className="text-xl text-gray-500">Model uses 6000 estimators with learning rate 0.2 to generate high-precision churn probability scores.</p>
             </div>
             <div className="w-full md:w-[45%] aspect-video md:aspect-auto md:h-[400px] bg-emerald-50 rounded-2xl border border-emerald-100 shadow-xl overflow-hidden">
                <img src="https://media.istockphoto.com/id/2170619377/photo/checklist-concept-businessman-surveying-online-checklist-on-virtual-screen-fill-out-the.jpg?s=2048x2048&w=is&k=20&c=nSSM8Z_FcziDLZZsc6cMgqumpYy7GMQ1dGdVR8U9swg=" className="w-full h-full object-cover" />

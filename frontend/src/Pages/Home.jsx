@@ -56,7 +56,7 @@ function Home(){
     <div className="w-full overflow-x-hidden h-full pt-9">
     
       <div className="flex flex-col gap-12 max-[1100px]:gap-2.25 overflow-hidden justify-center items-center text-center px-4">
-        <span className="text-5xl md:text-[72px] p-6 mt-12 md:mt-24 max-[1100px]:mt-16 font-roslindale font-extrabold">Data-Driven Revenue Forecasting</span>
+        <span className="text-5xl md:text-[72px] p-6 mt-12 md:mt-24 max-[1100px]:mt-16 font-roslindale font-extrabold">Predict Churn. Retain Customers.</span>
         
         <p className=" text-gray-600 max-w-2xl font-semibold lg:text-2xl text-[16px]  p-6"><span className="font-bold text-gray-900 underline decoration-emerald-500 underline-offset-4">
             NeuroBusiness

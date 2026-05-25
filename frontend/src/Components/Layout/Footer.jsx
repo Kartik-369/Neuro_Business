@@ -7,9 +7,6 @@ function Footer() {
             <span className="text-2xl font-roslindale font-bold text-stone-900 block">
               NeuroBusiness
             </span>
-            <p className="text-stone-600 text-sm max-w-sm leading-relaxed">
-              An end-to-end Machine Learning pipeline built with FastAPI, React, and MongoDB to forecast customer churn and generate retention strategies.
-            </p>
           </div>
 
           <div>
@@ -27,7 +24,7 @@ function Footer() {
         
         <div className="border-t border-stone-200 pt-8 flex justify-center items-center">
           <p className="text-stone-400 text-xs">
-            Built as a B2B SaaS Architecture Demonstration.
+            Built as a B2B SaaS Demonstration.
           </p>
         </div>
       </div>

@@ -60,7 +60,7 @@ function Home(){
         
         <p className=" text-gray-600 max-w-2xl font-semibold lg:text-2xl text-[16px]  p-6"><span className="font-bold text-gray-900 underline decoration-emerald-500 underline-offset-4">
             NeuroBusiness
-          </span>{" "}Analyzes your sales data and transaction history to flag churn risks.</p>
+          </span>{" "}identifies at-risk customers, explains the "why" behind, and generates actionable AI strategies to keep them.</p>
         <div className="flex max-[1100px]:flex-col max-[1100px]:space-y-3 p-3 px-auto justify-center items-center flex-row mt-auto gap-6 lg:text-xl lg:tracking-wider lg:font-light">
             <Link to='https://github.com/Kartik-369/Neuro_Business'><Button className=" !rounded-4xl !bg-stone-800 !text-white !px-9 !py-2 hover:!bg-black transition">View Github</Button></Link>
             <Button onClick={handleStartPredicting} className=" !rounded-4xl !bg-white !text-black !border-[1.5px] !px-9 !py-2 hover:!bg-black hover:!text-white transition">Start Predicting</Button>
@@ -124,31 +124,31 @@ function Home(){
       
       <div className="max-w-6xl mx-auto px-6 py-9">
         <div className="text-center mb-16">
-          <h2 className="text-[54px] font-semibold md:font-normal md:text-8xl font-ogg mb-4 text-slate-900">
-            Real Impact
+          <h2 className="text-[54px] font-semibold md:font-normal md:text-7xl font-ogg mb-4 text-slate-900">
+            Inside the Architecture
           </h2>
-          <p className="text-slate-600 md:text-2xl text-[18px]">
-            A complete pipeline designed for actionable business insights.
+          <p className="text-slate-600 md:text-xl text-[18px]">
+            A production-ready pipeline demonstrating end-to-end Machine Learning deployment.
           </p>
         </div>
       
         <div className="grid md:grid-cols-3 gap-8">
           <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:border-gray-300 hover:scale-3d hover:shadow-2xl active:shadow-2xl active:scale-3d transition-all">
-           <div className="text-3xl md:text-5xl font-bold bg-linear-to-br from-teal-600 to-emerald-900 text-transparent bg-clip-text mb-2">Parse</div>
-            <div className="text-lg font-semibold text-slate-900">Data Validation</div>
-            <p className="text-slate-500 text-sm mt-2">Automated parsing and encoding of CSV datasets using Pandas before feeding to the ML model.</p>
+            <div className="text-3xl md:text-5xl font-bold bg-linear-to-br from-teal-600 to-emerald-900 text-transparent bg-clip-text mb-2">01</div>
+            <div className="text-lg font-semibold text-slate-900">Data Engineering</div>
+            <p className="text-slate-500 text-sm mt-2">Robust data ingestion pipeline built with Pandas and FastAPI, handling automated parsing, validation, and encoding of raw CSV transaction data before inference.</p>
           </div>
       
           <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:border-gray-300 hover:scale-3d hover:shadow-2xl active:shadow-2xl active:scale-3d transition-all">
-            <div className="text-3xl md:text-5xl font-bold bg-linear-to-br from-teal-600 to-emerald-900 text-transparent bg-clip-text mb-2">Predict</div>
-            <div className="text-lg font-semibold text-slate-900">SHAP Integration</div>
-            <p className="text-slate-500 text-sm mt-2">Visualizes the exact features driving risk probability by calculating TreeExplainer values.</p>
+            <div className="text-3xl md:text-5xl font-bold bg-linear-to-br from-teal-600 to-emerald-900 text-transparent bg-clip-text mb-2">02</div>
+            <div className="text-lg font-semibold text-slate-900">Explainable AI (XAI)</div>
+            <p className="text-slate-500 text-sm mt-2">Moving beyond black-box ML models. Leveraging SHAP (SHapley Additive exPlanations) to dynamically calculate and visualize the exact features driving churn risk for every prediction.</p>
           </div>
       
           <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:border-gray-300 hover:scale-3d hover:shadow-2xl active:shadow-2xl active:scale-3d transition-all">
-            <div className="text-3xl md:text-5xl font-bold bg-linear-to-br from-teal-600 to-emerald-900  text-transparent bg-clip-text mb-2">Retain</div>
-            <div className="text-lg font-semibold text-slate-900">AI Strategies</div>
-            <p className="text-slate-500 text-sm mt-2">Generates custom 3-step retention strategies via the Gemini API based on customer risk drivers.</p>
+            <div className="text-3xl md:text-5xl font-bold bg-linear-to-br from-teal-600 to-emerald-900  text-transparent bg-clip-text mb-2">03</div>
+            <div className="text-lg font-semibold text-slate-900">LLM Integration</div>
+            <p className="text-slate-500 text-sm mt-2">Contextual prompt injection into the Gemini Foundation Model, translating raw mathematical risk scores into actionable, human-readable retention strategies.</p>
           </div>
         </div>
       </div>

@@ -7,7 +7,7 @@
 
 NeuroBusiness is an end-to-end B2B Machine Learning platform designed to move beyond black-box predictions. It ingests transaction data, predicts customer churn using XGBoost, explains the exact risk drivers using SHAP, and dynamically generates actionable retention strategies using Google's Gemini LLM.
 
-## 🚀 Features
+## Features
 
 * **Data Engineering Pipeline:** Automated parsing, validation, and encoding of raw CSV transaction data.
 * **Predictive Analytics:** XGBoost classification model trained to identify at-risk customers with high accuracy.
@@ -32,7 +32,7 @@ NeuroBusiness is an end-to-end B2B Machine Learning platform designed to move be
 * Resend API (Transactional Emails)
 
 ## 📸 System Preview
-*(Add a screenshot of your dashboard here)*
+*(Add a screenshot)*
 `![Dashboard Preview](./assets/dashboard-screenshot.png)`
 
 ## 🛠️ Local Development Setup
@@ -48,3 +48,26 @@ cd backend
 python -m venv venv
 source venv/bin/activate  # On Windows use: venv\Scripts\activate
 pip install -r requirements.txt
+```
+
+## Create a .env file in the backend directory (see .env.example for required keys).
+
+### 2. Frontend Setup
+```bash
+cd frontend
+npm install
+```
+## Update the API fetch URLs in the React components to point to http://localhost:8000 for local testing
+```bash
+npm run dev
+```
+## Architecture Overview
+* **Client Layer**: User uploads CSV datasets via the React interface.
+
+* **API Gateway**: FastAPI receives the multipart file, validates the JWT, and triggers the inference pipeline.
+
+* **Inference Engine**: Pandas parses the data, XGBoost calculates the risk probabilities, and SHAP extracts the feature importance.
+
+* **LLM Augmentation**: Top risk features are injected into a structured prompt for the Gemini API.
+
+* **Storage & Delivery**: Results are persisted in MongoDB and returned to the client for interactive charting.

@@ -31,7 +31,6 @@ NeuroBusiness is an end-to-end B2B Machine Learning platform designed to move be
 * Resend API (Transactional Emails)
 
 ## 📸 System Preview
-*(Add a screenshot)*
 ![Dashboard Preview](frontend/src/assets/Dash.png)
 
 ## 🛠️ Local Development Setup

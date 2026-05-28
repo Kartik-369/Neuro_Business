@@ -32,7 +32,7 @@ NeuroBusiness is an end-to-end B2B Machine Learning platform designed to move be
 
 ## 📸 System Preview
 *(Add a screenshot)*
-`![Dashboard Preview](./assets/dashboard-screenshot.png)`
+![Dashboard Preview](./assets/dashboard-screenshot.png)
 
 ## 🛠️ Local Development Setup
 

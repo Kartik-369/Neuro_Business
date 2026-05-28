@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer } from 'recharts'; // ADDED ResponsiveContainer
+import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 export default function Chart_test() {
   const location = useLocation();
@@ -39,7 +39,7 @@ export default function Chart_test() {
 
   const handleGenerateStrategy = async () => {
     setIsGenerating(true);
-    setStrategy(""); // Clear any old strategy
+    setStrategy("");
     
     const token = localStorage.getItem('token');
     
@@ -73,11 +73,6 @@ export default function Chart_test() {
     }
   };
 
-  const closeModal = () => {
-    setSelectedCustomer(null);
-    setStrategy("");
-  };
-
   return (
     <section className="bg-gray-50 min-h-screen pt-28 md:pt-32 pb-24">
       <div className="max-w-6xl mx-auto px-4 md:px-6">
@@ -94,44 +89,44 @@ export default function Chart_test() {
           </button>
         </div>
 
-        <div className="p-4 md:p-8 bg-white rounded-3xl shadow-sm border border-gray-100">
+        <div className="p-4 md:p-8 bg-white rounded-3xl shadow-sm border border-gray-100 w-full overflow-hidden">
           <p className="text-slate-500 mb-6 font-medium text-sm md:text-base">
             Tap on any red risk bar to view the exact features driving that customer's churn prediction.
           </p>
           
-          <div className="w-full h-[1200px] md:h-[800px]">
-            <ResponsiveContainer width="100%" height="100%">
-              <BarChart data={chartData} layout="vertical" margin={{ top: 0, right: 20, left: 40, bottom: 0 }}>
-                <XAxis type="number" hide /> 
-                <YAxis dataKey="name" type="category" width={80} tick={{fill: '#64748b', fontSize: 12}} />
-                
-                <Tooltip cursor={{fill: '#f8fafc'}} />
-                <Legend verticalAlign="top" height={36}/>
-                
-                {/* Stacked bars for mobile look */}
-                <Bar 
-                  dataKey="Risk" 
-                  stackId="a" 
-                  fill="#f43f5e" 
-                  name="Churn Risk %" 
-                  onClick={(payload) => setSelectedCustomer(payload)}
-                  className="cursor-pointer hover:opacity-80 transition-opacity" 
-                />
-                <Bar 
-                  dataKey="Safe" 
-                  stackId="a" 
-                  fill="#10b981" 
-                  name="Safe Probability %" 
-                  radius={[0, 4, 4, 0]}
-                  onClick={(payload) => setSelectedCustomer(payload)}
-                  className="cursor-pointer hover:opacity-80 transition-opacity" 
-                />
-              </BarChart>
-            </ResponsiveContainer>
+          <div className="w-full overflow-x-auto overflow-y-hidden">
+            <div className="min-w-[500px] w-full h-[1200px] md:h-[800px]">
+              <ResponsiveContainer width="100%" height="100%">
+                <BarChart data={chartData} layout="vertical" margin={{ top: 0, right: 20, left: 0, bottom: 0 }}>
+                  <XAxis type="number" hide /> 
+                  <YAxis dataKey="name" type="category" width={110} tick={{fill: '#64748b', fontSize: 11}} />
+                  
+                  <Tooltip cursor={{fill: '#f8fafc'}} />
+                  <Legend verticalAlign="top" height={36}/>
+                  
+                  <Bar 
+                    dataKey="Risk" 
+                    stackId="a" 
+                    fill="#f43f5e" 
+                    name="Churn Risk %" 
+                    onClick={(payload) => setSelectedCustomer(payload)}
+                    className="cursor-pointer hover:opacity-80 transition-opacity" 
+                  />
+                  <Bar 
+                    dataKey="Safe" 
+                    stackId="a" 
+                    fill="#10b981" 
+                    name="Safe Probability %" 
+                    radius={[0, 4, 4, 0]}
+                    onClick={(payload) => setSelectedCustomer(payload)}
+                    className="cursor-pointer hover:opacity-80 transition-opacity" 
+                  />
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
           </div>
         </div>
 
-        {/* MODAL */}
         {selectedCustomer && (
           <div className="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-[999] p-4" onClick={() => setSelectedCustomer(null)}>
             <div className="bg-white p-6 md:p-8 rounded-3xl shadow-2xl max-w-md w-full border border-stone-100 max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
@@ -165,7 +160,6 @@ export default function Chart_test() {
               {strategy ? (
                 <div className="p-4 bg-emerald-50 border border-emerald-100 rounded-2xl mb-4">
                   <h4 className="font-bold text-emerald-800 mb-2">Recommended Action Plan:</h4>
-                  {/* Using whitespace-pre-wrap so Gemini's line breaks render correctly */}
                   <p className="text-emerald-900 text-sm whitespace-pre-wrap">{strategy}</p>
                 </div>
               ) : (

@@ -81,7 +81,7 @@ export default function Dashboard() {
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 mb-10 sm:mb-16 border-b border-stone-200 pb-6 sm:pb-8">
           <div className="max-w-xl">
             <h1 className="text-3xl sm:text-[40px] md:text-5xl lg:text-6xl font-roslindale font-extrabold text-slate-900 mb-2 sm:mb-3 leading-tight">My Workspace</h1>
-            <p className="text-sm sm:text-base md:text-xl text-slate-600">Access and manage your revenue forecasts.</p>
+            <p className="text-sm sm:text-base md:text-xl text-slate-600">Access and manage your uploads.</p>
           </div>
           <div className="flex flex-wrap items-center gap-3 sm:gap-4 w-full sm:w-auto">
             <button onClick={handleGoBack} className="flex-1 sm:flex-none bg-amber-50 border border-stone-200 text-black px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl sm:rounded-2xl text-sm sm:text-base font-semibold hover:bg-amber-100 active:scale-95 transition-all duration-300">Go Back</button>

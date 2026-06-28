@@ -60,7 +60,6 @@ function SignUp(){
     }
   const loginWithGoogle = useGoogleLogin({
     onSuccess: async (tokenResponse) => {
-      console.log("Google Token", tokenResponse.access_token);
       try {
         const response = await fetch("https://neuro-business-api.onrender.com/auth/google", {
           method: "POST",
@@ -78,7 +77,7 @@ function SignUp(){
             alert('Auth Failed');
         }
       } catch (error) {
-        console.error("rejected token:", error);
+        console.error("rejected");
       }
     },
     onError: () => console.log('Google Login Failed'),

@@ -1,30 +1,42 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+
 export default function Dashboard() {
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
   const [apiError, setApiError] = useState(null);
   const navigate = useNavigate();
+
   useEffect(() => {
     fetchProjects();
   }, []);
+
   const fetchProjects = async () => {
     const token = localStorage.getItem('token');
     if (!token) {
       navigate('/');
       return;
     }
+
     try {
       setApiError(null);
-      const response = await fetch("https://neuro-business-api.onrender.com/projects", {
-        headers: { "Authorization": `Bearer ${token}` }
+      // FIXED: Added headers to pass the authentication token
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/projects`, {
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        }
       });
+
       if (response.status === 401) {
         localStorage.removeItem('token');
         navigate('/');
         return;
       }
+
       const data = await response.json();
+
       if (response.ok && Array.isArray(data)) {
         setProjects(data);
       } else {
@@ -33,21 +45,28 @@ export default function Dashboard() {
       }
       setLoading(false);
     } catch (error) {
-      setApiError("Please try again.",error);
+      // FIXED: Combined error message into a single string argument
+      setApiError("Please try again. " + (error.message || ""));
       setProjects([]);
       setLoading(false);
     }
   };
+
   const handleDelete = async (e, projectId) => {
     e.preventDefault();
     e.stopPropagation();
     if (!window.confirm("delete this project?")) return;
+
     const token = localStorage.getItem('token');
     try {
-      const response = await fetch(`https://neuro-business-api.onrender.com/projects/${projectId}`, {
-        method: "DELETE",
-        headers: { "Authorization": `Bearer ${token}` }
+      // FIXED: Closed fetch options properly, added DELETE method, and added Auth header
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/projects/${projectId}`, {
+        method: 'DELETE',
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
       });
+
       if (response.ok) {
         setProjects(projects.filter(p => p._id !== projectId));
       } else {
@@ -57,9 +76,11 @@ export default function Dashboard() {
       console.error(error);
     }
   };
+
   const openProject = (project) => {
     navigate('/chart', { state: { results: project.analysis_results } });
   };
+
   const handleGoBack = () => {
     const token = localStorage.getItem('token');
     if (token) {
@@ -68,6 +89,7 @@ export default function Dashboard() {
       navigate(-1);
     }
   };
+
   if (loading) {
     return (
       <div className="flex-1 flex items-center justify-center min-h-[60dvh]">
@@ -75,6 +97,7 @@ export default function Dashboard() {
       </div>
     );
   }
+
   return (
     <section className="bg-white min-h-[100dvh] pt-24 sm:pt-32 pb-12 sm:pb-24 flex flex-col w-full">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex-1">
@@ -88,12 +111,14 @@ export default function Dashboard() {
             <button onClick={() => navigate('/upload')} className="flex-1 sm:flex-none bg-stone-800 text-white px-4 sm:px-8 py-2.5 sm:py-3 rounded-xl sm:rounded-2xl text-sm sm:text-base font-semibold hover:bg-black hover:shadow-lg active:scale-95 transition-all duration-300">+ New Analysis</button>
           </div>
         </div>
+
         {apiError && (
           <div className="mb-6 sm:mb-8 p-3 sm:p-4 bg-red-50 border border-red-200 text-red-700 rounded-lg sm:rounded-xl w-full max-w-2xl mx-auto text-center text-sm sm:text-base">
             <p className="font-semibold">Backend Error:</p>
             <p className="mt-1">{apiError}</p>
           </div>
         )}
+
         {!Array.isArray(projects) || projects.length === 0 ? (
           <div className="w-full shadow-lg shadow-stone-200/50 border border-stone-200 bg-amber-50/30 p-8 sm:p-12 rounded-3xl sm:rounded-4xl max-w-2xl mx-auto text-center mt-8 sm:mt-12">
             <h2 className="text-xl sm:text-2xl font-semibold text-gray-800 mb-3 sm:mb-4">No data found</h2>

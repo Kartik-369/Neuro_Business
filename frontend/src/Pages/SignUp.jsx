@@ -20,7 +20,7 @@ function SignUp(){
         return;
       }
       const end = Login ? '/login' : '/register';
-      const url = `https://neuro-business-api.onrender.com${end}`;
+      const url = `${import.meta.env.VITE_API_URL}${end}`;
       try {
         let response;
         if (Login) {
@@ -61,7 +61,7 @@ function SignUp(){
   const loginWithGoogle = useGoogleLogin({
     onSuccess: async (tokenResponse) => {
       try {
-        const response = await fetch("https://neuro-business-api.onrender.com/auth/google", {
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/auth/google`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ token: tokenResponse.access_token }), 

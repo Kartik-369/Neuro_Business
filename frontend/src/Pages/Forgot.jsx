@@ -14,7 +14,7 @@ export default function Forgot() {
     setMessage("Sending link...");
     setIsError(false);
     try {
-      const response = await fetch(`https://neuro-business-api.onrender.com/forgot-password?email=${email}`, { method: "POST" });
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/forgot-password?email=${email}`, { method: "POST" });
       const data = await response.json();
       if (response.ok) {
         setMessage(data.message || "Reset link sent successfully!");

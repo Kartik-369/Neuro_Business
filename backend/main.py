@@ -14,9 +14,7 @@ async def life(app:FastAPI):
 
 app=FastAPI(lifespan=life)
 
-# Build CORS origins from environment variable
-# FRONTEND_URL can be a comma-separated list for multiple origins
-FRONTEND_URL = os.getenv("FRONTEND_URL", "http://localhost:5173")
+FRONTEND_URL = os.getenv("FRONTEND_URL", "http://localhost:5173,https://neuro-business.vercel.app")
 origins = [url.strip() for url in FRONTEND_URL.split(",")]
 
 app.add_middleware(

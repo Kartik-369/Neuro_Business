@@ -43,7 +43,7 @@ function Home(){
   
 
   const logos=[
-    {name:'Docker',src:'https://icons8.com/icon/Wln8Z3PcXanx/docker-logo'},
+    {name:'Docker',src:'https://img.icons8.com/?size=100&id=Wln8Z3PcXanx&format=png&color=000000'},
     {name:'FastAPI',src:'https://icon.icepanel.io/Technology/svg/FastAPI.svg'},
     {name:'React',src:'https://img.icons8.com/?size=100&id=N3G7bBnphi53&format=png&color=000000'},
     {name:'MongoDB',src:'https://cdn.iconscout.com/icon/free/png-512/free-mongodb-icon-svg-download-png-1175138.png?f=webp&w=256'},

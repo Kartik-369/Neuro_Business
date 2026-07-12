@@ -43,6 +43,7 @@ function Home(){
   
 
   const logos=[
+    {name:'Docker',src:'https://img.icons8.com/?size=100&id=Wln8Z3PcXanx&format=png&color=000000'},
     {name:'FastAPI',src:'https://icon.icepanel.io/Technology/svg/FastAPI.svg'},
     {name:'React',src:'https://img.icons8.com/?size=100&id=N3G7bBnphi53&format=png&color=000000'},
     {name:'MongoDB',src:'https://cdn.iconscout.com/icon/free/png-512/free-mongodb-icon-svg-download-png-1175138.png?f=webp&w=256'},
@@ -72,7 +73,7 @@ function Home(){
       
         <div className="flex flex-1 flex-wrap justify-center items-center gap-3 opacity-60">
           {logos.map((logo,index)=>
-            <img src={logo.src} key={index} className="h-10.5 md:h-21 w-auto"/>)}
+            <img src={logo.src} key={index} className="h-9 md:h-18 w-auto"/>)}
         </div>
       </div>
       

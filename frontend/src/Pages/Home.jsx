@@ -73,7 +73,7 @@ function Home(){
       
         <div className="flex flex-1 flex-wrap justify-center items-center gap-3 opacity-60">
           {logos.map((logo,index)=>
-            <img src={logo.src} key={index} className="h-10.5 md:h-21 w-auto"/>)}
+            <img src={logo.src} key={index} className="h-9 md:h-18 w-auto"/>)}
         </div>
       </div>
       
